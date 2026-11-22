@@ -1,0 +1,213 @@
+{
+  "crawled_at": "2026-11-22T18:45:06.168894+00:00",
+  "feeds_total": 34,
+  "feeds_ok": 30,
+  "feeds": [
+    {
+      "name": "量子位",
+      "url": "https://www.qbitai.com/feed",
+      "status": "ok (10)",
+      "items": 10
+    },
+    {
+      "name": "钛媒体",
+      "url": "https://www.tmtpost.com/rss",
+      "status": "ok (18)",
+      "items": 18
+    },
+    {
+      "name": "爱范儿",
+      "url": "https://www.ifanr.com/feed",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "极客公园",
+      "url": "https://www.geekpark.net/rss",
+      "status": "ok (30)",
+      "items": 30
+    },
+    {
+      "name": "IT之家",
+      "url": "https://www.ithome.com/rss/",
+      "status": "ok (60)",
+      "items": 60
+    },
+    {
+      "name": "开源中国",
+      "url": "https://www.oschina.net/news/rss",
+      "status": "ok (50)",
+      "items": 50
+    },
+    {
+      "name": "InfoQ 中文",
+      "url": "https://www.infoq.cn/feed.xml",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "SegmentFault",
+      "url": "https://segmentfault.com/feeds/article",
+      "status": "HTTP 403",
+      "items": 0
+    },
+    {
+      "name": "V2EX 最热",
+      "url": "https://www.v2ex.com/index.xml",
+      "status": "ok (50)",
+      "items": 50
+    },
+    {
+      "name": "AI之旅导航",
+      "url": "https://www.aijourney.vip/feed",
+      "status": "ok (0)",
+      "items": 0
+    },
+    {
+      "name": "TechCrunch AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "status": "ok (10)",
+      "items": 10
+    },
+    {
+      "name": "VentureBeat AI",
+      "url": "https://venturebeat.com/category/ai/feed/",
+      "status": "HTTP 429",
+      "items": 0
+    },
+    {
+      "name": "Ars Technica",
+      "url": "https://arstechnica.com/ai/feed/",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/rss",
+      "status": "ok (30)",
+      "items": 30
+    },
+    {
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed/",
+      "status": "ok (10)",
+      "items": 10
+    },
+    {
+      "name": "Import AI",
+      "url": "https://importai.substack.com/feed",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "TLDR AI",
+      "url": "https://tldr.tech/api/rss/ai",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "Latent Space",
+      "url": "https://www.latent.space/feed",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "The Rundown AI",
+      "url": "https://www.therundown.ai/feed",
+      "status": "ok (50)",
+      "items": 50
+    },
+    {
+      "name": "One Useful Thing",
+      "url": "https://www.oneusefulthing.org/feed",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "ByteByteGo",
+      "url": "https://blog.bytebytego.com/feed",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "OpenAI News",
+      "url": "https://openai.com/news/rss.xml",
+      "status": "ok (1422)",
+      "items": 1422
+    },
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "status": "ok (915)",
+      "items": 915
+    },
+    {
+      "name": "Lilian Weng",
+      "url": "https://lilianweng.github.io/index.xml",
+      "status": "ok (53)",
+      "items": 53
+    },
+    {
+      "name": "Sebastian Raschka",
+      "url": "https://magazine.sebastianraschka.com/feed",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "Eugene Yan",
+      "url": "https://eugeneyan.com/feed.xml",
+      "status": "ok (215)",
+      "items": 215
+    },
+    {
+      "name": "Chip Huyen",
+      "url": "https://huyenchip.com/feed.xml",
+      "status": "ok (10)",
+      "items": 10
+    },
+    {
+      "name": "Anthropic News",
+      "url": "https://www.anthropic.com/news/rss.xml",
+      "status": "HTTP 404",
+      "items": 0
+    },
+    {
+      "name": "DeepMind Blog",
+      "url": "https://deepmind.google/discover/blog/rss.xml",
+      "status": "HTTP 404",
+      "items": 0
+    },
+    {
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "status": "ok (20)",
+      "items": 20
+    },
+    {
+      "name": "BBC Technology",
+      "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "status": "ok (21)",
+      "items": 21
+    },
+    {
+      "name": "Stratechery",
+      "url": "https://stratechery.com/feed/",
+      "status": "ok (10)",
+      "items": 10
+    },
+    {
+      "name": "Wired",
+      "url": "https://www.wired.com/feed/rss",
+      "status": "ok (50)",
+      "items": 50
+    }
+  ],
+  "new_items": 60,
+  "candidates": 5
+}

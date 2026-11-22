@@ -55,6 +55,7 @@ const faviconOf = url => {
 
 /* ───────── 状态 ───────── */
 const state = {
+  mode: 'nav',
   q: '',
   cat: 'all',
   region: 'all',
@@ -289,9 +290,178 @@ document.addEventListener('keydown', e => {
   const typing = tag === 'input' || tag === 'select' || tag === 'textarea';
   if (e.key === '/' && !typing) { e.preventDefault(); searchInput.focus(); }
   else if (e.key === 'Escape') {
-    if (!$('#topModal').hidden) { closeTop(); }
+    if (!modelModal.hidden) { closeModelModal(); }
+    else if (!$('#topModal').hidden) { closeTop(); }
     else if (typing) { e.target.blur(); }
     else if (state.q) { searchInput.value = ''; state.q = ''; state.shown = PAGE_SIZE; clearBtn.hidden = true; $('#hero').classList.remove('is-collapsed'); render(); }
+  }
+});
+
+/* ───────── 视图切换（导航 / AI 日报） ───────── */
+function setViewMode(mode) {
+  state.mode = mode;
+  const isDigest = mode === 'digest';
+  $('#digestView').hidden = !isDigest;
+  $('#viewNav').hidden = isDigest;
+  $('#chipsRow').style.display = isDigest ? 'none' : '';
+  $('#digestToggle').setAttribute('aria-pressed', String(isDigest));
+  document.body.dataset.view = mode;
+  if (isDigest && !digestLoaded) loadDigest('data/digest.json');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+let digestLoaded = false;
+let digestState = { current: null, history: [] };
+
+/* ───────── AI 日报渲染 ───────── */
+const IMPACT_TXT = { high: 'HIGH', medium: 'MED', low: 'LOW' };
+function esc(s) { return escHtml(s == null ? '' : String(s)); }
+
+function renderDigest(d) {
+  $('#digestTitle').textContent = d.title || `AI热榜日报 · ${d.date || ''}`;
+  $('#digestOverview').textContent = d.overview || '';
+  $('#digestMeta').textContent = `AI热榜日报 · ${d.model || '模型生成'} · 生成于 ${(d.generated_at || '').replace('T', ' ')}`;
+  const usage = d.usage && d.usage.total_tokens ? ` · ${fmtInt(d.usage.total_tokens)} tokens` : '';
+  $('#digestStats').innerHTML = [
+    [`<b>${esc(d.date || '—')}</b>`, '日报日期'],
+    [`<b>${fmtInt(d.item_count || 0)}</b>`, '条目'],
+    [`<b>${(d.sections || []).length}</b>`, '板块'],
+    [`<b>${esc(d.model || '—')}</b>`, '生成模型'],
+  ].map(([b, l]) => `<span class="digest-chip">${b}<span>${l}</span></span>`).join('') + (usage ? `<span class="digest-chip">${usage}</span>` : '');
+
+  const sections = (d.sections || []).map(sec => `
+    <section class="digest-section">
+      <h3 class="digest-section-title"><span class="bar"></span>${esc(sec.title)}<span class="chip-count">${(sec.items || []).length}</span></h3>
+      ${(sec.items || []).map(it => `
+        <a class="digest-item" href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">
+          <span class="digest-impact ${esc(it.impact || 'low')}" aria-hidden="true"></span>
+          <span>
+            <span class="digest-item-title">${esc(it.title)}</span>
+            <span class="digest-item-liner">${esc(it.one_liner || '')}</span>
+            <span class="digest-item-source">${esc(it.source || '')} · ${esc(domainOf(it.url))}</span>
+          </span>
+          <span class="digest-impact-tag ${esc(it.impact || 'low')}">${IMPACT_TXT[it.impact] || 'LOW'}</span>
+        </a>`).join('')}
+    </section>`).join('');
+  $('#digestSections').innerHTML = sections || '<p class="digest-error">日报为空</p>';
+
+  // 更新模型配置弹窗里的“上次生成”
+  const cfgLastGen = $('#cfgLastGen');
+  if (cfgLastGen) cfgLastGen.textContent = `${d.generated_at ? d.generated_at.replace('T', ' ') : '—'} · ${d.model || ''}${usage}`;
+  digestLoaded = true;
+  digestState.current = d;
+}
+
+function renderDigestHistory() {
+  const wrap = $('#digestHistory');
+  if (!digestState.history.length) { wrap.innerHTML = ''; return; }
+  wrap.innerHTML = '<span class="digest-history-label">往期：</span>' + digestState.history.slice(0, 14)
+    .map(date => `<button class="digest-date${digestState.current && digestState.current.date === date ? ' is-active' : ''}" data-date="${esc(date)}">${esc(date)}</button>`).join('');
+}
+
+async function loadDigest(url, isHistory) {
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const d = await res.json();
+    renderDigest(d);
+  } catch (e) {
+    $('#digestOverview').innerHTML = `<span class="digest-error"><b>日报加载失败</b>（${esc(e.message)}）。<br/>若这是全新部署，日报会在首次 CI 运行后生成；也可本地运行 <code>python3 engine/run.py all</code>。</span>`;
+    $('#digestSections').innerHTML = '';
+    digestLoaded = true;
+  }
+  renderDigestHistory();
+}
+
+$('#digestToggle').addEventListener('click', () => setViewMode(document.body.dataset.view === 'digest' ? 'nav' : 'digest'));
+$('#heroDigestBtn').addEventListener('click', () => setViewMode('digest'));
+$('#digestHistory').addEventListener('click', e => {
+  const btn = e.target.closest('.digest-date'); if (!btn) return;
+  const date = btn.dataset.date;
+  loadDigest(`data/digests/${date}.json`, true);
+});
+// 预取往期列表
+fetch('data/digests/index.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(idx => {
+  if (idx && Array.isArray(idx.dates)) { digestState.history = idx.dates; renderDigestHistory(); }
+}).catch(() => {});
+
+/* ───────── 模型服务配置（本浏览器级覆盖 + 测试连接） ───────── */
+const MODEL_CFG_KEY = 'aihn_model_cfg';
+const modelModal = $('#modelModal');
+
+function loadModelCfgOverride() {
+  try { return JSON.parse(localStorage.getItem(MODEL_CFG_KEY) || 'null'); } catch { return null; }
+}
+function fillModelForm() {
+  const o = loadModelCfgOverride() || {};
+  $('#cfgEndpoint').value = o.endpoint || 'https://api.mosi.cn/v1/chat/completions';
+  $('#cfgModel').value = o.model || 'nex-n2.6';
+  $('#cfgTemperature').value = o.temperature != null ? o.temperature : '0.7';
+  $('#cfgKey').value = ''; // 不回填密钥
+}
+function openModelModal() { modelModal.hidden = false; document.body.style.overflow = 'hidden'; fillModelForm(); }
+function closeModelModal() { modelModal.hidden = true; document.body.style.overflow = ''; }
+
+$('#modelBtn').addEventListener('click', openModelModal);
+$('#closeModelModal').addEventListener('click', closeModelModal);
+modelModal.addEventListener('click', e => { if (e.target === modelModal) closeModelModal(); });
+
+$('#cfgSaveBtn').addEventListener('click', () => {
+  const endpoint = $('#cfgEndpoint').value.trim();
+  const model = $('#cfgModel').value.trim();
+  const temperature = parseFloat($('#cfgTemperature').value);
+  const key = $('#cfgKey').value.trim();
+  if (endpoint && !/^https?:\/\/.+/.test(endpoint)) { showToast('接口地址需以 http(s):// 开头'); return; }
+  const cfg = { endpoint: endpoint || 'https://api.mosi.cn/v1/chat/completions', model: model || 'nex-n2.6', temperature: isNaN(temperature) ? 0.7 : Math.min(2, Math.max(0, temperature)) };
+  if (key) cfg.key = key; // 仅存浏览器
+  localStorage.setItem(MODEL_CFG_KEY, JSON.stringify(cfg));
+  showToast('自定义配置已保存到本浏览器 ✓');
+});
+
+$('#cfgResetBtn').addEventListener('click', () => {
+  localStorage.removeItem(MODEL_CFG_KEY);
+  fillModelForm();
+  $('#cfgTestResult').textContent = '';
+  $('#cfgTestResult').className = 'cfg-test-result';
+  showToast('已恢复默认配置');
+});
+
+$('#cfgTestBtn').addEventListener('click', async () => {
+  const saved = loadModelCfgOverride() || {};
+  const endpoint = $('#cfgEndpoint').value.trim() || saved.endpoint || 'https://api.mosi.cn/v1/chat/completions';
+  const model = $('#cfgModel').value.trim() || saved.model || 'nex-n2.6';
+  const temperature = parseFloat($('#cfgTemperature').value);
+  const key = $('#cfgKey').value.trim() || saved.key || '';
+  const resultEl = $('#cfgTestResult');
+  if (!key) {
+    resultEl.textContent = '需要 API Key 才能直连测试。默认服务端密钥不会下发到浏览器，请在上方填入你自己的 Key（仅本地保存用于本次测试），或直接查看本页「默认服务端配置」。';
+    resultEl.className = 'cfg-test-result err';
+    return;
+  }
+  resultEl.textContent = `正在直连 ${endpoint} …`;
+  resultEl.className = 'cfg-test-result pending';
+  const t0 = performance.now();
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 30000);
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
+      body: JSON.stringify({ model, temperature: isNaN(temperature) ? 0.3 : temperature, max_tokens: 32, messages: [{ role: 'user', content: 'Reply with exactly: OK' }] }),
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    const dt = Math.round(performance.now() - t0);
+    const raw = await res.text();
+    if (!res.ok) throw new Error(`HTTP ${res.status}：${raw.slice(0, 200)}`);
+    const data = JSON.parse(raw);
+    const reply = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '').trim();
+    resultEl.textContent = `✓ 连接成功 · ${dt} ms · 模型回复：${reply.slice(0, 120) || '(空内容，可能被推理链 token 占满，加大 max_tokens 即可)'}`;
+    resultEl.className = 'cfg-test-result ok';
+  } catch (e) {
+    const dt = Math.round(performance.now() - t0);
+    const msg = e.name === 'AbortError' ? '超时（>30s）' : (e.message || String(e));
+    resultEl.textContent = `✗ 连接失败 · ${dt} ms · ${msg}\n提示：浏览器直连需目标端点允许 CORS；若端点不允许，请使用 engine/model_client.py 在服务端测试（python3 engine/run.py digest）。`;
+    resultEl.className = 'cfg-test-result err';
   }
 });
 

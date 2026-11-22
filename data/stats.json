@@ -1,12 +1,12 @@
 {
-  "total": 2456,
+  "total": 2457,
   "categories": {
     "github": 2154,
     "trending": 26,
     "llm": 43,
     "research": 46,
     "benchmark": 20,
-    "daily": 41,
+    "daily": 42,
     "nav": 38,
     "media": 36,
     "resource": 27,
@@ -14,6 +14,7 @@
   },
   "curated": 302,
   "github": 2154,
+  "auto": 1,
   "total_stars": 32279031,
-  "updated": "2026-11-23"
+  "updated": "2026-11-22"
 }

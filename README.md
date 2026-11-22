@@ -1,13 +1,13 @@
 # AI热榜导航 · AI HOT NAV
 
-> **2456 个优质 AI 站点，一站直达，热度排序。**
+> **2457 个优质 AI 站点，一站直达，热度排序。**
 > AI 日报周报 · GitHub 趋势榜 · 开源热榜 · AI 学术前沿 · 工具导航 · 提示词知识库 —— 按 **热度 × 质量** 智能排序推荐。
 
 🌐 **在线访问**：https://ravenculbertsonzqgqq-ux.github.io/ai-hot-nav/
 
 ## ✨ 特性
 
-- **2456 条收录**：302 项人工精选（AI日报/周报/工具导航/学术前沿/科技媒体/提示词知识库）+ **2154 个 GitHub 高星 AI 开源项目**（累计 3200 万+ Stars，非 fork、非归档，数据快照 2026-11-23）
+- **2457 条收录**：302 项人工精选（AI日报/周报/工具导航/学术前沿/科技媒体/提示词知识库）+ **2154 个 GitHub 高星 AI 开源项目**（累计 3200 万+ Stars，非 fork、非归档，数据快照 2026-11-23）
 - **热度 × 质量 双分制排序**：
   - 精选站点：编辑评估的热度 / 质量分（0–100）
   - GitHub 项目：热度 = `20 × log₁₀(Stars)` 归一化；质量分综合 Stars、Forks、近期活跃度（pushed_at）、描述与 License 完整度
@@ -42,7 +42,7 @@
 index.html          # 页面结构（应用栏 / Hero / 工具条 / 卡片 / 页脚 / TOP弹窗）
 css/style.css       # Material 3 设计系统（Google 四色 + CSS 变量双主题）
 js/app.js           # 搜索/过滤/排序/渲染/TOP榜/主题 全部交互逻辑
-js/data.js          # 2456 条站点数据（SITES + STATS）
+js/data.js          # 2457 条站点数据（SITES + STATS）
 data/               # 原始数据与种子（精选 / GitHub 抓取 / 合并结果）
 fetch_repos*.py     # GitHub Search API 抓取脚本
 build_dataset.py    # 评分归一化 + 分类聚合 + 合并

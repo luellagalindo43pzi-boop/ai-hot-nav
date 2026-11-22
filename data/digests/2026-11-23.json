@@ -1,0 +1,139 @@
+{
+ "date": "2026-11-23",
+ "title": "AI热榜日报 · 2026-11-23",
+ "generated_at": "2026-11-23T02:53:49+08:00",
+ "model": "Nex N2.6 (mosi.cn)",
+ "item_count": 14,
+ "overview": "OpenAI发布GPT-6.2 Astra与Sol，强化编程与电脑操作，但实测翻车引发争议；谷歌Gemini 4 Neon回归AI牌桌中央；Anthropic上市首日大涨17%，市值达1.27万亿美元；DeepSeek V1作者与Karpo相继开源Agent；腾讯姚顺雨回应混元4与刷榜质疑；大厂财报显示AI投入与收入模式分化。",
+ "sections": [
+  {
+   "title": "大模型与产品",
+   "items": [
+    {
+     "title": "OpenAI发布GPT-6.2 Astra与Sol双模型",
+     "url": "http://www.geekpark.net/news/374109",
+     "source": "极客公园",
+     "one_liner": "新模型强化编程、电脑操作与专业工作能力，同日还有家用机器人与游戏行业AI争议动态。",
+     "impact": "high"
+    },
+    {
+     "title": "谷歌Gemini 4 Neon发布，杀回AI牌桌中央",
+     "url": "http://www.geekpark.net/news/374196",
+     "source": "极客公园",
+     "one_liner": "Google DeepMind点亮Gemini 4 Neon，谷歌重新站上AI竞争的中央舞台。",
+     "impact": "high"
+    },
+    {
+     "title": "GPT-6.2 Astra具身任务成功率较上代翻倍",
+     "url": "https://www.qbitai.com/2026/11/511779.html",
+     "source": "量子位",
+     "one_liner": "16项任务成功率较GPT-6 Astra翻倍，并实现可变形物体操控全球首通。",
+     "impact": "medium"
+    },
+    {
+     "title": "GPT-6.2跑分狂飙实测翻车，暴露OpenAI软肋",
+     "url": "http://www.geekpark.net/news/374175",
+     "source": "极客公园",
+     "one_liner": "创业者Matt Shumer称新模型「基本不可用，不推荐」，跑分与真实体验存在落差。",
+     "impact": "medium"
+    },
+    {
+     "title": "姚顺雨回应混元4、算力、刷榜与RSI争议",
+     "url": "http://www.geekpark.net/news/374301",
+     "source": "极客公园",
+     "one_liner": "腾讯混元负责人详解模型路线，回应刷榜与RSI质疑，谈算力与评测的长期价值。",
+     "impact": "medium"
+    },
+    {
+     "title": "苹果被曝自研可操控Mac的AI智能体",
+     "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+     "source": "TechCrunch AI",
+     "one_liner": "苹果疑似正打造能操作Mac、与同类产品竞争的AI Agent。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "开源与GitHub",
+   "items": [
+    {
+     "title": "DeepSeek V1作者创业项目曝光：开源Agent",
+     "url": "https://www.qbitai.com/2026/11/511570.html",
+     "source": "量子位",
+     "one_liner": "项目专为本地部署而生，主打开源Agent方向。",
+     "impact": "high"
+    },
+    {
+     "title": "Karpo反超Gemini后再开源浏览器Agent",
+     "url": "https://www.qbitai.com/2026/11/511791.html",
+     "source": "量子位",
+     "one_liner": "继反超Gemini之后，Karpo新作再度开源，浏览器Agent实现速效双赢。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "产业·投融资·政策",
+   "items": [
+    {
+     "title": "Anthropic上市市值1.27万亿美元，史上最大IPO",
+     "url": "http://www.geekpark.net/news/374235",
+     "source": "极客公园",
+     "one_liner": "上市首日收盘大涨17%；千问披露用平头哥芯片训练下一代模型，苹果被曝自研智能体。",
+     "impact": "high"
+    },
+    {
+     "title": "拆解大厂财报：谁最舍得为AI花钱",
+     "url": "https://www.tmtpost.com/8212870.html",
+     "source": "钛媒体",
+     "one_liner": "算力、模型服务与AI工具已在四家大厂业务线中形成可辨认的收入模式。",
+     "impact": "medium"
+    },
+    {
+     "title": "林俊旸创业公司估值翻倍至50亿美元",
+     "url": "http://www.geekpark.net/news/374299",
+     "source": "极客公园",
+     "one_liner": "彭博社称语用科技完成新融资；同日丁磊谈短剧冲击游戏，华为星芒发布首款阔直板手机。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "工具与实践",
+   "items": [
+    {
+     "title": "达瓦科技的AI视频工业路线：重控制、轻渲染",
+     "url": "http://www.geekpark.net/news/374303",
+     "source": "极客公园",
+     "one_liner": "针对视频生成落地难题，以可控性优先的工业化路线提升成片效率。",
+     "impact": "low"
+    },
+    {
+     "title": "Hebbia实测GPT-6 Astra提升金融研究效率",
+     "url": "https://openai.com/business/customer-stories/hebbia",
+     "source": "OpenAI News",
+     "one_liner": "预发布评估显示GPT-6 Astra在金融研究场景带来明显改进。",
+     "impact": "low"
+    },
+    {
+     "title": "盘点：能住进短信里的AI智能体",
+     "url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
+     "source": "TechCrunch AI",
+     "one_liner": "TechCrunch梳理目前最值得关注的、可运行在短信中的AI Agent清单。",
+     "impact": "low"
+    }
+   ]
+  }
+ ],
+ "usage": {
+  "prompt_tokens": 1274,
+  "completion_tokens": 3646,
+  "total_tokens": 4920,
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 2502
+  }
+ }
+}
