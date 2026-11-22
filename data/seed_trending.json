@@ -1,0 +1,704 @@
+[
+ {
+  "name": "GitHub Trending (Official)",
+  "url": "https://github.com/trending",
+  "desc": "GitHub官方Trending榜单，可查看每日/每周/每月最热开源项目",
+  "cat": "trending",
+  "tags": [
+   "官方",
+   "趋势榜"
+  ],
+  "region": "global",
+  "heat": 98,
+  "quality": 95
+ },
+ {
+  "name": "GitHub Trending RSS",
+  "url": "https://mshibanami.github.io/GitHubTrendingRSS/",
+  "desc": "将GitHub Trending榜单转化为RSS订阅源的利器",
+  "cat": "trending",
+  "tags": [
+   "RSS",
+   "订阅"
+  ],
+  "region": "global",
+  "heat": 72,
+  "quality": 80
+ },
+ {
+  "name": "HelloGitHub",
+  "url": "https://hellogithub.com/",
+  "desc": "月刊形式分享GitHub上有趣、入门级的开源项目与AI工具",
+  "cat": "trending",
+  "tags": [
+   "月刊",
+   "入门"
+  ],
+  "region": "cn",
+  "heat": 86,
+  "quality": 88
+ },
+ {
+  "name": "Trendshift",
+  "url": "https://trendshift.io/",
+  "desc": "过滤刷榜噪音，挖掘真正的GitHub趋势与高潜开源AI项目",
+  "cat": "trending",
+  "tags": [
+   "趋势",
+   "Anti-刷榜"
+  ],
+  "region": "global",
+  "heat": 84,
+  "quality": 87
+ },
+ {
+  "name": "GitHub Trending Archive",
+  "url": "https://github-trending.com/",
+  "desc": "GitHub开源热榜历史归档与实时数据统计",
+  "cat": "trending",
+  "tags": [
+   "历史归档",
+   "统计"
+  ],
+  "region": "global",
+  "heat": 65,
+  "quality": 68
+ },
+ {
+  "name": "GitRecent",
+  "url": "https://gitrecent.com/",
+  "desc": "实时监控近期在GitHub上Star暴涨的新兴开源库",
+  "cat": "trending",
+  "tags": [
+   "新星项目",
+   "实时"
+  ],
+  "region": "global",
+  "heat": 68,
+  "quality": 66
+ },
+ {
+  "name": "GitHub Topic: Artificial Intelligence",
+  "url": "https://github.com/topics/artificial-intelligence",
+  "desc": "GitHub官方AI主题标签下的优质开源仓库汇聚",
+  "cat": "trending",
+  "tags": [
+   "主题",
+   "官方"
+  ],
+  "region": "global",
+  "heat": 88,
+  "quality": 85
+ },
+ {
+  "name": "GitHub Topic: LLM",
+  "url": "https://github.com/topics/llm",
+  "desc": "大语言模型（LLM）相关的底层框架、微调与应用开源项目总览",
+  "cat": "trending",
+  "tags": [
+   "LLM",
+   "主题"
+  ],
+  "region": "global",
+  "heat": 87,
+  "quality": 85
+ },
+ {
+  "name": "GitHub Topic: AI Agent",
+  "url": "https://github.com/topics/ai-agent",
+  "desc": "AI Agent智能体相关的开源框架与应用项目汇聚",
+  "cat": "trending",
+  "tags": [
+   "Agent",
+   "主题"
+  ],
+  "region": "global",
+  "heat": 85,
+  "quality": 82
+ },
+ {
+  "name": "GitHub Topic: Stable Diffusion",
+  "url": "https://github.com/topics/stable-diffusion",
+  "desc": "Stable Diffusion生态开源项目汇聚，含webui与各类插件",
+  "cat": "trending",
+  "tags": [
+   "绘图",
+   "主题"
+  ],
+  "region": "global",
+  "heat": 84,
+  "quality": 80
+ },
+ {
+  "name": "Papers with Code SOTA",
+  "url": "https://paperswithcode.com/",
+  "desc": "结合论文与GitHub开源实现的AI算法排行榜（SOTA）",
+  "cat": "trending",
+  "tags": [
+   "SOTA",
+   "论文"
+  ],
+  "region": "global",
+  "heat": 85,
+  "quality": 90
+ },
+ {
+  "name": "OpenSource Agenda",
+  "url": "https://www.opensourceagenda.com/",
+  "desc": "分门别类的开源AI工具与代码库索引",
+  "cat": "trending",
+  "tags": [
+   "索引",
+   "开源"
+  ],
+  "region": "global",
+  "heat": 55,
+  "quality": 60
+ },
+ {
+  "name": "Gitee 趋势榜",
+  "url": "https://gitee.com/explore/star-trending",
+  "desc": "国内Gitee平台开源项目热榜，关注本土AI开源生态",
+  "cat": "trending",
+  "tags": [
+   "国内",
+   "趋势榜"
+  ],
+  "region": "cn",
+  "heat": 70,
+  "quality": 66
+ },
+ {
+  "name": "开源中国 OSChina",
+  "url": "https://www.oschina.net/",
+  "desc": "国内最大开源技术社区，追踪国内AI开源软件趋势",
+  "cat": "trending",
+  "tags": [
+   "社区",
+   "国内"
+  ],
+  "region": "cn",
+  "heat": 82,
+  "quality": 75
+ },
+ {
+  "name": "码云GVP",
+  "url": "https://gitee.com/gvp",
+  "desc": "Gitee最有价值开源项目（GVP）认证，含本土AI明星项目",
+  "cat": "trending",
+  "tags": [
+   "GVP",
+   "认证"
+  ],
+  "region": "cn",
+  "heat": 60,
+  "quality": 65
+ },
+ {
+  "name": "OpenI 启智社区",
+  "url": "https://openi.pcl.ac.cn/",
+  "desc": "中国开源AI平台，托管并行科技与鹏城实验室开源模型",
+  "cat": "trending",
+  "tags": [
+   "国产平台",
+   "模型"
+  ],
+  "region": "cn",
+  "heat": 55,
+  "quality": 62
+ },
+ {
+  "name": "ModelScope 魔搭社区",
+  "url": "https://modelscope.cn/",
+  "desc": "阿里达摩院开源模型社区，国内最全的中文模型开源平台",
+  "cat": "trending",
+  "tags": [
+   "模型社区",
+   "阿里"
+  ],
+  "region": "cn",
+  "heat": 87,
+  "quality": 84
+ },
+ {
+  "name": "Hugging Face Trending",
+  "url": "https://huggingface.co/models?sort=trending",
+  "desc": "Hugging Face模型热榜，每日追踪最受关注的开源模型",
+  "cat": "trending",
+  "tags": [
+   "模型",
+   "热榜"
+  ],
+  "region": "global",
+  "heat": 94,
+  "quality": 92
+ },
+ {
+  "name": "Hugging Face Datasets Trending",
+  "url": "https://huggingface.co/datasets?sort=trending",
+  "desc": "Hugging Face数据集热榜，发现热门训练与评测数据集",
+  "cat": "trending",
+  "tags": [
+   "数据集",
+   "热榜"
+  ],
+  "region": "global",
+  "heat": 88,
+  "quality": 88
+ },
+ {
+  "name": "Hugging Face Spaces Trending",
+  "url": "https://huggingface.co/spaces?sort=trending",
+  "desc": "Hugging Face应用空间热榜，直接体验最新AI Demo",
+  "cat": "trending",
+  "tags": [
+   "Demo",
+   "热榜"
+  ],
+  "region": "global",
+  "heat": 86,
+  "quality": 83
+ },
+ {
+  "name": "OpenXLab 书生·浦语",
+  "url": "https://openxlab.org.cn/",
+  "desc": "上海AI实验室开源平台，书生浦语大模型与Shanghai AI Lab项目",
+  "cat": "trending",
+  "tags": [
+   "国产平台",
+   "大模型"
+  ],
+  "region": "cn",
+  "heat": 68,
+  "quality": 72
+ },
+ {
+  "name": "魔乐社区 Modelers",
+  "url": "https://modelers.cn/",
+  "desc": "华为昇腾原生AI开源社区，面向昇腾生态的模型与工具",
+  "cat": "trending",
+  "tags": [
+   "昇腾",
+   "华为"
+  ],
+  "region": "cn",
+  "heat": 58,
+  "quality": 63
+ },
+ {
+  "name": "昇思MindSpore社区",
+  "url": "https://www.mindspore.cn/",
+  "desc": "华为全场景AI框架MindSpore官方社区与开源生态",
+  "cat": "trending",
+  "tags": [
+   "框架",
+   "华为"
+  ],
+  "region": "cn",
+  "heat": 60,
+  "quality": 66
+ },
+ {
+  "name": "PaddlePaddle 飞桨",
+  "url": "https://www.paddlepaddle.org.cn/",
+  "desc": "百度开源深度学习平台，国产化AI框架与产业实践",
+  "cat": "trending",
+  "tags": [
+   "框架",
+   "百度"
+  ],
+  "region": "cn",
+  "heat": 76,
+  "quality": 78
+ },
+ {
+  "name": "V2EX AI 节点",
+  "url": "https://www.v2ex.com/go/ai",
+  "desc": "独立开发者与工程师讨论AI前沿、分享自研开源项目的活跃社区",
+  "cat": "trending",
+  "tags": [
+   "社区",
+   "独立开发"
+  ],
+  "region": "cn",
+  "heat": 79,
+  "quality": 74
+ },
+ {
+  "name": "Hacker News",
+  "url": "https://news.ycombinator.com/",
+  "desc": "硅谷极客与AI创业者最活跃的新闻社区，常有前沿开源项目首发",
+  "cat": "trending",
+  "tags": [
+   "社区",
+   "硅谷"
+  ],
+  "region": "global",
+  "heat": 92,
+  "quality": 89
+ },
+ {
+  "name": "顶象热榜 TopHub 今日热榜",
+  "url": "https://tophub.today/",
+  "desc": "全网实时热榜聚合平台，包含科技、AI、知乎、微博等热点",
+  "cat": "trending",
+  "tags": [
+   "热榜聚合",
+   "实时"
+  ],
+  "region": "cn",
+  "heat": 85,
+  "quality": 76
+ },
+ {
+  "name": "RSSHub 文档",
+  "url": "https://docs.rsshub.app/",
+  "desc": "开源RSS生成器，配合万物皆可RSS订阅各大AI平台最新动态",
+  "cat": "resource",
+  "tags": [
+   "RSS",
+   "订阅"
+  ],
+  "region": "cn",
+  "heat": 85,
+  "quality": 88
+ },
+ {
+  "name": "Learning Prompt",
+  "url": "https://learningprompt.wiki/",
+  "desc": "免费开源的AIGC提示词工程中文学习指南",
+  "cat": "resource",
+  "tags": [
+   "Prompt",
+   "教程"
+  ],
+  "region": "cn",
+  "heat": 68,
+  "quality": 78
+ },
+ {
+  "name": "WaytoAGI 飞书知识库",
+  "url": "https://waytoagi.feishu.cn/wiki/",
+  "desc": "国内极为系统的大模型、提示词与AGI全景学习路线图",
+  "cat": "resource",
+  "tags": [
+   "知识库",
+   "路线图"
+  ],
+  "region": "cn",
+  "heat": 88,
+  "quality": 90
+ },
+ {
+  "name": "LlamaHub (LlamaIndex Hub)",
+  "url": "https://llamahub.ai/",
+  "desc": "大模型应用开发必备的大数据源连接器与RAG插件资源库",
+  "cat": "resource",
+  "tags": [
+   "RAG",
+   "连接器"
+  ],
+  "region": "global",
+  "heat": 76,
+  "quality": 82
+ },
+ {
+  "name": "LangChain Ecosystem",
+  "url": "https://www.langchain.com/",
+  "desc": "大模型链式应用开发框架官方生态与最新组件发布",
+  "cat": "resource",
+  "tags": [
+   "框架",
+   "生态"
+  ],
+  "region": "global",
+  "heat": 89,
+  "quality": 85
+ },
+ {
+  "name": "Replicate",
+  "url": "https://replicate.com/",
+  "desc": "在云端通过API运行、测试与探索各类开源AI模型",
+  "cat": "resource",
+  "tags": [
+   "API",
+   "模型运行"
+  ],
+  "region": "global",
+  "heat": 84,
+  "quality": 83
+ },
+ {
+  "name": "Civitai (C站)",
+  "url": "https://civitai.com/",
+  "desc": "全球最大的开源AI绘图模型分享与趋势社区",
+  "cat": "resource",
+  "tags": [
+   "绘图",
+   "模型社区"
+  ],
+  "region": "global",
+  "heat": 86,
+  "quality": 80
+ },
+ {
+  "name": "Pinokio",
+  "url": "https://pinokio.computer/",
+  "desc": "支持一键在本地部署并运行各种GitHub热门开源AI项目的智能浏览器",
+  "cat": "resource",
+  "tags": [
+   "本地部署",
+   "一键运行"
+  ],
+  "region": "global",
+  "heat": 75,
+  "quality": 80
+ },
+ {
+  "name": "OpenProfile Prompt Engineering Guide",
+  "url": "https://www.promptingguide.ai/",
+  "desc": "GitHub 30k+ star提示词工程圣经，从入门到高级技巧+论文",
+  "cat": "resource",
+  "tags": [
+   "Prompt",
+   "指南"
+  ],
+  "region": "global",
+  "heat": 82,
+  "quality": 90
+ },
+ {
+  "name": "OpenAI Cookbook",
+  "url": "https://cookbook.openai.com/",
+  "desc": "OpenAI官方API示例集，含Prompt优化与RAG实践代码",
+  "cat": "resource",
+  "tags": [
+   "官方",
+   "Cookbook"
+  ],
+  "region": "global",
+  "heat": 85,
+  "quality": 88
+ },
+ {
+  "name": "Anthropic Prompt Library",
+  "url": "https://docs.anthropic.com/en/prompt-library",
+  "desc": "Anthropic官方提示词库，覆盖各类场景的Claude提示词模板",
+  "cat": "resource",
+  "tags": [
+   "官方",
+   "Prompt库"
+  ],
+  "region": "global",
+  "heat": 80,
+  "quality": 85
+ },
+ {
+  "name": "Learn Prompting",
+  "url": "https://learnprompting.org/",
+  "desc": "免费开源的提示词工程课程，含中文等多语言版本",
+  "cat": "resource",
+  "tags": [
+   "课程",
+   "免费"
+  ],
+  "region": "global",
+  "heat": 76,
+  "quality": 83
+ },
+ {
+  "name": "PromptHero",
+  "url": "https://prompthero.com/",
+  "desc": "AI绘图提示词搜索引擎，Midjourney/SD提示词与效果对照",
+  "cat": "resource",
+  "tags": [
+   "绘图Prompt",
+   "搜索"
+  ],
+  "region": "global",
+  "heat": 70,
+  "quality": 68
+ },
+ {
+  "name": "Google AI Studio Prompt Gallery",
+  "url": "https://aistudio.google.com/prompts/new_chat",
+  "desc": "Google AI Studio官方提示词画廊，Gemini多模态Prompt示例",
+  "cat": "resource",
+  "tags": [
+   "官方",
+   "Gemini"
+  ],
+  "region": "global",
+  "heat": 78,
+  "quality": 80
+ },
+ {
+  "name": "awesome-chatgpt-prompts",
+  "url": "https://github.com/f/awesome-chatgpt-prompts",
+  "desc": "GitHub 110k+ star的ChatGPT角色扮演提示词合集",
+  "cat": "resource",
+  "tags": [
+   "GitHub",
+   "Prompt合集"
+  ],
+  "region": "global",
+  "heat": 87,
+  "quality": 82
+ },
+ {
+  "name": "awesome-llm",
+  "url": "https://github.com/Hannibal046/Awesome-LLM",
+  "desc": "GitHub 20k+ star的LLM全景资源列表，论文/模型/框架一网打尽",
+  "cat": "resource",
+  "tags": [
+   "GitHub",
+   "LLM列表"
+  ],
+  "region": "global",
+  "heat": 79,
+  "quality": 84
+ },
+ {
+  "name": "awesome-machine-learning",
+  "url": "https://github.com/josephmisiti/awesome-machine-learning",
+  "desc": "GitHub经典机器学习资源列表，68k+ star社区维护",
+  "cat": "resource",
+  "tags": [
+   "GitHub",
+   "ML列表"
+  ],
+  "region": "global",
+  "heat": 83,
+  "quality": 85
+ },
+ {
+  "name": "Hugging Face Blog",
+  "url": "https://huggingface.co/blog",
+  "desc": "Hugging Face官方博客，开源模型发布与工程实践深度文章",
+  "cat": "resource",
+  "tags": [
+   "博客",
+   "官方"
+  ],
+  "region": "global",
+  "heat": 86,
+  "quality": 87
+ },
+ {
+  "name": "Lilian Weng Blog",
+  "url": "https://lilianweng.github.io/",
+  "desc": "OpenAI前安全主管Lilian Weng的深度技术博客，LLM/Agent综述必读",
+  "cat": "resource",
+  "tags": [
+   "博客",
+   "深度综述"
+  ],
+  "region": "global",
+  "heat": 80,
+  "quality": 96
+ },
+ {
+  "name": "The Gradient",
+  "url": "https://thegradient.pub/",
+  "desc": "独立AI研究评论杂志，AI文化与技术交叉的深度长文",
+  "cat": "resource",
+  "tags": [
+   "杂志",
+   "深度"
+  ],
+  "region": "global",
+  "heat": 68,
+  "quality": 85
+ },
+ {
+  "name": "Sebastian Raschka Blog",
+  "url": "https://magazine.sebastianraschka.com/",
+  "desc": "LLM从零实现与训练实战，Raschka的Machine Learning Q&A",
+  "cat": "resource",
+  "tags": [
+   "博客",
+   "LLM实战"
+  ],
+  "region": "global",
+  "heat": 77,
+  "quality": 89
+ },
+ {
+  "name": "Eugene Yan Blog",
+  "url": "https://eugeneyan.com/",
+  "desc": "亚马逊应用科学家，推荐系统/LLM工程落地深度博客",
+  "cat": "resource",
+  "tags": [
+   "博客",
+   "工程落地"
+  ],
+  "region": "global",
+  "heat": 75,
+  "quality": 88
+ },
+ {
+  "name": "Chip Huyen Blog",
+  "url": "https://huyenchip.com/blog/",
+  "desc": "《Designing ML Systems》作者博客，ML系统设计与实时ML",
+  "cat": "resource",
+  "tags": [
+   "博客",
+   "ML系统"
+  ],
+  "region": "global",
+  "heat": 74,
+  "quality": 87
+ },
+ {
+  "name": "Nathan Lambert's Interconnects",
+  "url": "https://www.interconnects.ai/",
+  "desc": "弗吉尼亚大学助理教授，RLHF与后训练技术深度分析",
+  "cat": "resource",
+  "tags": [
+   "博客",
+   "RLHF"
+  ],
+  "region": "global",
+  "heat": 71,
+  "quality": 86
+ },
+ {
+  "name": "Ahead of AI",
+  "url": "https://magazine.sebastianraschka.com/tag/ahead-of-ai",
+  "desc": "Raschka主编的AI前沿月报，精选当月最值得读的论文与趋势",
+  "cat": "resource",
+  "tags": [
+   "月报",
+   "论文精选"
+  ],
+  "region": "global",
+  "heat": 73,
+  "quality": 87
+ },
+ {
+  "name": "AI Explained (YouTube)",
+  "url": "https://www.youtube.com/@aiexplained-official",
+  "desc": "高品质AI论文解读视频频道，适合跟进研究进展",
+  "cat": "resource",
+  "tags": [
+   "视频",
+   "论文解读"
+  ],
+  "region": "global",
+  "heat": 74,
+  "quality": 77
+ },
+ {
+  "name": "Lex Fridman Podcast",
+  "url": "https://lexfridman.com/podcast/",
+  "desc": "顶级AI长播客，采访Ilya、Musk等，中文圈广泛传播",
+  "cat": "resource",
+  "tags": [
+   "播客",
+   "访谈"
+  ],
+  "region": "global",
+  "heat": 88,
+  "quality": 81
+ }
+]

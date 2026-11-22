@@ -1,0 +1,22 @@
+[
+{"name":"LMArena (Chatbot Arena)","url":"https://lmarena.ai/","desc":"全球最权威的大模型盲测竞技场，Elo/胜率排行榜","cat":"benchmark","tags":["盲测","Elo"],"region":"global","heat":92,"quality":91},
+{"name":"LMSYS Chatbot Arena (旧站)","url":"https://chat.lmsys.org/","desc":"Chatbot Arena旧版入口，进行模型对战投票","cat":"benchmark","tags":["盲测","投票"],"region":"global","heat":70,"quality":80},
+{"name":"LiveBench","url":"https://livebench.ai/","desc":"无污染动态评测，每月更新题目防止数据泄漏刷榜","cat":"benchmark","tags":["动态评测","防刷榜"],"region":"global","heat":71,"quality":84},
+{"name":"OpenCompass 司南","url":"https://opencompass.org.cn/","desc":"上海AI实验室开源评测平台，国内权威大模型评测榜单","cat":"benchmark","tags":["国产","评测平台"],"region":"cn","heat":80,"quality":85},
+{"name":"SuperCLUE","url":"https://www.superclueai.com/","desc":"国内大模型测评社区，中文综合/推理/代码能力榜单","cat":"benchmark","tags":["国产","中文评测"],"region":"cn","heat":74,"quality":77},
+{"name":"CMMLU","url":"https://github.com/haonan-li/CMMLU","desc":"中文大规模多任务理解基准，67个学科覆盖人文科学","cat":"benchmark","tags":["中文","基准"],"region":"cn","heat":60,"quality":78},
+{"name":"MMLU-Pro","url":"https://github.com/TIGER-AI-Lab/MMLU-Pro","desc":"MMLU加强版，12k+10选项难题，更接近人类专家水平","cat":"benchmark","tags":["学术基准"],"region":"global","heat":62,"quality":80},
+{"name":"GPQA Diamond","url":"https://github.com/idavidrein/gpqa","desc":"研究生级理科难题基准，专家也只有65%准确率","cat":"benchmark","tags":["学术基准","理科"],"region":"global","heat":58,"quality":79},
+{"name":"Humanity's Last Exam","url":"https://agi.safe.ai/","desc":"终极之考，专家级跨学科极难题集，刷满AGI天花板","cat":"benchmark","tags":["极难","AGI"],"region":"global","heat":65,"quality":78},
+{"name":"SWE-bench","url":"https://www.swebench.com/","desc":"真实GitHub issue修复基准，衡量AI编程能力的金标准","cat":"benchmark","tags":["编程","Agent"],"region":"global","heat":83,"quality":88},
+{"name":"Aider Polyglot Leaderboard","url":"https://aider.chat/docs/leaderboards/","desc":"Aider代码编辑排行榜，多语言编辑能力实战评测","cat":"benchmark","tags":["编程","排行榜"],"region":"global","heat":76,"quality":82},
+{"name":"BigCodeBench","url":"https://bigcode-bench.github.io/","desc":"复杂函数级代码生成基准，比HumanEval更难更实用","cat":"benchmark","tags":["编程","代码生成"],"region":"global","heat":55,"quality":73},
+{"name":"MathArena","url":"https://matharena.ai/","desc":"竞赛数学实时榜，AIME/USAMO等奥数级题目评测","cat":"benchmark","tags":["数学","推理"],"region":"global","heat":68,"quality":77},
+{"name":"ARC Prize","url":"https://arcprize.org/","desc":"ARC-AGI抽象推理挑战，通用智能的硬核试金石","cat":"benchmark","tags":["AGI","推理"],"region":"global","heat":66,"quality":84},
+{"name":"HELM (Stanford)","url":"https://crfm.stanford.edu/helm/","desc":"斯坦福基础模型整体评估，多维度能力+公平性评测","cat":"benchmark","tags":["斯坦福","综合"],"region":"global","heat":58,"quality":82},
+{"name":"Artificial Analysis","url":"https://artificialanalysis.ai/","desc":"大模型性能/价格/速度综合对比，含API延迟与吞吐实测","cat":"benchmark","tags":["对比","性价比"],"region":"global","heat":84,"quality":87},
+{"name":"Artificial Analysis LLM Leaderboard","url":"https://artificialanalysis.ai/models","desc":"模型智能/性价比/速度三维排行榜，每周更新","cat":"benchmark","tags":["排行榜","速度"],"region":"global","heat":80,"quality":84},
+{"name":"Benchmarks XDOF","url":"https://benchmarks.xdof.ai/","desc":"具身智能机器人基准Ember-0榜单，机器人操作评测","cat":"benchmark","tags":["具身智能","机器人"],"region":"global","heat":48,"quality":62},
+{"name":"C-Eval","url":"https://cevalbenchmark.com/","desc":"中文大模型综合评测基准，52个学科13948道题","cat":"benchmark","tags":["中文","基准"],"region":"cn","heat":56,"quality":75},
+{"name":"GAIA Benchmark","url":"https://huggingface.co/spaces/gaia-benchmark/leaderboard","desc":"通用AI助手基准，真实世界复杂任务多步推理","cat":"benchmark","tags":["Agent","助手"],"region":"global","heat":60,"quality":74}
+]
