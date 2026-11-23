@@ -1,13 +1,13 @@
 {
-  "crawled_at": "2026-11-23T02:06:33.927138+00:00",
+  "crawled_at": "2026-11-23T02:18:19.865775+00:00",
   "feeds_total": 34,
-  "feeds_ok": 29,
+  "feeds_ok": 27,
   "feeds": [
     {
       "name": "量子位",
       "url": "https://www.qbitai.com/feed",
-      "status": "ok (10)",
-      "items": 10
+      "status": "URLError: <urlopen error timed out>",
+      "items": 0
     },
     {
       "name": "钛媒体",
@@ -24,8 +24,8 @@
     {
       "name": "极客公园",
       "url": "https://www.geekpark.net/rss",
-      "status": "ok (30)",
-      "items": 30
+      "status": "URLError: <urlopen error timed out>",
+      "items": 0
     },
     {
       "name": "IT之家",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 1
+  "candidates": 11
 }
