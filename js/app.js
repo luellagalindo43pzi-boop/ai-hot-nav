@@ -592,6 +592,26 @@ function normalizeReport(report,allowedUrls,mode,range){
   return report;
 }
 function normalizeSourceUrl(u){try{const x=new URL(u);return (x.origin+x.pathname+x.search).replace(/\/$/,'').toLowerCase();}catch{return String(u).trim().toLowerCase();}}
+function markdownReportFallback(text,query,mode,range,allowedSources){
+  const allowed=new Map(allowedSources.map(x=>[normalizeSourceUrl(x.url),x]));
+  const lines=String(text||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  const title=(lines[0]||`${query} · ${mode==='weekly'?'周报':'主题日报'}`).replace(/^#{1,6}\s*/,'').replace(/\*\*/g,'').slice(0,160);
+  const urlRe=/https?:\/\/[^\s<>\"，。)]+/g;const used=new Set();const items=[];
+  for(const line of lines){
+    const urls=line.match(urlRe)||[];
+    for(let url of urls){
+      const key=normalizeSourceUrl(url);if(used.has(key)||!allowed.has(key))continue;used.add(key);
+      const src=allowed.get(key);let label=line.replace(url,'').replace(/\*\*/g,'').replace(/^[-*\d.\s]+/,'').trim();
+      let itemTitle=(label.split(/[：:—–]/)[0]||src.title||new URL(url).hostname).slice(0,160);
+      const summary=label.length>itemTitle.length?label.slice(itemTitle.length).replace(/^[：:—–\s]+/,'').slice(0,1000):String(src.content||src.desc||'本轮检索来源').slice(0,1000);
+      items.push({title:itemTitle||src.title||new URL(url).hostname,summary,impact:/high|重要|重点/i.test(line)?'high':'medium',source:src.source||new URL(url).hostname,url});
+    }
+  }
+  let summaryLines=[];const takeaways=[];for(const line of lines.slice(1)){if(urlRe.test(line)){urlRe.lastIndex=0;continue;}urlRe.lastIndex=0;if(/^#{1,4}\s/.test(line))continue;if(/^(主题|时间范围|日期范围|摘要|说明)[:：]?\s*/.test(line))continue;const conclusion=line.match(/^(?:结论|建议|观察|要点)[:：]?\s*(.*)$/);if(conclusion){if(conclusion[1])takeaways.push(conclusion[1].replace(/\*\*/g,''));continue;}if(/^[^。！？：:]{2,32}$/.test(line)&&/(热门|开源|研究|总结|要点|结论|日报|周报|动态|进展|工具|项目|产业|产品|模型|趋势|观察)/.test(line))continue;if(summaryLines.join(' ').length>450)break;summaryLines.push(line.replace(/\*\*/g,''));}
+  const fallback={title,topic:query,date_range:range,summary:(summaryLines.join(' ').slice(0,900)||`模型返回了非 JSON 格式报告；已从原文中提取可核验来源链接。`),sections:[{title:'检索要点与来源',items}],takeaways:takeaways.slice(0,10),caveats:['模型未按要求返回 JSON；此版由浏览器从模型原文提取标题、来源行和精确匹配的检索 URL。请检查报告内容及时间范围。']};
+  return fallback;
+}
+
 function reportToMarkdown(r){
   const out=[`# ${r.title}`,``,`**主题：** ${r.topic}  `,`**时间范围：** ${r.date_range}`,``,`## 摘要`,``,r.summary||'（无摘要）'];
   for(const sec of r.sections||[]){out.push('',`## ${sec.title}`,'');for(const it of sec.items||[]){out.push(`- **${it.title}**${it.impact?` _[${it.impact}]_`:''}：${it.summary||''}`);if(it.url)out.push(`  - 来源：${it.source||'原文'} — ${it.url}`);else if(it.citation_status)out.push(`  - 来源状态：${it.citation_status}`);}}
@@ -657,10 +677,10 @@ async function runAgent(query) {
       lastAgentReport={report:normalizeReport(report,sourceUrls,mode,range),raw:answer,mode};
       return {text:reportToMarkdown(lastAgentReport.report),report:lastAgentReport.report,mode};
     }
-    const urls=[...new Set((answer.match(/https?:\/\/[^\s<>\"，。]+/g)||[]).filter(u=>sourceUrls.some(x=>normalizeSourceUrl(x)===normalizeSourceUrl(u))))];
-    const fallback={title:`${query} · ${mode==='weekly'?'周报':'主题日报'}`,topic:query,date_range:range,summary:answer,sections:[{title:'模型回复',items:urls.map(url=>({title:new URL(url).hostname,summary:'原始来源链接（模型文本未能解析为结构化日报）。',impact:'medium',source:new URL(url).hostname,url}))}],takeaways:[],caveats:['模型未返回预期 JSON；此导出保留原始回复与上下文中匹配到的来源链接。']};
-    lastAgentReport={report:fallback,raw:answer,mode};
-    return {text:answer+'\n\n（提示：本次未能解析为结构化日报；仍可导出原文和检索到的链接。）',report:fallback,mode};
+    const allowedSources=[...sites,...(web.results||[]).map(x=>({source:x.title||'Tavily',title:x.title,content:x.content,url:x.url})),...github.map(x=>({source:'GitHub',title:x.title,content:x.content,url:x.url})),...latestUrls.map(url=>({source:'站内日报',title:url,content:'历史日报来源',url}))];
+    const fallback=markdownReportFallback(answer,query,mode,range,allowedSources);
+    lastAgentReport={report:normalizeReport(fallback,sourceUrls,mode,range),raw:answer,mode};
+    return {text:reportToMarkdown(lastAgentReport.report),report:lastAgentReport.report,mode};
   }
   return {text:answer,report:null,mode};
 }
