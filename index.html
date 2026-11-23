@@ -44,6 +44,7 @@
     </div>
 
     <div class="appbar-actions">
+      <button class="digest-toggle" id="agentToggle" title="打开 AI 智能体">✦ <span>AI 助手</span></button>
       <button class="digest-toggle" id="digestToggle" title="切换到 AI 日报" aria-pressed="false">
         <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM7 7h10v2H7zm0 4h10v2H7zm0 4h6v2H7z"/></svg>
         <span>AI 日报</span>
@@ -91,6 +92,7 @@
         阅读今日 AI 日报（Nex N2.6 撰写）
         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M9.4 6 8 7.4l4.6 4.6L8 16.6 9.4 18l6-6z"/></svg>
       </button>
+      <button class="hero-cta" id="heroAgentBtn" style="margin-left:8px">✦ 与 AI 研究助手对话</button>
     </div>
   </section>
 
@@ -152,6 +154,35 @@
     <div class="sentinel" id="sentinel"></div>
   </div>
   </div><!-- /view-nav -->
+
+  <!-- ══════════ AI 智能体视图 ══════════ -->
+  <section class="agent-view" id="agentView" hidden>
+    <div class="agent-head card">
+      <div><div class="digest-kicker"><span class="live-dot"></span>目录检索 · 来源溯源</div><h2>AI 站点研究助手</h2>
+      <p>检索本站全部站点目录、推荐信息源、整理主题日报。使用你在「模型配置」填写的模型与密钥；联网搜索需填写自己的 Tavily 搜索密钥。</p></div>
+      <button class="btn-outlined" id="newChatBtn">新对话</button>
+    </div>
+    <div class="agent-layout">
+      <aside class="agent-side card">
+        <b>快捷任务</b>
+        <button class="agent-prompt" data-prompt="推荐适合研究 RAG 与向量数据库的优质站点，分类说明并给出链接。">推荐 RAG 研究站点</button>
+        <button class="agent-prompt" data-prompt="为我制作最近 7 天的开源大模型主题日报，注明日期、重点动态、来源链接与不确定性。">制作主题日报</button>
+        <button class="agent-prompt" data-prompt="搜索本站中适合追踪 AI Agent、智能体框架与工具的站点，按热度质量推荐。">追踪 AI Agent</button>
+        <div class="agent-disclosure">检索范围：本站完整站点目录。联网搜索由你设置的第三方搜索 API 执行；未配置时只检索目录，不声称已联网核实。</div>
+      </aside>
+      <div class="agent-chat card">
+        <div class="agent-messages" id="agentMessages" aria-live="polite">
+          <div class="agent-message assistant"><b>AI 助手</b><div>你好！我可以从本站目录检索并推荐 AI 站点，也可以结合网络搜索制作指定主题日报。配置好模型后即可开始。</div></div>
+        </div>
+        <form class="agent-compose" id="agentForm">
+          <label class="agent-web-toggle"><input id="agentWebSearch" type="checkbox" checked /> 联网搜索</label>
+          <textarea id="agentInput" rows="2" placeholder="例如：制作最近一周 AI 视频生成主题日报，附来源链接…" aria-label="给 AI 助手发送消息"></textarea>
+          <button class="btn-filled" id="agentSendBtn" type="submit">发送 ↑</button>
+        </form>
+        <div class="agent-hint">对话在本浏览器内运行，内容会发送到你配置的模型端点。联网查询使用你填写的搜索服务；请勿输入敏感信息。</div>
+      </div>
+    </div>
+  </section>
 
   <!-- ══════════ AI 日报视图 ══════════ -->
   <section class="digest-view" id="digestView" hidden>
@@ -254,6 +285,13 @@
         <label class="cfg-field"><span>API Key（仅存 localStorage，仅用于浏览器直连测试）</span>
           <input id="cfgKey" type="password" placeholder="sk-…（留空 = 不使用自定义密钥）" autocomplete="new-password" spellcheck="false" />
         </label>
+        <h4 class="cfg-section">智能体网络搜索（可选，Tavily API）</h4>
+        <label class="cfg-field"><span>搜索 API Key（仅存本浏览器；可从 tavily.com 获取）</span>
+          <input id="cfgSearchKey" type="password" placeholder="tvly-…" autocomplete="new-password" spellcheck="false" />
+        </label>
+        <label class="cfg-field"><span>搜索 API 地址</span>
+          <input id="cfgSearchEndpoint" type="url" value="https://api.tavily.com/search" spellcheck="false" autocomplete="off" />
+        </label>
         <div class="cfg-actions">
           <button class="btn-outlined small-btn" id="cfgSaveBtn">保存并启用</button>
           <button class="btn-filled" id="cfgTestBtn">测试连接</button>
@@ -264,7 +302,7 @@
 
       <p class="cfg-note">
         说明：本站为纯静态页面、无后端。自定义配置只写入你浏览器的 localStorage（键 <code>aihn_model_cfg</code>），
-        不会发送到本站任何服务器，也不影响 CI 生成日报时使用的默认服务端配置。
+        不会发送到本站任何服务器，也不影响 CI 生成日报时使用的默认服务端配置。模型及联网搜索密钥均由浏览器直接发送给你填写的第三方服务；第三方的 CORS、条款与数据处理规则适用。联网搜索需用户自行提供 Tavily 密钥。
         任何 OpenAI 兼容端点（DeepSeek / 通义千问 / 月之暗面 / OpenAI / 本地 vLLM…）均可填入。
       </p>
     </div>

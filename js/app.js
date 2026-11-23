@@ -301,10 +301,13 @@ document.addEventListener('keydown', e => {
 function setViewMode(mode) {
   state.mode = mode;
   const isDigest = mode === 'digest';
+  const isAgent = mode === 'agent';
   $('#digestView').hidden = !isDigest;
-  $('#viewNav').hidden = isDigest;
-  $('#chipsRow').style.display = isDigest ? 'none' : '';
+  $('#agentView').hidden = !isAgent;
+  $('#viewNav').hidden = isDigest || isAgent;
+  $('#chipsRow').style.display = (isDigest || isAgent) ? 'none' : '';
   $('#digestToggle').setAttribute('aria-pressed', String(isDigest));
+  $('#agentToggle').setAttribute('aria-pressed', String(isAgent));
   document.body.dataset.view = mode;
   if (isDigest && !digestLoaded) loadDigest('data/digest.json');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -349,6 +352,7 @@ function renderDigest(d) {
   if (cfgLastGen) cfgLastGen.textContent = `${d.generated_at ? d.generated_at.replace('T', ' ') : '—'} · ${d.model || ''}${usage}`;
   digestLoaded = true;
   digestState.current = d;
+  window.__LATEST_DIGEST = d;
 }
 
 function renderDigestHistory() {
@@ -396,7 +400,9 @@ function fillModelForm() {
   $('#cfgEndpoint').value = o.endpoint || 'https://api.mosi.cn/v1/chat/completions';
   $('#cfgModel').value = o.model || 'nex-n2.6';
   $('#cfgTemperature').value = o.temperature != null ? o.temperature : '0.7';
-  $('#cfgKey').value = ''; // 不回填密钥
+  $('#cfgKey').value = ''; // 不回填模型密钥
+  $('#cfgSearchKey').value = ''; // 搜索 Key 也不回填
+  $('#cfgSearchEndpoint').value = o.searchEndpoint || 'https://api.tavily.com/search';
 }
 function openModelModal() { modelModal.hidden = false; document.body.style.overflow = 'hidden'; fillModelForm(); }
 function closeModelModal() { modelModal.hidden = true; document.body.style.overflow = ''; }
@@ -410,9 +416,12 @@ $('#cfgSaveBtn').addEventListener('click', () => {
   const model = $('#cfgModel').value.trim();
   const temperature = parseFloat($('#cfgTemperature').value);
   const key = $('#cfgKey').value.trim();
+  const searchKey = $('#cfgSearchKey').value.trim();
+  const searchEndpoint = $('#cfgSearchEndpoint').value.trim();
   if (endpoint && !/^https?:\/\/.+/.test(endpoint)) { showToast('接口地址需以 http(s):// 开头'); return; }
-  const cfg = { endpoint: endpoint || 'https://api.mosi.cn/v1/chat/completions', model: model || 'nex-n2.6', temperature: isNaN(temperature) ? 0.7 : Math.min(2, Math.max(0, temperature)) };
+  const cfg = { endpoint: endpoint || 'https://api.mosi.cn/v1/chat/completions', model: model || 'nex-n2.6', temperature: isNaN(temperature) ? 0.7 : Math.min(2, Math.max(0, temperature)), searchEndpoint: searchEndpoint || 'https://api.tavily.com/search' };
   if (key) cfg.key = key; // 仅存浏览器
+  if (searchKey) cfg.searchKey = searchKey; // 仅存浏览器
   localStorage.setItem(MODEL_CFG_KEY, JSON.stringify(cfg));
   showToast('自定义配置已保存到本浏览器 ✓');
 });
@@ -464,6 +473,80 @@ $('#cfgTestBtn').addEventListener('click', async () => {
     resultEl.className = 'cfg-test-result err';
   }
 });
+
+/* ───────── 站点研究智能体：本地目录检索 + 用户自备联网搜索/模型 ───────── */
+const AGENT_HISTORY_KEY = 'aihn_agent_history';
+let agentHistory = [];
+try { agentHistory = JSON.parse(sessionStorage.getItem(AGENT_HISTORY_KEY) || '[]'); } catch { agentHistory = []; }
+function persistAgentHistory() { try { sessionStorage.setItem(AGENT_HISTORY_KEY, JSON.stringify(agentHistory.slice(-12))); } catch {} }
+function agentBubble(role, text, pending=false) {
+  const el = document.createElement('div'); el.className = `agent-message ${role}` + (pending ? ' pending' : '');
+  const who = document.createElement('b'); who.textContent = role === 'user' ? '你' : 'AI 助手';
+  const body = document.createElement('div'); body.textContent = text;
+  el.append(who, body); $('#agentMessages').append(el); $('#agentMessages').scrollTop = $('#agentMessages').scrollHeight; return el;
+}
+function renderAgentHistory() {
+  const box = $('#agentMessages'); box.innerHTML = '';
+  agentBubble('assistant', '你好！我可以从本站目录检索并推荐 AI 站点，也可以结合网络搜索制作指定主题日报。');
+  for (const m of agentHistory.slice(-12)) agentBubble(m.role === 'user' ? 'user' : 'assistant', m.content);
+}
+function retrieveSites(query, limit=14) {
+  const terms = (query.toLowerCase().match(/[\w+#.-]+|[\u3400-\u9fff]{1,}/g) || []).filter(t => t.length > 1);
+  const stop = new Set(['推荐','搜索','制作','日报','主题','最近','生成','一下','哪些','网站','站点','信息','给我','请你','帮我','内容','联网','一周','最近','过去','today','last','days','week']);
+  const qs = terms.filter(t => !stop.has(t));
+  return SITES.map(site => {
+    const fields = [site.name, site.desc, site.cat, site.subcat, (site.tags||[]).join(' '), domainOf(site.url)].map(x => String(x||'').toLowerCase());
+    let match = 0;
+    qs.forEach(q => { if (fields[0].includes(q)) match += 8; else if (fields.slice(2,5).some(f=>f.includes(q))) match += 5; else if (fields[1].includes(q) || fields[5].includes(q)) match += 2; });
+    if (qs.length && qs.every(q => fields.some(f => f.includes(q)))) match += 5;
+    const score = Number(site.score||0) * .02 + Number(site.heat||0)*.01 + Number(site.quality||0)*.01;
+    return {site, rank: match + score};
+  }).filter(x=>x.rank>0).sort((a,b)=>b.rank-a.rank).slice(0,limit).map(x=>x.site);
+}
+async function tavilySearch(query, cfg) {
+  if (!cfg.searchKey) return {error:'尚未设置联网搜索 API Key；仅使用本地目录。'};
+  const endpoint = cfg.searchEndpoint || 'https://api.tavily.com/search';
+  const res = await fetch(endpoint, {method:'POST', headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({api_key:cfg.searchKey,query,search_depth:'advanced',max_results:6,include_answer:false,include_raw_content:false})});
+  if (!res.ok) throw new Error(`搜索服务 HTTP ${res.status}：${(await res.text()).slice(0,180)}`);
+  const data=await res.json();
+  return {results:(data.results||[]).map(x=>({title:x.title,url:x.url,content:x.content,published_date:x.published_date,score:x.score}))};
+}
+function agentContext(query, sites, web) {
+  const s=sites.map((x,i)=>`${i+1}. ${x.name} | ${x.cat}/${x.subcat||''} | ${x.desc} | URL ${x.url} | 热度${x.heat} 质量${x.quality} 综合${x.score}${x.stars?` Stars ${x.stars}`:''}`).join('\n');
+  const latest=window.__LATEST_DIGEST ? JSON.stringify(window.__LATEST_DIGEST).slice(0,5000) : '';
+  const w=web && web.results ? web.results.map((x,i)=>`[Web ${i+1}] ${x.title} | ${x.published_date||''} | ${x.content||''}\nURL: ${x.url}`).join('\n') : '';
+  return `用户请求：${query}\n\n本站目录检索 Top ${sites.length}（仅代表目录匹配及热度质量，不代表网页已实时验证）：\n${s||'无匹配项'}\n\n联网搜索结果（只有本段非空时才可称已联网搜索；逐条保留URL）：\n${w||'本轮未获得联网搜索结果。'}\n\n最新站内日报（可选上下文）：\n${latest||'未加载'}`;
+}
+async function runAgent(query) {
+  const cfg=loadModelCfgOverride()||{};
+  if (!cfg.key) throw new Error('请先点击 ⚙ 模型配置，填入并保存你自己的模型 API Key。本站不会向浏览器提供服务端密钥。');
+  const sites=retrieveSites(query,14);
+  let web={};
+  if ($('#agentWebSearch').checked && cfg.searchKey) {
+    try { web=await tavilySearch(query,cfg); }
+    catch(e) { web={error:e.message}; }
+  }
+  const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果进行站点推荐，也可综合明确标注的联网搜索结果撰写报告。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期或来源；站点目录是 discovery index，不是实时验证。未提供 web results 或搜索失败时，必须明确说明没有完成联网搜索，不可声称掌握最新动态。对于主题日报，要明确日期范围、主题、摘要、重要性、原文URL；引用只用上下文内的真实URL，区分搜索摘要与已核实事实。优先中文、结构清晰、简洁但有用。站点推荐说明匹配理由并给出原始URL。用户要求建议时，给出5-10项；日报用「日期/主题、要点、来源链接、观察与限制」结构。`;
+  const messages=[{role:'system',content:sys},...agentHistory.slice(-8).map(m=>({role:m.role,content:m.content})),{role:'user',content:agentContext(query,sites,web)}];
+  const response=await fetch(cfg.endpoint||'https://api.mosi.cn/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${cfg.key}`},body:JSON.stringify({model:cfg.model||'nex-n2.6',temperature:cfg.temperature??0.5,max_tokens:6000,messages})});
+  if(!response.ok) throw new Error(`模型服务 HTTP ${response.status}：${(await response.text()).slice(0,220)}`);
+  const data=await response.json();
+  const answer=data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '';
+  if(!answer) throw new Error('模型没有返回正文。可检查模型 Key、额度或 max_tokens。');
+  return answer.trim();
+}
+$('#agentToggle').addEventListener('click',()=>setViewMode(document.body.dataset.view==='agent'?'nav':'agent'));
+$('#heroAgentBtn')?.addEventListener('click',()=>setViewMode('agent'));
+$('#agentView').addEventListener('click',e=>{const b=e.target.closest('.agent-prompt'); if(b){$('#agentInput').value=b.dataset.prompt; $('#agentInput').focus();}});
+$('#newChatBtn').addEventListener('click',()=>{agentHistory=[];persistAgentHistory();renderAgentHistory();});
+$('#agentForm').addEventListener('submit',async e=>{
+  e.preventDefault(); const input=$('#agentInput'); const query=input.value.trim(); if(!query)return;
+  input.value=''; agentBubble('user',query); const pending=agentBubble('assistant','正在检索本站目录'+($('#agentWebSearch').checked?'并尝试联网搜索':'')+'，再请模型整理…',true);
+  try { const answer=await runAgent(query); pending.remove(); agentBubble('assistant',answer); agentHistory.push({role:'user',content:query},{role:'assistant',content:answer}); agentHistory=agentHistory.slice(-12); persistAgentHistory(); }
+  catch(err){pending.remove(); agentBubble('assistant',`处理失败：${err.message}\n\n提示：自定义模型端点须允许浏览器 CORS；联网搜索也可能因端点策略失败。若被浏览器拦截，请在可访问该 API 的 agent/server 环境调用，勿把密钥发给公共网页。`);}
+});
+renderAgentHistory();
 
 /* ───────── TOP 榜弹窗 ───────── */
 const topModal = $('#topModal');
