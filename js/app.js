@@ -554,7 +554,7 @@ async function runAgent(query) {
     try { github=await githubSearch(query); }
     catch(e) { github=[{title:'GitHub 搜索暂不可用',url:'https://github.com/search?q='+encodeURIComponent(query),content:e.message}]; }
   }
-  const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果进行站点推荐，也可综合明确标注的 Tavily 联网搜索结果与 GitHub 官方仓库搜索结果撰写报告。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期或来源；站点目录是 discovery index，不是实时验证。未提供 web results 或搜索失败时，必须明确说明没有完成联网搜索，不可声称掌握最新动态。对于主题日报，要明确日期范围、主题、摘要、重要性、原文URL；引用只用上下文内的真实URL，区分搜索摘要与已核实事实。优先中文、结构清晰、简洁但有用。站点推荐说明匹配理由并给出原始URL。用户要求建议时，给出5-10项；日报用「日期/主题、要点、来源链接、观察与限制」结构。`;
+  const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果、Tavily 联网结果和 GitHub 官方仓库搜索结果。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期、Stars 数或来源；目录是 discovery index，不是实时验证。GitHub 结果块中的仓库名、URL、Stars、语言、更新时间是本轮官方 API 查询值；只能逐字引用其中数据，不得估算/补写；若结果块为空，则明确说明未完成 GitHub 实时搜索。Tavily 块为空或搜索失败时，不得声称完成通用网络搜索。对于主题日报，明确日期范围、主题、要点、重要性、原文URL；引用只用上下文内真实URL，区分搜索摘要与已核实事实。推荐开源项目时优先给 GitHub API 返回的项目，并说明其来自本轮 GitHub 搜索；其它信息来自目录时分开标注。优先中文、结构清晰、简洁但有用。用户要求建议时给出5-10项；日报用「日期/主题、要点、来源链接、观察与限制」结构。`;
   const messages=[{role:'system',content:sys},...agentHistory.slice(-8).map(m=>({role:m.role,content:m.content})),{role:'user',content:agentContext(query,sites,web,github)}];
   const response=await fetch(cfg.endpoint||'https://api.mosi.cn/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${cfg.key}`},body:JSON.stringify({model:cfg.model||'nex-n2.6',temperature:cfg.temperature??0.5,max_tokens:6000,messages})});
   if(!response.ok) throw new Error(`模型服务 HTTP ${response.status}：${(await response.text()).slice(0,220)}`);
