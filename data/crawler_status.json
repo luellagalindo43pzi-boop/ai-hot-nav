@@ -1,7 +1,7 @@
 {
-  "crawled_at": "2026-11-23T07:48:30.392584+00:00",
+  "crawled_at": "2026-11-23T23:59:11.026836+00:00",
   "feeds_total": 34,
-  "feeds_ok": 28,
+  "feeds_ok": 29,
   "feeds": [
     {
       "name": "量子位",
@@ -12,8 +12,8 @@
     {
       "name": "钛媒体",
       "url": "https://www.tmtpost.com/rss",
-      "status": "TimeoutError: The read operation timed out",
-      "items": 0
+      "status": "ok (15)",
+      "items": 15
     },
     {
       "name": "爱范儿",
@@ -138,14 +138,14 @@
     {
       "name": "OpenAI News",
       "url": "https://openai.com/news/rss.xml",
-      "status": "ok (1422)",
-      "items": 1422
+      "status": "ok (1425)",
+      "items": 1425
     },
     {
       "name": "Hugging Face Blog",
       "url": "https://huggingface.co/blog/feed.xml",
-      "status": "ok (915)",
-      "items": 915
+      "status": "ok (916)",
+      "items": 916
     },
     {
       "name": "Lilian Weng",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 12
+  "candidates": 1
 }

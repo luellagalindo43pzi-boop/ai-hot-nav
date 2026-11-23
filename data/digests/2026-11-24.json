@@ -1,0 +1,144 @@
+{
+ "date": "2026-11-24",
+ "title": "AI热榜日报 · 2026-11-24",
+ "generated_at": "2026-11-24T07:59:53+08:00",
+ "model": "Nex N2.6 (mosi.cn)",
+ "item_count": 14,
+ "overview": "Anthropic 发布 Claude Ship，让 AI 智能体审查、修复并批准代码；谷歌推出 Gemini 4 Neon，搜索 AI Mode 接入 Drive 与 Wallet；微软 Ignite 发布七款新模型；蚂蚁阿福医疗大模型宣布开源并支持本地部署；RoboChallenge Zero 机器人评测基准发布；产业面英伟达董事会恢复黄仁勋 CEO 职务，亚马逊拟以 75 亿美元获 Decart 技术。",
+ "sections": [
+  {
+   "title": "大模型与产品",
+   "items": [
+    {
+     "title": "Anthropic 发布 Claude Ship：智能体可审代码",
+     "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+     "source": "TechCrunch AI",
+     "one_liner": "面向 AI 生成代码激增的瓶颈，Claude Ship 让智能体完成代码审查、修复到批准的闭环。",
+     "impact": "high"
+    },
+    {
+     "title": "实测：1450 亿参数端侧模型塞进笔记本，每秒 80+ Token",
+     "url": "https://www.qbitai.com/2026/11/512195.html",
+     "source": "量子位",
+     "one_liner": "国产端侧大模型实现零 Token 成本、断网可用，笔记本本地每秒狂飙 80+ Token。",
+     "impact": "high"
+    },
+    {
+     "title": "谷歌 Gemini 4 Neon 登陆 Pro，延续高频发模节奏",
+     "url": "https://www.therundown.ai/news/google-gemini-4-neon-release",
+     "source": "The Rundown AI",
+     "one_liner": "Gemini 4 Neon 上线 Pro，谷歌延续近期密集的模型发布节奏。",
+     "impact": "medium"
+    },
+    {
+     "title": "谷歌搜索 AI Mode 接入 Drive 与 Wallet",
+     "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
+     "source": "TechCrunch AI",
+     "one_liner": "Personal Intelligence 扩展到 Drive、Wallet 与 Gemini 应用，回答更个性化。",
+     "impact": "medium"
+    },
+    {
+     "title": "微软 Ignite 发布七款新模型，主打可扩展性价比",
+     "url": "https://microsoft.ai/news/microsoft-ignite-2026",
+     "source": "Microsoft AI",
+     "one_liner": "七款世界级模型以可扩展价格性能亮相，Dragon Copilot Transcribe 基于 MAI Transcribe 2。",
+     "impact": "medium"
+    },
+    {
+     "title": "神秘模型 Gestalt 现身排行榜引热议",
+     "url": "https://www.youtube.com/watch?v=6NT9TsT6iMc",
+     "source": "YouTube",
+     "one_liner": "代号 Gestalt 的隐身模型现身 Contra Frontier 榜单，据称击败 Fable 5.2。",
+     "impact": "low"
+    },
+    {
+     "title": "本周 AI 复盘：OpenAI 受挫，谷歌再赢一周",
+     "url": "https://www.youtube.com/watch?v=gxoKLsWRRxs",
+     "source": "YouTube",
+     "one_liner": "视频盘点本周要闻：OpenAI 遇挫、谷歌连续领跑，另有快速资讯串烧。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "产业·投融资·政策",
+   "items": [
+    {
+     "title": "英伟达恢复黄仁勋 CEO；亚马逊 75 亿美元获 Decart",
+     "url": "https://www.tmtpost.com/8215026.html",
+     "source": "钛媒体",
+     "one_liner": "英伟达董事会一致同意黄仁勋回归 CEO；亚马逊 75 亿美元获取 Decart 技术；荣耀阔折叠明年 3 月发布。",
+     "impact": "high"
+    },
+    {
+     "title": "算力周期更迭，存储经济性成中国规模化 AI 关键",
+     "url": "https://www.qbitai.com/2026/11/511989.html",
+     "source": "量子位",
+     "one_liner": "AI 未来依赖在数据全生命周期平衡性能、可靠性与经济性的存储架构。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "开源与GitHub",
+   "items": [
+    {
+     "title": "蚂蚁阿福同款大模型宣布开源，医生一台电脑即可用",
+     "url": "https://www.qbitai.com/2026/11/511998.html",
+     "source": "量子位",
+     "one_liner": "阿福 App 升级并开源同款大模型，全球医生一台电脑即可解锁专业医疗 AI 能力。",
+     "impact": "high"
+    },
+    {
+     "title": "蚂蚁医疗健康 AI 五连发：开源、本地部署、望闻问切",
+     "url": "https://www.qbitai.com/2026/11/512017.html",
+     "source": "量子位",
+     "one_liner": "阿福大升级：让模型像医生一样思考，覆盖开源、本地部署与中医四诊。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "学术前沿",
+   "items": [
+    {
+     "title": "RoboChallenge Zero 发布：当大模型接上真实机器人",
+     "url": "https://www.qbitai.com/2026/11/511978.html",
+     "source": "量子位",
+     "one_liner": "RoboChallenge 推出全新评测基准 RoboChallenge Zero 首期评测。",
+     "impact": "medium"
+    },
+    {
+     "title": "Agent 版 arXiv：936 个智能体 12 周发近千篇论文",
+     "url": "https://www.qbitai.com/2026/11/512004.html",
+     "source": "量子位",
+     "one_liner": "完全由 AI 组成的科学家社会运转 12 周，连同行评议都整上了。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "工具与实践",
+   "items": [
+    {
+     "title": "Richpanel 借 GPT-6 三十天自动化一半客服支持",
+     "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+     "source": "OpenAI News",
+     "one_liner": "Richpanel 用 GPT-6 Astra 与 GPT-6.1 Sol 武装 AI 客服，30 天自动化 50% 支持。",
+     "impact": "low"
+    }
+   ]
+  }
+ ],
+ "usage": {
+  "prompt_tokens": 1490,
+  "completion_tokens": 4190,
+  "total_tokens": 5680,
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 2948
+  }
+ }
+}
