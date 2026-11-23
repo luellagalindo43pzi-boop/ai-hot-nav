@@ -1,66 +1,73 @@
 {
  "date": "2026-11-23",
  "title": "AI热榜日报 · 2026-11-23",
- "generated_at": "2026-11-23T10:19:15+08:00",
+ "generated_at": "2026-11-23T10:30:12+08:00",
  "model": "Nex N2.6 (mosi.cn)",
- "item_count": 13,
- "overview": "四部门发文鼓励养老场景AI智能体、服务机器人与外骨骼；美股大跌引发AI泡沫担忧，AI服务器订单最高涨价45%；社区热传Claude证明黎曼猜想并获陶哲轩回应；优米生图推0.01元商品套图智能体；agentest v3.5登陆PyPI，开源Agent生态持续活跃。",
+ "item_count": 15,
+ "overview": "11月23日AI日报：爱范儿评测称Gemini 4体验显著提升；华为发布首款鸿蒙AI手机并推出新子品牌OSTA星芒；理想自研智驾芯片登上台积电讲台。产业侧聚焦Anthropic IPO传闻、GPT-6.2与Astra动态；LinkAGI与Hello-Code两家API中转站上线打价格战。开源社区收录2026智能体论文与15个生产级Agent项目，Google推出Tool Retrieval按需加载工具。",
  "sections": [
   {
-   "title": "产业·投融资·政策",
+   "title": "大模型与产品",
    "items": [
     {
-     "title": "四部门发文：鼓励养老场景AI智能体、服务机器人等新产品",
-     "url": "https://www.ithome.com/1/030/769.htm",
-     "source": "IT之家",
-     "one_liner": "发改委等四部门印发「一老一小」方案，支持养老机构配置智能健康设备，鼓励AI智能体、外骨骼等新产品。",
-     "impact": "high"
-    },
-    {
-     "title": "美股一夜崩盘，AI泡沫真要破了？",
-     "url": "https://www.ifanr.com/1690789?utm_source=rss&utm_medium=rss&utm_campaign=",
+     "title": "Gemini 4 持续进化，体验获评「越来越好用」",
+     "url": "https://www.ifanr.com/1690572?utm_source=rss&utm_medium=rss&utm_campaign=",
      "source": "爱范儿",
-     "one_liner": "爱范儿分析美股大跌与AI泡沫风险，探讨本轮AI行情是否已见顶及后续走向。",
+     "one_liner": "爱范儿称 Gemini 4 能力与体验显著提升，用户口碑回暖，「给 Gemini 道歉」的讨论排起队。",
      "impact": "high"
     },
     {
-     "title": "早报：曝苹果明年发iPhone 20与智能眼镜，AI服务器涨价45%",
-     "url": "https://www.ifanr.com/1690857?utm_source=rss&utm_medium=rss&utm_campaign=",
+     "title": "华为发布首款鸿蒙 AI 手机，新子品牌 OSTA 星芒亮相",
+     "url": "https://www.ifanr.com/1690642?utm_source=rss&utm_medium=rss&utm_campaign=",
      "source": "爱范儿",
-     "one_liner": "苹果被曝明年下半年发布iPhone 20与智能眼镜；AI服务器供应商交货前提价，部分订单涨幅达45%。",
+     "one_liner": "华为推出全新子品牌 OSTA 星芒及首款鸿蒙 AI 手机，并公布「增援未来计划」，主打端侧 AI 体验。",
      "impact": "high"
     },
     {
-     "title": "9年后端/AI Agent技术负责人求职，期望月薪5万+",
-     "url": "https://www.v2ex.com/t/1259023",
-     "source": "V2EX",
-     "one_liner": "9年互联网后端转型AI Agent技术负责人求职，远程优先，反映Agent方向人才需求与薪酬水平。",
+     "title": "理想自研智驾芯片登上台积电讲台",
+     "url": "https://www.ifanr.com/1690596?utm_source=rss&utm_medium=rss&utm_campaign=",
+     "source": "爱范儿",
+     "one_liner": "理想自研智驾芯片获台积电站台，目标是让用户开车时「彻底忘掉它」，强调无感智驾体验。",
+     "impact": "high"
+    },
+    {
+     "title": "Gemini Pro 订阅值不值？V2EX 热议用量与能力",
+     "url": "https://www.v2ex.com/t/1259033",
+     "source": "V2EX 最热",
+     "one_liner": "用户讨论 Gemini Pro 年费套餐 5 小时/周用量是否够用，并与 GPT 方案对比。",
+     "impact": "low"
+    },
+    {
+     "title": "MacBook Pro LED 评测：触屏只是最不起眼的升级",
+     "url": "https://www.ifanr.com/1690404?utm_source=rss&utm_medium=rss&utm_campaign=",
+     "source": "爱范儿",
+     "one_liner": "评测认为新 MacBook Pro 的触屏并非全部亮点，还有更多值得关注升级。",
      "impact": "low"
     }
    ]
   },
   {
-   "title": "大模型与产品",
+   "title": "产业·投融资·政策",
    "items": [
     {
-     "title": "早报：曝Claude证明黎曼猜想，陶哲轩回应",
-     "url": "https://www.ifanr.com/1690759?utm_source=rss&utm_medium=rss&utm_campaign=",
-     "source": "爱范儿",
-     "one_liner": "早报称Claude证明黎曼猜想、陶哲轩回应；另含华为星芒OSTA O1 Pro发布、ColorOS 17跨品牌一碰传等。",
+     "title": "每日 AI 快讯：Anthropic IPO、GPT-6.2、Astra 动态",
+     "url": "https://ai-tldr.dev/feed-media/ai-explained-anthropic-ipo-gpt-6-2-astra-nov19-05bb3215",
+     "source": "ai-tldr.dev",
+     "one_liner": "汇总 11 月 19 日 AI 大事：Anthropic 传 IPO、GPT-6.2 与 Astra 新模型，及 Google 工具检索机制。",
      "impact": "high"
     },
     {
-     "title": "优米生图：单次低至0.01元，支持商品套图智能体",
-     "url": "https://www.v2ex.com/t/1259029",
-     "source": "V2EX",
-     "one_liner": "优米生图主打商品套图智能体，支持主图、白底图、AI模特商拍与无限画布编辑，单次生图低至0.01元。",
+     "title": "LinkAGI 上线 GPT API 中转，0.08 倍率起",
+     "url": "https://www.v2ex.com/t/1259036",
+     "source": "V2EX 最热",
+     "one_liner": "LinkAGI 提供 GPT、Claude、Gemini、DeepSeek、Grok、智谱等中转，新用户可领 5 元体验额度。",
      "impact": "medium"
     },
     {
-     "title": "iPhone 18明年春天大更新，苹果AI焦虑才刚开始",
-     "url": "https://www.ifanr.com/1690832?utm_source=rss&utm_medium=rss&utm_campaign=",
-     "source": "爱范儿",
-     "one_liner": "iPhone 18预计明年春季迎来大更新；文章认为新品频出仍难消苹果的AI焦虑，AI战略面临挑战。",
+     "title": "Hello-Code 中转站上线，Grok 倍率低至 0.02x",
+     "url": "https://www.v2ex.com/t/1259031",
+     "source": "V2EX 最热",
+     "one_liner": "新中转站主打低价：Grok 0.02x、GPT 0.05x、Claude 0.06x，内置 gpt-image-2 等生图模型。",
      "impact": "medium"
     }
    ]
@@ -69,24 +76,17 @@
    "title": "开源与GitHub",
    "items": [
     {
-     "title": "开源项目v2.4.4发布：增强AI智能体、修复数据同步问题",
-     "url": "https://www.oschina.net/news/503719",
-     "source": "开源中国",
-     "one_liner": "v2.4.4修复跨库时间主键同步误判、CDC位点与时区绑定等问题，增强AI智能体并优化日志按日期管理。",
+     "title": "awesome-ai-agent-papers：2026 智能体论文精选库",
+     "url": "https://github.com/VoltAgent/awesome-ai-agent-papers",
+     "source": "github.com",
+     "one_liner": "VoltAgent 维护的 2026 年 AI 智能体论文合集，覆盖工程化、记忆、评测、工作流与自主性。",
      "impact": "medium"
     },
     {
-     "title": "企业该如何选择开源AI Agent框架？",
-     "url": "https://ibl.ai/blog/open-source-ai-agent-framework-enterprise-where-it-runs",
-     "source": "ibl.ai",
-     "one_liner": "对比主流开源Agent框架的维护方、协议、最新版本与商业平台层，为企业选型提供参考。",
-     "impact": "medium"
-    },
-    {
-     "title": "15个可用于生产环境的开源AI Agent项目盘点",
+     "title": "15 个可上生产的开源 AI 智能体项目盘点",
      "url": "https://medium.com/@unicodeveloper/15-open-source-projects-for-ai-agents-in-production-fd8a329d00da",
-     "source": "medium",
-     "one_liner": "盘点LangGraph、Pydantic等15个面向生产环境的开源AI Agent项目，覆盖框架与配套工具。",
+     "source": "medium.com",
+     "one_liner": "文章梳理 LangGraph、Pydantic AI 等开源方案，讲解状态化控制流与类型化工具的落地路径。",
      "impact": "medium"
     }
    ]
@@ -95,43 +95,52 @@
    "title": "工具与实践",
    "items": [
     {
-     "title": "agentest v3.5登陆PyPI：开源测试AI Agent真实行为",
-     "url": "https://www.courier-journal.com/press-release/story/258966/agentest-v3-5-released-on-pypi-free-open-source-tool-tests-what-ai-agents-actually-do",
-     "source": "Courier Journal",
-     "one_liner": "agentest v3.5以Apache-2.0协议登陆PyPI，支持确定性离线测试，验证AI Agent的真实行为。",
+     "title": "Google Tool Retrieval：智能体按需加载工具",
+     "url": "https://ai-tldr.dev/feed-media/ai-explained-anthropic-ipo-gpt-6-2-astra-nov19-05bb3215",
+     "source": "ai-tldr.dev",
+     "one_liner": "Gemini API 智能体仅在需要时加载工具 schema，降低上下文占用，提升调用效率。",
      "impact": "medium"
     },
     {
-     "title": "改一个字节，AI日志分析报告就露馅",
-     "url": "https://www.oschina.net/news/503713",
-     "source": "开源中国",
-     "one_liner": "通过改动一个字节让AI日志分析结论露馅，提醒模型摘要须与原始日志核对，警惕看似专业的幻觉。",
-     "impact": "medium"
-    }
-   ]
-  },
-  {
-   "title": "学术前沿",
-   "items": [
+     "title": "智能体企业新前沿：驱动高效智能",
+     "url": "https://www.infoq.cn/video/Ly5HbhY4pNMCF04abkFo?utm_source=rss&utm_medium=article",
+     "source": "InfoQ 中文",
+     "one_liner": "InfoQ 视频探讨智能体如何融入企业流程，驱动组织高效运转。",
+     "impact": "low"
+    },
     {
-     "title": "Lilian Weng长文：大语言模型的对抗攻击",
-     "url": "https://lilianweng.github.io/posts/2023-10-25-adv-attack-llm/",
-     "source": "Lilian Weng",
-     "one_liner": "Lilian Weng系统梳理针对大语言模型的对抗攻击方法与防御思路，是LLM安全领域经典长文。",
-     "impact": "medium"
+     "title": "财务团队的 AI 蓝图",
+     "url": "https://www.infoq.cn/video/UUqekkOQ8haEXZ792UjU?utm_source=rss&utm_medium=article",
+     "source": "InfoQ 中文",
+     "one_liner": "视频分享财务团队引入 AI 的规划路径与落地场景。",
+     "impact": "low"
+    },
+    {
+     "title": "打造 AI 优先的销售与营销运营体系",
+     "url": "https://www.infoq.cn/video/mihBFvImttvJlSFUqC49?utm_source=rss&utm_medium=article",
+     "source": "InfoQ 中文",
+     "one_liner": "讲解如何以 AI 为核心重构销售与营销运营流程。",
+     "impact": "low"
+    },
+    {
+     "title": "Superpower Daily：微软让 AI 智能体共享资源",
+     "url": "https://superpowerdaily.com/topics/agents",
+     "source": "superpowerdaily.com",
+     "one_liner": "智能体主题日报：微软推进多智能体共享基础设施，另有工具与发布动态汇总。",
+     "impact": "low"
     }
    ]
   }
  ],
  "usage": {
-  "prompt_tokens": 1886,
-  "completion_tokens": 4384,
-  "total_tokens": 6270,
+  "prompt_tokens": 1549,
+  "completion_tokens": 5809,
+  "total_tokens": 7358,
   "prompt_tokens_details": {
    "cached_tokens": 0
   },
   "completion_tokens_details": {
-   "reasoning_tokens": 3146
+   "reasoning_tokens": 4364
   }
  }
 }

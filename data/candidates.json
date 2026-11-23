@@ -7,7 +7,7 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864305+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487401+00:00",
   "status": "pending-review"
  },
  {
@@ -18,7 +18,7 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864334+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487429+00:00",
   "status": "pending-review"
  },
  {
@@ -29,18 +29,7 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864344+00:00",
-  "status": "pending-review"
- },
- {
-  "name": "Hacker News · 外链",
-  "url": "https://smallsf.com/",
-  "domain": "smallsf.com",
-  "title": "A miniature San Francisco with live buses, planes and boats",
-  "summary": "Comments",
-  "score": 12.6,
-  "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864353+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487439+00:00",
   "status": "pending-review"
  },
  {
@@ -51,7 +40,18 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864361+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487448+00:00",
+  "status": "pending-review"
+ },
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://smallsf.com/",
+  "domain": "smallsf.com",
+  "title": "A miniature San Francisco with live buses, planes and boats",
+  "summary": "Comments",
+  "score": 12.6,
+  "region": "global",
+  "discovered_at": "2026-11-23T02:28:33.487456+00:00",
   "status": "pending-review"
  },
  {
@@ -62,7 +62,7 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864369+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487464+00:00",
   "status": "pending-review"
  },
  {
@@ -73,7 +73,7 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864377+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487472+00:00",
   "status": "pending-review"
  },
  {
@@ -84,7 +84,7 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864389+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487480+00:00",
   "status": "pending-review"
  },
  {
@@ -95,7 +95,7 @@
   "summary": "The company behind the Claude chatbot will become one of the most valuable firms in the world.",
   "score": 12.3,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864398+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487493+00:00",
   "status": "pending-review"
  },
  {
@@ -106,7 +106,7 @@
   "summary": "A mathematician at Anthropic says he used an AI to prove the famed Riemann hypothesis, though verification will take some time.",
   "score": 11.9,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864430+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487517+00:00",
   "status": "pending-review"
  },
  {
@@ -117,7 +117,7 @@
   "summary": "Pressures weighed on US markets, with the S&P 500 and the Dow Jones Industrial Average pushed into correction territory.",
   "score": 11.9,
   "region": "global",
-  "discovered_at": "2026-11-23T02:18:19.864437+00:00",
+  "discovered_at": "2026-11-23T02:28:33.487524+00:00",
   "status": "pending-review"
  }
 ]
