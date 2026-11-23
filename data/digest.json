@@ -1,74 +1,48 @@
 {
  "date": "2026-11-23",
  "title": "AI热榜日报 · 2026-11-23",
- "generated_at": "2026-11-23T02:53:49+08:00",
+ "generated_at": "2026-11-23T10:07:11+08:00",
  "model": "Nex N2.6 (mosi.cn)",
- "item_count": 14,
- "overview": "OpenAI发布GPT-6.2 Astra与Sol，强化编程与电脑操作，但实测翻车引发争议；谷歌Gemini 4 Neon回归AI牌桌中央；Anthropic上市首日大涨17%，市值达1.27万亿美元；DeepSeek V1作者与Karpo相继开源Agent；腾讯姚顺雨回应混元4与刷榜质疑；大厂财报显示AI投入与收入模式分化。",
+ "item_count": 17,
+ "overview": "11月23日AI日报：英伟达季度营收1158亿美元、下季指引1300亿；Anthropic创纪录IPO募资约916亿美元，但Claude上市当天性能降级；OpenAI首席科学家警告AI最早2027年加速自我进化，加州将OpenAI告上法庭；小鹏图灵AI智驾落地巴黎；Gemini API上线工具检索。",
  "sections": [
   {
    "title": "大模型与产品",
    "items": [
     {
-     "title": "OpenAI发布GPT-6.2 Astra与Sol双模型",
-     "url": "http://www.geekpark.net/news/374109",
-     "source": "极客公园",
-     "one_liner": "新模型强化编程、电脑操作与专业工作能力，同日还有家用机器人与游戏行业AI争议动态。",
+     "title": "Claude上市当天突发性能降级",
+     "url": "https://www.infoq.cn/article/OPbZhT0OHL4IbZz8exvA?utm_source=rss&utm_medium=article",
+     "source": "InfoQ 中文",
+     "one_liner": "Anthropic创纪录IPO未扭转市场悲观情绪，Claude上市当天突发性能降级，万亿估值遭质疑。",
      "impact": "high"
     },
     {
-     "title": "谷歌Gemini 4 Neon发布，杀回AI牌桌中央",
-     "url": "http://www.geekpark.net/news/374196",
-     "source": "极客公园",
-     "one_liner": "Google DeepMind点亮Gemini 4 Neon，谷歌重新站上AI竞争的中央舞台。",
-     "impact": "high"
-    },
-    {
-     "title": "GPT-6.2 Astra具身任务成功率较上代翻倍",
-     "url": "https://www.qbitai.com/2026/11/511779.html",
-     "source": "量子位",
-     "one_liner": "16项任务成功率较GPT-6 Astra翻倍，并实现可变形物体操控全球首通。",
+     "title": "OpenAI最新发布遭遇差评",
+     "url": "https://www.therundown.ai/articles/openai-newest-release-lands-to-rough-reviews",
+     "source": "The Rundown AI",
+     "one_liner": "OpenAI最新发布的产品口碑遇冷，评测反应平平，另有用AI把表格变成数据故事的教程。",
      "impact": "medium"
     },
     {
-     "title": "GPT-6.2跑分狂飙实测翻车，暴露OpenAI软肋",
-     "url": "http://www.geekpark.net/news/374175",
-     "source": "极客公园",
-     "one_liner": "创业者Matt Shumer称新模型「基本不可用，不推荐」，跑分与真实体验存在落差。",
+     "title": "ChatGPT Wallet、Devin Apps与常驻Agent亮相",
+     "url": "https://tldr.tech/ai/2026-11-16",
+     "source": "TLDR AI",
+     "one_liner": "ChatGPT推出钱包功能，Devin推出Apps，always-on常驻Agent成为新趋势。",
      "impact": "medium"
     },
     {
-     "title": "姚顺雨回应混元4、算力、刷榜与RSI争议",
-     "url": "http://www.geekpark.net/news/374301",
-     "source": "极客公园",
-     "one_liner": "腾讯混元负责人详解模型路线，回应刷榜与RSI质疑，谈算力与评测的长期价值。",
+     "title": "Gemini App适配低内存安卓设备",
+     "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
+     "source": "Google AI Blog",
+     "one_liner": "Google Gemini App现已支持低内存安卓设备，进一步扩大用户覆盖面。",
      "impact": "medium"
     },
     {
-     "title": "苹果被曝自研可操控Mac的AI智能体",
-     "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
-     "source": "TechCrunch AI",
-     "one_liner": "苹果疑似正打造能操作Mac、与同类产品竞争的AI Agent。",
+     "title": "华为OSTA星芒O1 Pro评测：为AI而生的鸿蒙手机",
+     "url": "https://www.ifanr.com/1690613?utm_source=rss&utm_medium=rss&utm_campaign=",
+     "source": "爱范儿",
+     "one_liner": "星芒O1 Pro被评为一台真正面向AI的鸿蒙手机，主打端侧AI体验。",
      "impact": "low"
-    }
-   ]
-  },
-  {
-   "title": "开源与GitHub",
-   "items": [
-    {
-     "title": "DeepSeek V1作者创业项目曝光：开源Agent",
-     "url": "https://www.qbitai.com/2026/11/511570.html",
-     "source": "量子位",
-     "one_liner": "项目专为本地部署而生，主打开源Agent方向。",
-     "impact": "high"
-    },
-    {
-     "title": "Karpo反超Gemini后再开源浏览器Agent",
-     "url": "https://www.qbitai.com/2026/11/511791.html",
-     "source": "量子位",
-     "one_liner": "继反超Gemini之后，Karpo新作再度开源，浏览器Agent实现速效双赢。",
-     "impact": "medium"
     }
    ]
   },
@@ -76,25 +50,67 @@
    "title": "产业·投融资·政策",
    "items": [
     {
-     "title": "Anthropic上市市值1.27万亿美元，史上最大IPO",
-     "url": "http://www.geekpark.net/news/374235",
-     "source": "极客公园",
-     "one_liner": "上市首日收盘大涨17%；千问披露用平头哥芯片训练下一代模型，苹果被曝自研智能体。",
+     "title": "英伟达季度营收1158亿美元，下季指引1300亿",
+     "url": "https://www.tmtpost.com/8214195.html",
+     "source": "钛媒体",
+     "one_liner": "英伟达季度营收1158亿美元、下季指引1300亿美元，市场焦点转向基建支出能否转化为可量化回报。",
      "impact": "high"
     },
     {
-     "title": "拆解大厂财报：谁最舍得为AI花钱",
-     "url": "https://www.tmtpost.com/8212870.html",
+     "title": "Anthropic创纪录IPO募资约916亿美元",
+     "url": "https://www.tmtpost.com/8214195.html",
      "source": "钛媒体",
-     "one_liner": "算力、模型服务与AI工具已在四家大厂业务线中形成可辨认的收入模式。",
+     "one_liner": "Anthropic完成创纪录IPO，募资约916亿美元，但同时背负约9009亿债务负担。",
+     "impact": "high"
+    },
+    {
+     "title": "OpenAI首席科学家：AI最早2027年加速进化",
+     "url": "http://www.geekpark.net/news/374304/",
+     "source": "极客公园",
+     "one_liner": "OpenAI首席科学家警告AI最早可能在2027年加速自身发展，奥尔特曼赞同为AI开发设限。",
+     "impact": "high"
+    },
+    {
+     "title": "加州将OpenAI告上法庭",
+     "url": "https://www.therundown.ai/articles/california-takes-openai-to-court",
+     "source": "The Rundown AI",
+     "one_liner": "加州对OpenAI提起诉讼，AI监管压力升级，另附提升AI使用效率的技巧。",
+     "impact": "high"
+    },
+    {
+     "title": "OpenAI发文探讨更强AI的治理共识",
+     "url": "https://openai.com/index/the-silent-consensus",
+     "source": "OpenAI News",
+     "one_liner": "战略前瞻负责人Dean Ball探讨能力更强的AI将如何影响社会共识与治理。",
      "impact": "medium"
     },
     {
-     "title": "林俊旸创业公司估值翻倍至50亿美元",
-     "url": "http://www.geekpark.net/news/374299",
-     "source": "极客公园",
-     "one_liner": "彭博社称语用科技完成新融资；同日丁磊谈短剧冲击游戏，华为星芒发布首款阔直板手机。",
+     "title": "小鹏图灵AI智驾开放欧洲体验，首站巴黎",
+     "url": "https://www.ithome.com/1/030/755.htm",
+     "source": "IT之家",
+     "one_liner": "中国车企首次在海外门店开放城区智驾公众体验，小鹏称其为全球唯二、中国首家。",
      "impact": "medium"
+    },
+    {
+     "title": "Notable Capital、GIC等巨头押注Anthropic IPO",
+     "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+     "source": "TechCrunch AI",
+     "one_liner": "三大机构投资人分享在IPO前重仓Anthropic数十亿美元的判断依据。",
+     "impact": "medium"
+    },
+    {
+     "title": "OpenAI首席科学家谈如何限制AI发展",
+     "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+     "source": "TechCrunch AI",
+     "one_liner": "要给AI发展设置限速，首先需要就如何衡量AI能力达成一致。",
+     "impact": "medium"
+    },
+    {
+     "title": "B站开始清理「大肥鱼」泛滥",
+     "url": "http://www.geekpark.net/news/374304/",
+     "source": "极客公园",
+     "one_liner": "B站启动治理行动，清理平台上「大肥鱼」式低质AI内容泛滥问题。",
+     "impact": "low"
     }
    ]
   },
@@ -102,38 +118,48 @@
    "title": "工具与实践",
    "items": [
     {
-     "title": "达瓦科技的AI视频工业路线：重控制、轻渲染",
-     "url": "http://www.geekpark.net/news/374303",
+     "title": "Gemini API推出Tool Retrieval工具检索",
+     "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+     "source": "Google AI Blog",
+     "one_liner": "让Agent可访问数百个工具，同时显著减少token消耗。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "开源与GitHub",
+   "items": [
+    {
+     "title": "本地AI入门指南：Inkling、Qwen与Unsloth",
+     "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+     "source": "Hacker News",
+     "one_liner": "面向新手的本地AI部署指南，涵盖Inkling、Qwen模型与Unsloth微调工具。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "学术前沿",
+   "items": [
+    {
+     "title": "瘫痪患者用脑机接口玩GTA6",
+     "url": "http://www.geekpark.net/news/374304/",
      "source": "极客公园",
-     "one_liner": "针对视频生成落地难题，以可控性优先的工业化路线提升成片效率。",
-     "impact": "low"
-    },
-    {
-     "title": "Hebbia实测GPT-6 Astra提升金融研究效率",
-     "url": "https://openai.com/business/customer-stories/hebbia",
-     "source": "OpenAI News",
-     "one_liner": "预发布评估显示GPT-6 Astra在金融研究场景带来明显改进。",
-     "impact": "low"
-    },
-    {
-     "title": "盘点：能住进短信里的AI智能体",
-     "url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
-     "source": "TechCrunch AI",
-     "one_liner": "TechCrunch梳理目前最值得关注的、可运行在短信中的AI Agent清单。",
-     "impact": "low"
+     "one_liner": "瘫痪患者通过脑机接口操作GTA6，展示侵入式脑机接口的应用进展。",
+     "impact": "medium"
     }
    ]
   }
  ],
  "usage": {
-  "prompt_tokens": 1274,
-  "completion_tokens": 3646,
-  "total_tokens": 4920,
+  "prompt_tokens": 1173,
+  "completion_tokens": 3700,
+  "total_tokens": 4873,
   "prompt_tokens_details": {
    "cached_tokens": 0
   },
   "completion_tokens_details": {
-   "reasoning_tokens": 2502
+   "reasoning_tokens": 2309
   }
  }
 }

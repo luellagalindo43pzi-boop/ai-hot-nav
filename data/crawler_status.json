@@ -1,7 +1,7 @@
 {
-  "crawled_at": "2026-11-22T18:45:06.168894+00:00",
+  "crawled_at": "2026-11-23T02:06:33.927138+00:00",
   "feeds_total": 34,
-  "feeds_ok": 30,
+  "feeds_ok": 29,
   "feeds": [
     {
       "name": "量子位",
@@ -102,8 +102,8 @@
     {
       "name": "Import AI",
       "url": "https://importai.substack.com/feed",
-      "status": "ok (20)",
-      "items": 20
+      "status": "HTTP 403",
+      "items": 0
     },
     {
       "name": "TLDR AI",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 5
+  "candidates": 1
 }
