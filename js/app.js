@@ -415,8 +415,9 @@ $('#cfgSaveBtn').addEventListener('click', () => {
   const endpoint = $('#cfgEndpoint').value.trim();
   const model = $('#cfgModel').value.trim();
   const temperature = parseFloat($('#cfgTemperature').value);
-  const key = $('#cfgKey').value.trim();
-  const searchKey = $('#cfgSearchKey').value.trim();
+  const prior = loadModelCfgOverride() || {};
+  const key = $('#cfgKey').value.trim() || prior.key || '';
+  const searchKey = $('#cfgSearchKey').value.trim() || prior.searchKey || '';
   const searchEndpoint = $('#cfgSearchEndpoint').value.trim();
   if (endpoint && !/^https?:\/\/.+/.test(endpoint)) { showToast('接口地址需以 http(s):// 开头'); return; }
   const cfg = { endpoint: endpoint || 'https://api.mosi.cn/v1/chat/completions', model: model || 'nex-n2.6', temperature: isNaN(temperature) ? 0.7 : Math.min(2, Math.max(0, temperature)), searchEndpoint: searchEndpoint || 'https://api.tavily.com/search' };
