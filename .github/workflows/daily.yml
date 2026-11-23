@@ -38,5 +38,7 @@ jobs:
             echo "No data changes to commit"
           else
             git commit -m "chore(data): refresh crawl and AI digest [skip ci]"
+            # The site/docs may be updated while a crawl is running. Rebase its data-only commit before pushing.
+            git pull --rebase origin main
             git push
           fi
