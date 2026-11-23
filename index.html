@@ -263,16 +263,25 @@
       <dl class="cfg-readonly">
         <div class="cfg-row"><dt>供应商</dt><dd>mosi.cn（OpenAI 兼容协议）</dd></div>
         <div class="cfg-row"><dt>接口地址</dt><dd class="mono">https://api.mosi.cn/v1/chat/completions</dd></div>
-        <div class="cfg-row"><dt>默认模型</dt><dd class="mono">Nex N2.6 · <span class="cfg-dim">nex-n2.6（nex-n2.6-2026-11-05）</span></dd></div>
+        <div class="cfg-row"><dt>主模型</dt><dd class="mono">Nex N2.6 · <span class="cfg-dim">nex-n2.6（mosi.cn）</span></dd></div>
+        <div class="cfg-row"><dt>候选回退</dt><dd class="mono">Agnes AI · agnes-2.5-flash（APIHub）</dd></div>
         <div class="cfg-row"><dt>采样参数</dt><dd class="mono">temperature 0.7 · max_tokens 2400 → 日报生成 6500（Nex 推理链占用额度）</dd></div>
         <div class="cfg-row"><dt>密钥</dt><dd><span class="key-ok">✓ 已配置</span> 通过 GitHub Actions Secret <code>MODEL_API_KEY</code> 注入服务端，<b>不会下发到浏览器</b></dd></div>
         <div class="cfg-row"><dt>上次生成</dt><dd id="cfgLastGen">—</dd></div>
       </dl>
 
+      <h4 class="cfg-section">选择服务预设（密钥单独输入，保存后智能体使用）</h4>
+      <label class="cfg-field"><span>服务预设</span>
+        <select id="cfgPreset" class="cfg-select">
+          <option value="mosi">默认 · mosi.cn / Nex N2.6</option>
+          <option value="agnes">候选 · APIHub Agnes AI / agnes-2.5-flash</option>
+          <option value="custom">自定义 OpenAI 兼容服务</option>
+        </select>
+      </label>
       <h4 class="cfg-section">自定义模型服务（仅保存于本浏览器，不影响他人）</h4>
       <div class="cfg-form">
-        <label class="cfg-field"><span>接口地址（chat/completions 完整 URL）</span>
-          <input id="cfgEndpoint" type="url" placeholder="https://api.mosi.cn/v1/chat/completions" spellcheck="false" autocomplete="off" />
+        <label class="cfg-field"><span>接口地址（填完整 URL 或 /v1 基础地址，自动补全 chat/completions）</span>
+          <input id="cfgEndpoint" type="url" placeholder="https://apihub.agnes-ai.com/v1" spellcheck="false" autocomplete="off" />
         </label>
         <div class="cfg-grid">
           <label class="cfg-field"><span>模型名</span>
@@ -301,8 +310,8 @@
       </div>
 
       <p class="cfg-note">
-        说明：本站为纯静态页面、无后端。自定义配置只写入你浏览器的 localStorage（键 <code>aihn_model_cfg</code>），
-        不会发送到本站任何服务器，也不影响 CI 生成日报时使用的默认服务端配置。模型及联网搜索密钥均由浏览器直接发送给你填写的第三方服务；第三方的 CORS、条款与数据处理规则适用。联网搜索需用户自行提供 Tavily 密钥。
+        操作：选服务预设 → 输入该服务自己的 API Key → 点「测试连接」确认返回 OK → 点「保存并启用」后智能体才能使用。填 `/v1` 基础地址会自动补全 `/chat/completions`。
+        本站是纯静态页，无后端。自定义配置和密钥只存浏览器 localStorage，不发送到本站，也不影响 CI 服务端配置；浏览器会把密钥直接发给你填写的模型商。联网搜索需你自行填 Tavily Key。
         任何 OpenAI 兼容端点（DeepSeek / 通义千问 / 月之暗面 / OpenAI / 本地 vLLM…）均可填入。
       </p>
     </div>

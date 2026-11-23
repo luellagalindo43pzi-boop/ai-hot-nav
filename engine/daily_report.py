@@ -87,6 +87,8 @@ sections 分3-5个板块（大模型与产品 / 开源与GitHub / 学术前沿 /
         try:
             result = chat_json(messages, cfg=cfg, max_tokens=6500, temperature=0.3)
             result["_usage"] = result.get("_usage", {})
+            if result.get("_model"):
+                result["_model"] = "Agnes AI · agnes-2.5-flash" if "agnes" in result["_model"].lower() else (cfg.get("model_display") or cfg.get("model"))
             return result
         except Exception as e:  # noqa: BLE001
             last_err = e
@@ -115,6 +117,7 @@ def fallback_digest(items, reason):
 
 
 def write_digests(digest, model_label, cfg):
+    model_label = digest.get("_model") or model_label
     date_str = datetime.now(TZ).strftime("%Y-%m-%d")
     out = {
         "date": date_str,

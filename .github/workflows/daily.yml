@@ -39,6 +39,7 @@ jobs:
       - name: Crawl, review, merge and generate digest
         env:
           MODEL_API_KEY: ${{ secrets.MODEL_API_KEY }}
+          MODEL_API_KEY_AGNES: ${{ secrets.MODEL_API_KEY_AGNES }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           DIGEST_TOPIC: ${{ inputs.topic || 'AI' }}
           DIGEST_DAYS: ${{ inputs.days || '2' }}

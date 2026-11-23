@@ -4,6 +4,7 @@
 API Key 仅通过环境变量 MODEL_API_KEY 注入，绝不落盘。
 环境变量可覆盖任意默认项：
   MODEL_BASE_URL · MODEL_API_KEY · MODEL_NAME · MODEL_TEMPERATURE · MODEL_MAX_TOKENS
+  MODEL_API_KEY_AGNES (optional secondary fallback) · MODEL_AGNES_BASE_URL · MODEL_AGNES_NAME
 """
 import json
 import re
@@ -30,6 +31,19 @@ def load_config():
     if os.environ.get("MODEL_MAX_TOKENS"):
         cfg["max_tokens"] = int(os.environ["MODEL_MAX_TOKENS"])
     cfg["api_key"] = os.environ.get("MODEL_API_KEY", "")
+    # Secondary provider is enabled only when its private Actions/environment secret exists.
+    configured_fallbacks = cfg.get("fallbacks", [])
+    active_fallbacks = []
+    for fallback in configured_fallbacks:
+        key = os.environ.get(fallback.get("api_key_env", ""), "")
+        if key:
+            active_fallbacks.append({
+                **fallback,
+                "base_url": os.environ.get("MODEL_AGNES_BASE_URL", fallback["base_url"]),
+                "model": os.environ.get("MODEL_AGNES_NAME", fallback["model"]),
+                "api_key": key,
+            })
+    cfg["fallbacks"] = active_fallbacks
     return cfg
 
 
@@ -62,7 +76,10 @@ def chat_completion(messages, cfg=None, temperature=None, max_tokens=None, timeo
         try:
             with urllib.request.urlopen(req, timeout=timeout) as resp:
                 payload = json.loads(resp.read().decode("utf-8"))
-            content = payload["choices"][0]["message"].get("content") or ""
+            message = payload["choices"][0]["message"]
+            content = message.get("content") or ""
+            if not content.strip():
+                raise RuntimeError("模型响应成功但 content 为空（推理链可能耗尽输出额度）")
             return content.strip(), payload
         except urllib.error.HTTPError as e:
             detail = e.read().decode("utf-8", errors="replace")[:500]
@@ -74,6 +91,14 @@ def chat_completion(messages, cfg=None, temperature=None, max_tokens=None, timeo
             last_err = f"{type(e).__name__}: {e}"
         if attempt <= int(cfg.get("retries", 2)):
             time.sleep(2 * attempt)
+    # If primary provider fails (including empty response), try configured private fallbacks.
+    for fallback in cfg.get("fallbacks", []):
+        alt_cfg = {**cfg, **fallback, "fallbacks": []}
+        print(f"[model] 主模型不可用，切换候选服务：{alt_cfg.get('model_display', alt_cfg['model'])}")
+        try:
+            return chat_completion(messages, cfg=alt_cfg, temperature=temperature, max_tokens=max_tokens, timeout=timeout)
+        except Exception as fallback_err:  # noqa: BLE001
+            last_err = f"primary={last_err}; fallback={fallback_err}"
     raise RuntimeError(f"模型服务调用失败（{cfg['base_url']}）：{last_err}")
 
 
@@ -100,4 +125,5 @@ def chat_json(messages, cfg=None, **kwargs):
         # 粗暴修复：把中文引号还原法不可靠，直接报原始错误便于重试
         raise RuntimeError(f"JSON解析失败：{body[:300]}")
     parsed["_usage"] = (raw or {}).get("usage", {})
+    parsed["_model"] = (raw or {}).get("model", "")
     return parsed

@@ -391,6 +391,11 @@ fetch('data/digests/index.json', { cache: 'no-store' }).then(r => r.ok ? r.json(
 /* ───────── 模型服务配置（本浏览器级覆盖 + 测试连接） ───────── */
 const MODEL_CFG_KEY = 'aihn_model_cfg';
 const modelModal = $('#modelModal');
+function normalizeChatEndpoint(value) {
+  let u = String(value || '').trim().replace(/\/$/, '');
+  if (/\/v1$/i.test(u)) u += '/chat/completions';
+  return u;
+}
 
 function loadModelCfgOverride() {
   try { return JSON.parse(localStorage.getItem(MODEL_CFG_KEY) || 'null'); } catch { return null; }
@@ -399,6 +404,7 @@ function fillModelForm() {
   const o = loadModelCfgOverride() || {};
   $('#cfgEndpoint').value = o.endpoint || 'https://api.mosi.cn/v1/chat/completions';
   $('#cfgModel').value = o.model || 'nex-n2.6';
+  $('#cfgPreset').value = o.preset || (o.model === 'agnes-2.5-flash' ? 'agnes' : (o.endpoint && !o.endpoint.includes('mosi.cn') ? 'custom' : 'mosi'));
   $('#cfgTemperature').value = o.temperature != null ? o.temperature : '0.7';
   $('#cfgKey').value = ''; // 不回填模型密钥
   $('#cfgSearchKey').value = ''; // 搜索 Key 也不回填
@@ -410,9 +416,15 @@ function closeModelModal() { modelModal.hidden = true; document.body.style.overf
 $('#modelBtn').addEventListener('click', openModelModal);
 $('#closeModelModal').addEventListener('click', closeModelModal);
 modelModal.addEventListener('click', e => { if (e.target === modelModal) closeModelModal(); });
+$('#cfgPreset').addEventListener('change', () => {
+  const v=$('#cfgPreset').value;
+  if(v==='mosi'){ $('#cfgEndpoint').value='https://api.mosi.cn/v1/chat/completions'; $('#cfgModel').value='nex-n2.6'; }
+  else if(v==='agnes'){ $('#cfgEndpoint').value='https://apihub.agnes-ai.com/v1/chat/completions'; $('#cfgModel').value='agnes-2.5-flash'; }
+  else { $('#cfgEndpoint').focus(); $('#cfgModel').focus(); }
+});
 
 $('#cfgSaveBtn').addEventListener('click', () => {
-  const endpoint = $('#cfgEndpoint').value.trim();
+  const endpoint = normalizeChatEndpoint($('#cfgEndpoint').value.trim());
   const model = $('#cfgModel').value.trim();
   const temperature = parseFloat($('#cfgTemperature').value);
   const prior = loadModelCfgOverride() || {};
@@ -420,7 +432,7 @@ $('#cfgSaveBtn').addEventListener('click', () => {
   const searchKey = $('#cfgSearchKey').value.trim() || prior.searchKey || '';
   const searchEndpoint = $('#cfgSearchEndpoint').value.trim();
   if (endpoint && !/^https?:\/\/.+/.test(endpoint)) { showToast('接口地址需以 http(s):// 开头'); return; }
-  const cfg = { endpoint: endpoint || 'https://api.mosi.cn/v1/chat/completions', model: model || 'nex-n2.6', temperature: isNaN(temperature) ? 0.7 : Math.min(2, Math.max(0, temperature)), searchEndpoint: searchEndpoint || 'https://api.tavily.com/search' };
+  const cfg = { preset: $('#cfgPreset').value, endpoint: endpoint || 'https://api.mosi.cn/v1/chat/completions', model: model || 'nex-n2.6', temperature: isNaN(temperature) ? 0.7 : Math.min(2, Math.max(0, temperature)), searchEndpoint: searchEndpoint || 'https://api.tavily.com/search' };
   if (key) cfg.key = key; // 仅存浏览器
   if (searchKey) cfg.searchKey = searchKey; // 仅存浏览器
   localStorage.setItem(MODEL_CFG_KEY, JSON.stringify(cfg));
@@ -437,7 +449,7 @@ $('#cfgResetBtn').addEventListener('click', () => {
 
 $('#cfgTestBtn').addEventListener('click', async () => {
   const saved = loadModelCfgOverride() || {};
-  const endpoint = $('#cfgEndpoint').value.trim() || saved.endpoint || 'https://api.mosi.cn/v1/chat/completions';
+  const endpoint = normalizeChatEndpoint($('#cfgEndpoint').value.trim() || saved.endpoint || 'https://api.mosi.cn/v1/chat/completions');
   const model = $('#cfgModel').value.trim() || saved.model || 'nex-n2.6';
   const temperature = parseFloat($('#cfgTemperature').value);
   const key = $('#cfgKey').value.trim() || saved.key || '';
@@ -456,7 +468,7 @@ $('#cfgTestBtn').addEventListener('click', async () => {
     const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` },
-      body: JSON.stringify({ model, temperature: isNaN(temperature) ? 0.3 : temperature, max_tokens: 32, messages: [{ role: 'user', content: 'Reply with exactly: OK' }] }),
+      body: JSON.stringify({ model, temperature: isNaN(temperature) ? 0.3 : temperature, max_tokens: 256, messages: [{ role: 'user', content: 'Reply with exactly: OK' }] }),
       signal: controller.signal,
     });
     clearTimeout(timer);
@@ -464,8 +476,10 @@ $('#cfgTestBtn').addEventListener('click', async () => {
     const raw = await res.text();
     if (!res.ok) throw new Error(`HTTP ${res.status}：${raw.slice(0, 200)}`);
     const data = JSON.parse(raw);
-    const reply = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || '').trim();
-    resultEl.textContent = `✓ 连接成功 · ${dt} ms · 模型回复：${reply.slice(0, 120) || '(空内容，可能被推理链 token 占满，加大 max_tokens 即可)'}`;
+    const choice = data.choices && data.choices[0] || {};
+    const msg = choice.message || {};
+    const reply = String(msg.content || msg.reasoning_content || '').trim();
+    resultEl.textContent = `✓ 连接成功 · ${data.model || model} · ${dt} ms · 模型回复：${reply.slice(0, 120) || '(已连通，但模型没有返回文本；请检查模型名/额度)'}${choice.finish_reason ? ` · finish=${choice.finish_reason}` : ''}`;
     resultEl.className = 'cfg-test-result ok';
   } catch (e) {
     const dt = Math.round(performance.now() - t0);

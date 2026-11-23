@@ -32,7 +32,7 @@ DIGEST_TOPIC='AI Agent 与开源框架' DIGEST_DAYS=3 python3 engine/run.py all
   "model_display": "Nex N2.6 (mosi.cn)", "temperature": 0.7, "max_tokens": 2400 }
 ```
 
-环境变量覆盖任意项：`MODEL_BASE_URL` `MODEL_NAME` `MODEL_API_KEY` `MODEL_TEMPERATURE` `MODEL_MAX_TOKENS`。
+环境变量覆盖任意项：`MODEL_BASE_URL` `MODEL_NAME` `MODEL_API_KEY` `MODEL_TEMPERATURE` `MODEL_MAX_TOKENS`。备选模型为 APIHub `agnes-2.5-flash`，通过 `MODEL_API_KEY_AGNES` Secret 启用；主服务失败（包括空正文）时自动回退，日报中标注实际服务商。
 任何 OpenAI 兼容服务（DeepSeek / 通义 / 月之暗面 / OpenAI / 本地 vLLM…）只需替换上述变量即可，无需改代码。
 
 ## 安全说明
