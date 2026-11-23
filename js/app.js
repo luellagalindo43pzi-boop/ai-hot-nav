@@ -494,10 +494,21 @@ const AGENT_HISTORY_KEY = 'aihn_agent_history';
 let agentHistory = [];
 try { agentHistory = JSON.parse(sessionStorage.getItem(AGENT_HISTORY_KEY) || '[]'); } catch { agentHistory = []; }
 function persistAgentHistory() { try { sessionStorage.setItem(AGENT_HISTORY_KEY, JSON.stringify(agentHistory.slice(-12))); } catch {} }
+function agentMarkdownHtml(text) {
+  const esc=s=>String(s??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
+  const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,'<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>').replace(/(^|\s)(https?:\/\/[^\s<]+)/g,'$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>');
+  const lines=String(text||'').split('\n');let out=[],list=false;
+  for(const line of lines){const x=line.trim();if(!x){if(list){out.push('</ul>');list=false;}continue;}
+    const h=x.match(/^(#{1,4})\s+(.*)$/);if(h){if(list){out.push('</ul>');list=false;}const n=Math.min(4,h[1].length+1);out.push(`<h${n}>${inline(h[2])}</h${n}>`);continue;}
+    const li=x.match(/^(?:[-*] |\d+\. )(.*)$/);if(li){if(!list){out.push('<ul>');list=true;}out.push(`<li>${inline(li[1])}</li>`);continue;}
+    if(list){out.push('</ul>');list=false;}out.push(`<p>${inline(x)}</p>`);
+  }
+  if(list)out.push('</ul>');return out.join('');
+}
 function agentBubble(role, text, pending=false) {
   const el = document.createElement('div'); el.className = `agent-message ${role}` + (pending ? ' pending' : '');
   const who = document.createElement('b'); who.textContent = role === 'user' ? '你' : 'AI 助手';
-  const body = document.createElement('div'); body.textContent = text;
+  const body = document.createElement('div'); if(role==='assistant'&&!pending)body.innerHTML=agentMarkdownHtml(text);else body.textContent=text;
   el.append(who, body); $('#agentMessages').append(el); $('#agentMessages').scrollTop = $('#agentMessages').scrollHeight; return el;
 }
 function renderAgentHistory() {
@@ -541,9 +552,78 @@ function agentContext(query, sites, web, github) {
   const g=(github||[]).map((x,i)=>`[GitHub ${i+1}] ${x.title} | ${x.content}\nURL: ${x.url}`).join('\n');
   return `用户请求：${query}\n\n本站目录检索 Top ${sites.length}（仅代表目录匹配及热度质量，不代表网页已实时验证）：\n${s||'无匹配项'}\n\nTavily 联网搜索结果（只有本段非空时才可称完成通用网络搜索；逐条保留URL）：\n${w||'本轮未获得Tavily联网搜索结果。'}\n\nGitHub 官方仓库搜索结果（独立实时搜索，数据可能受 GitHub 限流影响）：\n${g||'本轮未搜索 GitHub 仓库。'}\n\n最新站内日报（可选上下文）：\n${latest||'未加载'}`;
 }
+let lastAgentReport=null;
+const AGENT_MODE_NAMES={auto:'自动判断',recommend:'站点推荐',research:'研究简报',daily:'主题日报',weekly:'周报',compare:'方案对比'};
+function localDateString(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function reportDateWindow(days){const end=new Date();const start=new Date(end);start.setDate(end.getDate()-Math.max(0,Number(days)-1));return `${localDateString(start)} 至 ${localDateString(end)}`;}
+function resolveAgentMode(query){
+  const selected=$('#agentMode').value;
+  if(selected!=='auto')return selected;
+  if(/周报|weekly|过去.{0,4}7天/i.test(query))return 'weekly';
+  if(/日报|简报|briefing|digest|周报/i.test(query))return 'daily';
+  if(/对比|比较|vs\b|versus/i.test(query))return 'compare';
+  if(/推荐|有哪些|找.{0,4}(站|工具|项目)|推荐/i.test(query))return 'recommend';
+  if(/研究|调研|综述|分析/i.test(query))return 'research';
+  return 'auto';
+}
+function modeInstructions(mode,range){
+  if(mode==='daily'||mode==='weekly')return `\n\n【指定报告输出模式：${mode==='weekly'?'周报':'主题日报'}】\n时间范围：${range}。严格只输出一个合法JSON对象，不要Markdown代码围栏。Schema：{"title":"报告标题","topic":"主题","date_range":"${range}","summary":"150字以内摘要","sections":[{"title":"板块","items":[{"title":"要点标题","summary":"事实摘要，注明日期/数字需来自搜索材料","impact":"high|medium|low","source":"来源名","url":"只能逐字复制本轮上下文里出现的URL"}]}],"takeaways":["结论"],"caveats":["限制/未核验事项"]}。板块2-5个；要点4-12条；每条只用上下文已有来源URL。没有联网搜索结果时必须写入caveats，明确这是基于站内目录/已发布日报的整理，不能杜撰时间范围内的新事件。若缺少足够材料，直说材料不足，不补造。`;
+  if(mode==='recommend')return '\n\n【站点推荐模式】给出5-10项，分组，逐项写匹配理由、适用场景、分类和上下文里的原始URL；目录排名是热度/质量参考，不代表站点内容实时核验。';
+  if(mode==='compare')return '\n\n【对比模式】先给结论，再用 Markdown 表格按用途、优势、限制、价格/部署（仅在上下文支持时）和来源链接对比；未知字段写“未核实”，不要猜。';
+  if(mode==='research')return '\n\n【研究简报模式】按问题定义、发现、证据与来源、影响、未知项组织；每项事实附上下文中的来源URL，区分事实、推断与建议。';
+  return '\n\n【自动模式】先判别用户是要推荐、研究、比较还是日报。涉及最新事实时必须以实际联网结果为依据；未搜索到则明确说明。';
+}
+function parseReportJson(text){
+  let t=String(text||'').trim().replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'');
+  const a=t.indexOf('{'),b=t.lastIndexOf('}');if(a<0||b<=a)return null;
+  try{const v=JSON.parse(t.slice(a,b+1));return v&&Array.isArray(v.sections)?v:null;}catch{return null;}
+}
+function normalizeReport(report,allowedUrls,mode,range){
+  report.title=String(report.title||`${report.topic||'AI'}${mode==='weekly'?'周报':'主题日报'}`).slice(0,160);
+  report.topic=String(report.topic||'AI 主题').slice(0,120);report.date_range=String(report.date_range||range);
+  report.summary=String(report.summary||'');report.sections=report.sections.slice(0,8);report.takeaways=Array.isArray(report.takeaways)?report.takeaways.slice(0,12):[];report.caveats=Array.isArray(report.caveats)?report.caveats.slice(0,12):[];
+  const allowed=new Set(allowedUrls.map(normalizeSourceUrl));let rejected=0;
+  report.sections=report.sections.map(sec=>({title:String(sec.title||'要点').slice(0,100),items:(Array.isArray(sec.items)?sec.items:[]).slice(0,30).map(it=>{
+    const item={title:String(it.title||'未命名要点').slice(0,180),summary:String(it.summary||it.one_liner||'').slice(0,1200),impact:['high','medium','low'].includes(it.impact)?it.impact:'medium',source:String(it.source||'').slice(0,120),url:String(it.url||'').trim()};
+    if(item.url&&!allowed.has(normalizeSourceUrl(item.url))){item.url='';item.citation_status='本轮搜索结果未包含此链接';rejected++;}
+    return item;
+  })}));
+  if(rejected)report.caveats.push(`${rejected} 条模型提供的链接不在本轮检索来源中，已移除并标注，发布前请核对。`);
+  return report;
+}
+function normalizeSourceUrl(u){try{const x=new URL(u);return (x.origin+x.pathname+x.search).replace(/\/$/,'').toLowerCase();}catch{return String(u).trim().toLowerCase();}}
+function reportToMarkdown(r){
+  const out=[`# ${r.title}`,``,`**主题：** ${r.topic}  `,`**时间范围：** ${r.date_range}`,``,`## 摘要`,``,r.summary||'（无摘要）'];
+  for(const sec of r.sections||[]){out.push('',`## ${sec.title}`,'');for(const it of sec.items||[]){out.push(`- **${it.title}**${it.impact?` _[${it.impact}]_`:''}：${it.summary||''}`);if(it.url)out.push(`  - 来源：${it.source||'原文'} — ${it.url}`);else if(it.citation_status)out.push(`  - 来源状态：${it.citation_status}`);}}
+  if(r.takeaways?.length)out.push('','## 结论','',...r.takeaways.map(x=>`- ${x}`));if(r.caveats?.length)out.push('','## 说明与局限','',...r.caveats.map(x=>`- ${x}`));return out.join('\n');
+}
+function downloadFile(name,content,mime){const blob=new Blob([content],{type:mime});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1200);}
+function reportFilename(ext){const base=(lastAgentReport?.report?.topic||'AI日报').toLowerCase().replace(/[^\w\u3400-\u9fff-]+/g,'-').replace(/^-|-$/g,'').slice(0,48)||'AI-report';return `ai-hot-nav-${base}-${localDateString()}.${ext}`;}
+function reportRows(r){return (r.sections||[]).flatMap(sec=>(sec.items||[]).map(x=>({section:sec.title,...x})));}
+function reportSources(r){return reportRows(r).filter(x=>x.url);}
+function exportAgentReport(format){
+  const payload=lastAgentReport;if(!payload)return;const r=payload.report;const md=reportToMarkdown(r);const rows=reportRows(r);const sources=rows.filter(x=>x.url);let content,mime,ext=format;
+  if(format==='md'){content=md;mime='text/markdown;charset=utf-8';}
+  else if(format==='txt'){content=md.replace(/^#{1,6}\s/gm,'').replace(/\*\*(.*?)\*\*/g,'$1').replace(/\[(.*?)\]\((.*?)\)/g,'$1 ($2)');mime='text/plain;charset=utf-8';}
+  else if(format==='json'){content=JSON.stringify({...r,generated_at:new Date().toISOString(),sources},null,2);mime='application/json;charset=utf-8';}
+  else if(format==='csv'){
+    const fields=['section','title','summary','impact','source','url'];const quote=x=>'"'+String(x??'').replace(/"/g,'""')+'"';
+    content=String.fromCharCode(0xFEFF)+[fields.join(','),...rows.map(x=>fields.map(k=>quote(x[k])).join(','))].join('\r\n');mime='text/csv;charset=utf-8';
+  } else if(format==='html'){
+    const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const sections=(r.sections||[]).map(s=>`<section><h2>${esc(s.title)}</h2><ul>${(s.items||[]).map(i=>`<li><b>${esc(i.title)}</b> <span>${esc(i.impact||'')}</span><p>${esc(i.summary)}</p>${i.url?`<a href="${esc(i.url)}">${esc(i.source||i.url)}</a>`:''}</li>`).join('')}</ul></section>`).join('');
+    content=`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${esc(r.title)}</title><style>body{font:16px/1.7 system-ui,sans-serif;max-width:900px;margin:40px auto;padding:0 22px;color:#202124}h1,h2{color:#1a73e8}li{margin:14px 0}a{color:#1a73e8}small,.meta{color:#5f6368}</style><h1>${esc(r.title)}</h1><p class="meta">${esc(r.topic)} · ${esc(r.date_range)}</p><p>${esc(r.summary)}</p>${sections}<h2>结论</h2><ul>${(r.takeaways||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h2>说明与局限</h2><ul>${(r.caveats||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul><small>AI Hot Nav 导出；请以原始来源为准。</small></html>`;mime='text/html;charset=utf-8';
+  } else return;
+  downloadFile(reportFilename(ext),content,mime);showToast(`${ext.toUpperCase()} 日报已导出`);
+}
+$('#agentMode').addEventListener('change',()=>{$('#agentRangeWrap').hidden=!['daily','weekly'].includes($('#agentMode').value);});
+$('#agentExport').addEventListener('click',e=>{const b=e.target.closest('[data-export]');if(b)exportAgentReport(b.dataset.export);});
+
 async function runAgent(query) {
   const cfg=loadModelCfgOverride()||{};
   if (!cfg.key) throw new Error('请先点击 ⚙ 模型配置，填入并保存你自己的模型 API Key。本站不会向浏览器提供服务端密钥。');
+  const mode=resolveAgentMode(query);const days=Number($('#agentRange').value||7);const range=reportDateWindow(days);
+  $('#agentRangeWrap').hidden=!['daily','weekly'].includes(mode);
   const sites=retrieveSites(query,14);
   let web={}, github=[];
   if ($('#agentWebSearch').checked && cfg.searchKey) {
@@ -554,21 +634,35 @@ async function runAgent(query) {
     try { github=await githubSearch(query); }
     catch(e) { github=[{title:'GitHub 搜索暂不可用',url:'https://github.com/search?q='+encodeURIComponent(query),content:e.message}]; }
   }
-  const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果、Tavily 联网结果和 GitHub 官方仓库搜索结果。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期、Stars 数或来源；目录是 discovery index，不是实时验证。GitHub 结果块中的仓库名、URL、Stars、语言、更新时间是本轮官方 API 查询值；只能逐字引用其中数据，不得估算/补写；若结果块为空，则明确说明未完成 GitHub 实时搜索。Tavily 块为空或搜索失败时，不得声称完成通用网络搜索。对于主题日报，明确日期范围、主题、要点、重要性、原文URL；引用只用上下文内真实URL，区分搜索摘要与已核实事实。推荐开源项目时优先给 GitHub API 返回的项目，并说明其来自本轮 GitHub 搜索；其它信息来自目录时分开标注。优先中文、结构清晰、简洁但有用。用户要求建议时给出5-10项；日报用「日期/主题、要点、来源链接、观察与限制」结构。`;
-  const messages=[{role:'system',content:sys},...agentHistory.slice(-8).map(m=>({role:m.role,content:m.content})),{role:'user',content:agentContext(query,sites,web,github)}];
+  const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果、Tavily 联网结果和 GitHub 官方仓库搜索结果。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期、Stars 数或来源；目录是 discovery index，不是实时验证。GitHub 结果块中的仓库名、URL、Stars、语言、更新时间是本轮官方 API 查询值；只能逐字引用其中数据，不得估算/补写；若结果块为空，则明确说明未完成 GitHub 实时搜索。Tavily 块为空或搜索失败时，不得声称完成通用网络搜索。所有日报来源链接必须精确引用本轮上下文 URL；找不到匹配URL的要点可写事实但标为未核验并留空URL。区分搜索摘要、事实与推断。用户指定的回复模式必须遵循：${AGENT_MODE_NAMES[mode]}。${modeInstructions(mode,range)}\n当前日期（浏览器本地）：${localDateString()}。`;
+  const contextQuery=`${query}\n[响应模式=${AGENT_MODE_NAMES[mode]}；日期范围=${range}；日期以搜索源原文时间为准]`;
+  const messages=[{role:'system',content:sys},...agentHistory.slice(-8).map(m=>({role:m.role,content:m.content})),{role:'user',content:agentContext(contextQuery,sites,web,github)}];
   const endpoint=normalizeChatEndpoint(cfg.endpoint||'https://api.mosi.cn/v1/chat/completions');
   let response;
   try {
-    response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${cfg.key}`},body:JSON.stringify({model:cfg.model||'nex-n2.6',temperature:cfg.temperature??0.5,max_tokens:6000,messages})});
+    response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${cfg.key}`},body:JSON.stringify({model:cfg.model||'nex-n2.6',temperature:cfg.temperature??0.5,max_tokens:7000,messages})});
   } catch(e) {
     if(e instanceof TypeError) throw new Error(`模型接口网络/CORS 请求被浏览器拦截：${endpoint}。请检查当前选中的服务、网络插件/广告拦截，或先在「模型配置」点测试连接；本次未发送到本站服务器。`);
     throw e;
   }
   if(!response.ok) throw new Error(`模型服务 HTTP ${response.status}：${(await response.text()).slice(0,220)}`);
   const data=await response.json();
-  const answer=data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '';
+  const answer=String(data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '').trim();
   if(!answer) throw new Error('模型没有返回正文。可检查模型 Key、额度或 max_tokens。');
-  return answer.trim();
+  if(mode==='daily'||mode==='weekly'){
+    const latestUrls=(window.__LATEST_DIGEST?.sections||[]).flatMap(s=>(s.items||[]).map(i=>i.url).filter(Boolean));
+    const sourceUrls=[...sites.map(x=>x.url),...(web.results||[]).map(x=>x.url),...github.map(x=>x.url),...latestUrls];
+    const report=parseReportJson(answer);
+    if(report){
+      lastAgentReport={report:normalizeReport(report,sourceUrls,mode,range),raw:answer,mode};
+      return {text:reportToMarkdown(lastAgentReport.report),report:lastAgentReport.report,mode};
+    }
+    const urls=[...new Set((answer.match(/https?:\/\/[^\s<>\"，。]+/g)||[]).filter(u=>sourceUrls.some(x=>normalizeSourceUrl(x)===normalizeSourceUrl(u))))];
+    const fallback={title:`${query} · ${mode==='weekly'?'周报':'主题日报'}`,topic:query,date_range:range,summary:answer,sections:[{title:'模型回复',items:urls.map(url=>({title:new URL(url).hostname,summary:'原始来源链接（模型文本未能解析为结构化日报）。',impact:'medium',source:new URL(url).hostname,url}))}],takeaways:[],caveats:['模型未返回预期 JSON；此导出保留原始回复与上下文中匹配到的来源链接。']};
+    lastAgentReport={report:fallback,raw:answer,mode};
+    return {text:answer+'\n\n（提示：本次未能解析为结构化日报；仍可导出原文和检索到的链接。）',report:fallback,mode};
+  }
+  return {text:answer,report:null,mode};
 }
 $('#agentToggle').addEventListener('click',()=>setViewMode(document.body.dataset.view==='agent'?'nav':'agent'));
 $('#heroAgentBtn')?.addEventListener('click',()=>setViewMode('agent'));
@@ -581,7 +675,7 @@ $('#agentForm').addEventListener('submit',async e=>{
   if($('#agentWebSearch').checked && savedCfg.searchKey) tasks.push('Tavily 网页');
   if($('#agentWebSearch').checked && /github|开源|仓库|repo|框架|项目|agent|智能体/i.test(query)) tasks.push('GitHub 仓库');
   const pending=agentBubble('assistant',`正在检索：${tasks.join(' + ')}，再请模型整理…`,true);
-  try { const answer=await runAgent(query); pending.remove(); agentBubble('assistant',answer); agentHistory.push({role:'user',content:query},{role:'assistant',content:answer}); agentHistory=agentHistory.slice(-12); persistAgentHistory(); }
+  try { const result=await runAgent(query); const answer=typeof result==='string'?result:result.text; pending.remove(); agentBubble('assistant',answer); if(result.report){$('#agentExport').hidden=false;} agentHistory.push({role:'user',content:query},{role:'assistant',content:answer}); agentHistory=agentHistory.slice(-12); persistAgentHistory(); }
   catch(err){pending.remove(); agentBubble('assistant',`处理失败：${err.message}\n\n提示：自定义模型端点须允许浏览器 CORS；联网搜索也可能因端点策略失败。若被浏览器拦截，请在可访问该 API 的 agent/server 环境调用，勿把密钥发给公共网页。`);}
 });
 renderAgentHistory();

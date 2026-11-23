@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=2026-11-23c" />
+<link rel="stylesheet" href="css/style.css?v=2026-11-23d" />
 </head>
 <body>
 
@@ -159,7 +159,7 @@
   <section class="agent-view" id="agentView" hidden>
     <div class="agent-head card">
       <div><div class="digest-kicker"><span class="live-dot"></span>目录检索 · 来源溯源</div><h2>AI 站点研究助手</h2>
-      <p>检索本站全部站点目录、推荐信息源、整理主题日报。使用你在「模型配置」填写的模型与密钥；联网搜索需填写自己的 Tavily 搜索密钥。</p></div>
+      <p>检索本站完整站点目录、推荐信息源、整理主题日报。可选自动判断/推荐/研究/日报/周报/对比模式；日报按结构化数据生成，可导出 Markdown、HTML、JSON、CSV 或纯文本。模型与搜索密钥由你在本机配置。</p></div>
       <button class="btn-outlined" id="newChatBtn">新对话</button>
     </div>
     <div class="agent-layout">
@@ -174,12 +174,37 @@
         <div class="agent-messages" id="agentMessages" aria-live="polite">
           <div class="agent-message assistant"><b>AI 助手</b><div>你好！我可以从本站目录检索并推荐 AI 站点，也可以结合网络搜索制作指定主题日报。配置好模型后即可开始。</div></div>
         </div>
-        <form class="agent-compose" id="agentForm">
+        <div class="agent-controls">
+          <label class="agent-select-label">回复模式
+            <select id="agentMode" aria-label="智能体回复模式">
+              <option value="auto">自动判断</option>
+              <option value="recommend">站点推荐</option>
+              <option value="research">研究简报</option>
+              <option value="daily">主题日报</option>
+              <option value="weekly">周报</option>
+              <option value="compare">方案对比</option>
+            </select>
+          </label>
+          <label class="agent-select-label" id="agentRangeWrap" hidden>时间范围
+            <select id="agentRange" aria-label="日报时间范围">
+              <option value="1">过去 24 小时</option>
+              <option value="3">过去 3 天</option>
+              <option value="7" selected>过去 7 天</option>
+              <option value="30">过去 30 天</option>
+            </select>
+          </label>
           <label class="agent-web-toggle"><input id="agentWebSearch" type="checkbox" checked /> 联网搜索</label>
-          <textarea id="agentInput" rows="2" placeholder="例如：制作最近一周 AI 视频生成主题日报，附来源链接…" aria-label="给 AI 助手发送消息"></textarea>
+          <span class="agent-privacy-note">自动模式会按提问识别日报/推荐任务</span>
+        </div>
+        <form class="agent-compose" id="agentForm">
+          <textarea id="agentInput" rows="2" placeholder="例如：做一份过去 7 天 AI 视频生成主题日报，列出日期、结论和来源链接…" aria-label="给 AI 助手发送消息"></textarea>
           <button class="btn-filled" id="agentSendBtn" type="submit">发送 ↑</button>
         </form>
-        <div class="agent-hint">对话在本浏览器内运行，内容会发送到你配置的模型端点。联网查询使用你填写的搜索服务；请勿输入敏感信息。</div>
+        <div class="agent-export" id="agentExport" hidden>
+          <span>导出最后一份日报</span>
+          <button data-export="md">Markdown</button><button data-export="html">HTML</button><button data-export="json">JSON</button><button data-export="csv">CSV</button><button data-export="txt">纯文本</button>
+        </div>
+        <div class="agent-hint">模式可随时切换。对话发送到你配置的模型端点；联网结果依赖搜索配置与服务。导出内容在本机生成，不上传。</div>
       </div>
     </div>
   </section>
@@ -320,7 +345,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="js/data.js?v=2026-11-23c"></script>
-<script src="js/app.js?v=2026-11-23c"></script>
+<script src="js/data.js?v=2026-11-23d"></script>
+<script src="js/app.js?v=2026-11-23d"></script>
 </body>
 </html>

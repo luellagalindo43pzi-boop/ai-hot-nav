@@ -10,7 +10,8 @@
 - **2457 条收录**：302 项人工精选 + 1 项自动审核收录（AI日报/周报/工具导航/学术前沿/科技媒体/提示词知识库）+ **2154 个 GitHub 高星 AI 开源项目**（累计 3200 万+ Stars，非 fork、非归档，数据快照 2026-11-23）
 - **AI 自动抓取与日报**：34 个 RSS/Atom 信源定时抓取、质量排序、模型审核新站点并按域名去重入库；可选 Tavily 实时搜索补充近期网页来源，由 Nex N2.6 基于抓取与搜索资讯生成结构化日报，保留原文链接和历史归档。仓库仅以 GitHub Actions Secret 保存 `TAVILY_API_KEY`，不下发前端。
 - **可配置模型服务与研究助手**：默认主模型 mosi.cn `nex-n2.6`，备选 APIHub `agnes-2.5-flash`（主模型失败时服务端自动回退）。网页配置面板提供两种预设、`/v1` 地址自动补全、连接测试和自定义 OpenAI-compatible 服务；网页自定义 Key 仅本机保存。智能体可检索全站目录、实时搜索 GitHub 项目，并在用户自备 Tavily Key 时检索网页、按主题生成带来源日报。GitHub Pages 不向网页暴露服务端密钥。
-- **公开 Agent Skill + MCP**：`skills/ai-hot-nav/SKILL.md` 可供支持 Agent Skills 的智能体读取；`skills/ai-hot-nav/mcp_server.py` 提供本地 stdio MCP 工具（全库搜索、最新日报、目录统计），另有本地命令行搜索。公开 JSON 数据无需密钥。
+- **智能体回复模式与多格式日报**：支持自动判断、站点推荐、研究简报、主题日报、周报、方案对比；日报按结构化 JSON 生成并校验引用链接，可在浏览器本地导出 Markdown、HTML、JSON、CSV（UTF-8 BOM）和纯文本。
+- **公开 Agent Skill + MCP**：`skills/ai-hot-nav/SKILL.md` 可供支持 Agent Skills 的智能体读取；`skills/ai-hot-nav/mcp_server.py` 提供本地 stdio MCP 工具（全库搜索、最新日报、目录统计、Tavily、GitHub 仓库搜索），另有本地命令行搜索。公开 JSON 数据无需密钥。
 - **热度 × 质量 双分制排序**：
   - 精选站点：编辑评估的热度 / 质量分（0–100）
   - GitHub 项目：热度 = `20 × log₁₀(Stars)` 归一化；质量分综合 Stars、Forks、近期活跃度（pushed_at）、描述与 License 完整度
