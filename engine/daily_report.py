@@ -69,7 +69,7 @@ def build_digest_with_llm(items, cfg):
     # 实测：14 条（≤80字摘要）+ max_tokens=6500 可稳定产出 finish_reason=stop 的合法 JSON。
     picked = items[:14]
     listing = "\n".join(
-        f"[{i+1}] {it['source']}|{it['title']}|{it['url']}|{it.get('summary','')[:80]}"
+        f"[{i+1}] {it['source']}|{it['title']}|日期:{it.get('published_at') or it.get('published') or '未提供'}|{it['url']}|{it.get('summary','')[:100]}"
         for i, it in enumerate(picked)
     )
     prompt = f"""基于以下AI资讯清单生成日报JSON。清单：

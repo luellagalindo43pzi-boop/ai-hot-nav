@@ -2,6 +2,17 @@ name: AI Hot Nav — crawl and digest
 
 on:
   workflow_dispatch:
+    inputs:
+      topic:
+        description: '日报主题（示例：AI Agent 与开源框架）'
+        required: false
+        default: 'AI'
+        type: string
+      days:
+        description: '联网搜索回看天数'
+        required: false
+        default: '2'
+        type: string
   schedule:
     - cron: '17 */6 * * *' # UTC; spread away from the hour boundary
 
@@ -28,6 +39,9 @@ jobs:
       - name: Crawl, review, merge and generate digest
         env:
           MODEL_API_KEY: ${{ secrets.MODEL_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          DIGEST_TOPIC: ${{ inputs.topic || 'AI' }}
+          DIGEST_DAYS: ${{ inputs.days || '2' }}
         run: python3 engine/run.py all
       - name: Commit refreshed public data
         run: |

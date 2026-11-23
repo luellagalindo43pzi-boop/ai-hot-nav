@@ -6,8 +6,14 @@ Configure any MCP client with this command and the repository checkout as cwd.
 No network calls or API keys are needed for catalog tools.
 """
 import json, os, sys
+import requests
 from pathlib import Path
 from search import terms
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'engine'))
+try:
+    import web_search as tavily
+except ImportError:
+    tavily = None
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = Path(os.environ.get('AI_HOT_NAV_DATA', ROOT / 'data' / 'sites.json'))
@@ -41,7 +47,9 @@ def handle(m):
         reply(mid,{'tools':[
           {'name':'search_ai_sites','description':'Search the full public AI Hot Nav directory and rank recommendations by relevance and heat/quality. Returns direct source URLs.','inputSchema':{'type':'object','properties':{'query':{'type':'string'},'limit':{'type':'integer','minimum':1,'maximum':30},'category':{'type':'string'},'region':{'type':'string','enum':['','cn','global']}},'required':['query']}},
           {'name':'get_latest_digest','description':'Return latest source-linked AI Hot Nav digest. This is published editorial/model output, not a guarantee of current truth.','inputSchema':{'type':'object','properties':{}}},
-          {'name':'get_catalog_stats','description':'Return the number of catalog records and category counts.','inputSchema':{'type':'object','properties':{}}}
+          {'name':'get_catalog_stats','description':'Return the number of catalog records and category counts.','inputSchema':{'type':'object','properties':{}}},
+          {'name':'search_web','description':'Search the live web through Tavily using the local TAVILY_API_KEY environment variable. Requires a user-owned key; never returns or exposes the key.','inputSchema':{'type':'object','properties':{'query':{'type':'string'},'limit':{'type':'integer','minimum':1,'maximum':10},'topic':{'type':'string','enum':['general','news']}},'required':['query']}},
+          {'name':'search_github_repositories','description':'Search public GitHub repositories via the official GitHub Search API; returns stars, language, description, and repository URLs. Subject to unauthenticated rate limits.','inputSchema':{'type':'object','properties':{'query':{'type':'string'},'limit':{'type':'integer','minimum':1,'maximum':10}},'required':['query']}}
         ]})
     elif method=='tools/call':
         p=m.get('params',{}); name=p.get('name'); a=p.get('arguments') or {}
@@ -51,6 +59,17 @@ def handle(m):
             rows=json.loads(DATA.read_text(encoding='utf-8')); cats={}
             for r in rows: cats[r.get('cat','unknown')]=cats.get(r.get('cat','unknown'),0)+1
             result={'total':len(rows),'categories':cats,'catalog_url':'https://luellagalindo43pzi-boop.github.io/ai-hot-nav/data/sites.json'}
+        elif name=='search_web':
+            if tavily is None: raise RuntimeError('web search module missing')
+            query=a.get('query','').strip()
+            if not os.environ.get('TAVILY_API_KEY'): raise RuntimeError('Set TAVILY_API_KEY in this trusted MCP host environment.')
+            result=tavily.search(query,a.get('limit',6),a.get('topic','general'))
+        elif name=='search_github_repositories':
+            q=a.get('query','').strip()
+            if not q: raise RuntimeError('query is required')
+            resp=requests.get('https://api.github.com/search/repositories',params={'q':q,'sort':'stars','order':'desc','per_page':max(1,min(int(a.get('limit',8)),10))},headers={'Accept':'application/vnd.github+json','User-Agent':'AI-Hot-Nav-MCP'},timeout=20)
+            resp.raise_for_status(); payload=resp.json()
+            result=[{'name':x['full_name'],'url':x['html_url'],'description':x.get('description'),'stars':x.get('stargazers_count',0),'language':x.get('language'),'updated_at':x.get('updated_at')} for x in payload.get('items',[])]
         else:
             reply(mid,{'content':[{'type':'text','text':'Unknown tool'}],'isError':True});return
         text=json.dumps(result,ensure_ascii=False,indent=2)
@@ -59,7 +78,10 @@ def handle(m):
     elif mid is not None: sys.stdout.write(json.dumps({'jsonrpc':'2.0','id':mid,'error':{'code':-32601,'message':'Method not found'}},separators=(',',':'))+'\n');sys.stdout.flush()
 
 for line in sys.stdin:
-    try: handle(json.loads(line))
+    msg = None
+    try: msg = json.loads(line); handle(msg)
     except Exception as e:
-        # Keep stdout protocol-only; diagnostics go to stderr.
+        # Keep stdout protocol-only; return tool errors as MCP content and diagnostics to stderr.
+        if isinstance(msg, dict) and msg.get('id') is not None:
+            reply(msg['id'], {'content':[{'type':'text','text':str(e)}],'isError':True})
         print(f'MCP request failed: {e}',file=sys.stderr)

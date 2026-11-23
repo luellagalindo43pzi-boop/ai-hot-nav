@@ -513,23 +513,35 @@ async function tavilySearch(query, cfg) {
   const data=await res.json();
   return {results:(data.results||[]).map(x=>({title:x.title,url:x.url,content:x.content,published_date:x.published_date,score:x.score}))};
 }
-function agentContext(query, sites, web) {
+async function githubSearch(query) {
+  const q = `${query} AI`;
+  const res = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(q)}&sort=stars&order=desc&per_page=6`, {headers:{'Accept':'application/vnd.github+json'}});
+  if (!res.ok) throw new Error(`GitHub Search API HTTP ${res.status}`);
+  const data = await res.json();
+  return (data.items||[]).map(x=>({title:x.full_name, url:x.html_url, content:`${x.description||'No description'} · ★ ${(x.stargazers_count||0).toLocaleString()} · ${x.language||'unknown language'} · updated ${x.updated_at||''}`}));
+}
+function agentContext(query, sites, web, github) {
   const s=sites.map((x,i)=>`${i+1}. ${x.name} | ${x.cat}/${x.subcat||''} | ${x.desc} | URL ${x.url} | 热度${x.heat} 质量${x.quality} 综合${x.score}${x.stars?` Stars ${x.stars}`:''}`).join('\n');
   const latest=window.__LATEST_DIGEST ? JSON.stringify(window.__LATEST_DIGEST).slice(0,5000) : '';
   const w=web && web.results ? web.results.map((x,i)=>`[Web ${i+1}] ${x.title} | ${x.published_date||''} | ${x.content||''}\nURL: ${x.url}`).join('\n') : '';
-  return `用户请求：${query}\n\n本站目录检索 Top ${sites.length}（仅代表目录匹配及热度质量，不代表网页已实时验证）：\n${s||'无匹配项'}\n\n联网搜索结果（只有本段非空时才可称已联网搜索；逐条保留URL）：\n${w||'本轮未获得联网搜索结果。'}\n\n最新站内日报（可选上下文）：\n${latest||'未加载'}`;
+  const g=(github||[]).map((x,i)=>`[GitHub ${i+1}] ${x.title} | ${x.content}\nURL: ${x.url}`).join('\n');
+  return `用户请求：${query}\n\n本站目录检索 Top ${sites.length}（仅代表目录匹配及热度质量，不代表网页已实时验证）：\n${s||'无匹配项'}\n\nTavily 联网搜索结果（只有本段非空时才可称完成通用网络搜索；逐条保留URL）：\n${w||'本轮未获得Tavily联网搜索结果。'}\n\nGitHub 官方仓库搜索结果（独立实时搜索，数据可能受 GitHub 限流影响）：\n${g||'本轮未搜索 GitHub 仓库。'}\n\n最新站内日报（可选上下文）：\n${latest||'未加载'}`;
 }
 async function runAgent(query) {
   const cfg=loadModelCfgOverride()||{};
   if (!cfg.key) throw new Error('请先点击 ⚙ 模型配置，填入并保存你自己的模型 API Key。本站不会向浏览器提供服务端密钥。');
   const sites=retrieveSites(query,14);
-  let web={};
+  let web={}, github=[];
   if ($('#agentWebSearch').checked && cfg.searchKey) {
     try { web=await tavilySearch(query,cfg); }
     catch(e) { web={error:e.message}; }
   }
-  const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果进行站点推荐，也可综合明确标注的联网搜索结果撰写报告。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期或来源；站点目录是 discovery index，不是实时验证。未提供 web results 或搜索失败时，必须明确说明没有完成联网搜索，不可声称掌握最新动态。对于主题日报，要明确日期范围、主题、摘要、重要性、原文URL；引用只用上下文内的真实URL，区分搜索摘要与已核实事实。优先中文、结构清晰、简洁但有用。站点推荐说明匹配理由并给出原始URL。用户要求建议时，给出5-10项；日报用「日期/主题、要点、来源链接、观察与限制」结构。`;
-  const messages=[{role:'system',content:sys},...agentHistory.slice(-8).map(m=>({role:m.role,content:m.content})),{role:'user',content:agentContext(query,sites,web)}];
+  if ($('#agentWebSearch').checked && /github|开源|仓库|repo|框架|项目|agent|智能体/i.test(query)) {
+    try { github=await githubSearch(query); }
+    catch(e) { github=[{title:'GitHub 搜索暂不可用',url:'https://github.com/search?q='+encodeURIComponent(query),content:e.message}]; }
+  }
+  const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果进行站点推荐，也可综合明确标注的 Tavily 联网搜索结果与 GitHub 官方仓库搜索结果撰写报告。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期或来源；站点目录是 discovery index，不是实时验证。未提供 web results 或搜索失败时，必须明确说明没有完成联网搜索，不可声称掌握最新动态。对于主题日报，要明确日期范围、主题、摘要、重要性、原文URL；引用只用上下文内的真实URL，区分搜索摘要与已核实事实。优先中文、结构清晰、简洁但有用。站点推荐说明匹配理由并给出原始URL。用户要求建议时，给出5-10项；日报用「日期/主题、要点、来源链接、观察与限制」结构。`;
+  const messages=[{role:'system',content:sys},...agentHistory.slice(-8).map(m=>({role:m.role,content:m.content})),{role:'user',content:agentContext(query,sites,web,github)}];
   const response=await fetch(cfg.endpoint||'https://api.mosi.cn/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${cfg.key}`},body:JSON.stringify({model:cfg.model||'nex-n2.6',temperature:cfg.temperature??0.5,max_tokens:6000,messages})});
   if(!response.ok) throw new Error(`模型服务 HTTP ${response.status}：${(await response.text()).slice(0,220)}`);
   const data=await response.json();
