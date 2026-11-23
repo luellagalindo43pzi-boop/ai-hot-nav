@@ -556,7 +556,14 @@ async function runAgent(query) {
   }
   const sys=`你是 AI 热榜导航的研究助手。你可以使用提供的本站目录检索结果、Tavily 联网结果和 GitHub 官方仓库搜索结果。\n硬性规则：不得捏造目录内容、站点属性、新闻事实、日期、Stars 数或来源；目录是 discovery index，不是实时验证。GitHub 结果块中的仓库名、URL、Stars、语言、更新时间是本轮官方 API 查询值；只能逐字引用其中数据，不得估算/补写；若结果块为空，则明确说明未完成 GitHub 实时搜索。Tavily 块为空或搜索失败时，不得声称完成通用网络搜索。对于主题日报，明确日期范围、主题、要点、重要性、原文URL；引用只用上下文内真实URL，区分搜索摘要与已核实事实。推荐开源项目时优先给 GitHub API 返回的项目，并说明其来自本轮 GitHub 搜索；其它信息来自目录时分开标注。优先中文、结构清晰、简洁但有用。用户要求建议时给出5-10项；日报用「日期/主题、要点、来源链接、观察与限制」结构。`;
   const messages=[{role:'system',content:sys},...agentHistory.slice(-8).map(m=>({role:m.role,content:m.content})),{role:'user',content:agentContext(query,sites,web,github)}];
-  const response=await fetch(cfg.endpoint||'https://api.mosi.cn/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${cfg.key}`},body:JSON.stringify({model:cfg.model||'nex-n2.6',temperature:cfg.temperature??0.5,max_tokens:6000,messages})});
+  const endpoint=normalizeChatEndpoint(cfg.endpoint||'https://api.mosi.cn/v1/chat/completions');
+  let response;
+  try {
+    response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Authorization':`Bearer ${cfg.key}`},body:JSON.stringify({model:cfg.model||'nex-n2.6',temperature:cfg.temperature??0.5,max_tokens:6000,messages})});
+  } catch(e) {
+    if(e instanceof TypeError) throw new Error(`模型接口网络/CORS 请求被浏览器拦截：${endpoint}。请检查当前选中的服务、网络插件/广告拦截，或先在「模型配置」点测试连接；本次未发送到本站服务器。`);
+    throw e;
+  }
   if(!response.ok) throw new Error(`模型服务 HTTP ${response.status}：${(await response.text()).slice(0,220)}`);
   const data=await response.json();
   const answer=data.choices?.[0]?.message?.content || data.choices?.[0]?.message?.reasoning_content || '';
@@ -569,7 +576,11 @@ $('#agentView').addEventListener('click',e=>{const b=e.target.closest('.agent-pr
 $('#newChatBtn').addEventListener('click',()=>{agentHistory=[];persistAgentHistory();renderAgentHistory();});
 $('#agentForm').addEventListener('submit',async e=>{
   e.preventDefault(); const input=$('#agentInput'); const query=input.value.trim(); if(!query)return;
-  input.value=''; agentBubble('user',query); const pending=agentBubble('assistant','正在检索本站目录'+($('#agentWebSearch').checked?'并尝试联网搜索':'')+'，再请模型整理…',true);
+  input.value=''; agentBubble('user',query);
+  const savedCfg=loadModelCfgOverride()||{}; const tasks=['本站目录'];
+  if($('#agentWebSearch').checked && savedCfg.searchKey) tasks.push('Tavily 网页');
+  if($('#agentWebSearch').checked && /github|开源|仓库|repo|框架|项目|agent|智能体/i.test(query)) tasks.push('GitHub 仓库');
+  const pending=agentBubble('assistant',`正在检索：${tasks.join(' + ')}，再请模型整理…`,true);
   try { const answer=await runAgent(query); pending.remove(); agentBubble('assistant',answer); agentHistory.push({role:'user',content:query},{role:'assistant',content:answer}); agentHistory=agentHistory.slice(-12); persistAgentHistory(); }
   catch(err){pending.remove(); agentBubble('assistant',`处理失败：${err.message}\n\n提示：自定义模型端点须允许浏览器 CORS；联网搜索也可能因端点策略失败。若被浏览器拦截，请在可访问该 API 的 agent/server 环境调用，勿把密钥发给公共网页。`);}
 });
