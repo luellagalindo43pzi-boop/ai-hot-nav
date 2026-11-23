@@ -1,8 +1,8 @@
 {
-  "total": 2457,
+  "total": 2458,
   "categories": {
     "github": 2154,
-    "trending": 26,
+    "trending": 27,
     "llm": 43,
     "research": 46,
     "benchmark": 20,
@@ -14,7 +14,7 @@
   },
   "curated": 302,
   "github": 2154,
-  "auto": 1,
+  "auto": 2,
   "total_stars": 32279031,
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
 }

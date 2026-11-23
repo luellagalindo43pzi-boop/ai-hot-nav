@@ -7,30 +7,27 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487401+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391282+00:00",
+  "status": "rejected",
+  "llm_score": 35,
+  "llm_cat": "resource",
+  "llm_desc": "基于互联网档案馆视频的另类电视网络，非AI相关内容",
+  "site_name": "spelunkr.tv"
  },
  {
   "name": "Hacker News · 外链",
-  "url": "https://www.audubon.org/magazine/birds-of-gta-6-field-guide-vice-city-wildlife",
-  "domain": "audubon.org",
-  "title": "The Birds of GTA 6: A Field Guide to Vice City and Leonida's Wildlife",
+  "url": "https://phoenix.labri.fr/software/tempo/",
+  "domain": "phoenix.labri.fr",
+  "title": "A Partial Evaluator for C",
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487429+00:00",
-  "status": "pending-review"
- },
- {
-  "name": "Hacker News · 外链",
-  "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20",
-  "domain": "gl-inet.com",
-  "title": "GL.iNet Security Notice 2026-11-20",
-  "summary": "Comments",
-  "score": 12.6,
-  "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487439+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391315+00:00",
+  "status": "rejected",
+  "llm_score": 55,
+  "llm_cat": "research",
+  "llm_desc": "法国波尔多实验室开发的C语言偏值计算器研究项目",
+  "site_name": "phoenix.labri.fr"
  },
  {
   "name": "Hacker News · 外链",
@@ -40,8 +37,72 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487448+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391322+00:00",
+  "status": "rejected",
+  "llm_score": 50,
+  "llm_cat": "research",
+  "llm_desc": "数论学家博客讨论黎曼猜想相关研究，纯数学内容",
+  "site_name": "johncarlosbaez.wordpress.com"
+ },
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://www.audubon.org/magazine/birds-of-gta-6-field-guide-vice-city-wildlife",
+  "domain": "audubon.org",
+  "title": "The Birds of GTA 6: A Field Guide to Vice City and Leonida's Wildlife",
+  "summary": "Comments",
+  "score": 12.6,
+  "region": "global",
+  "discovered_at": "2026-11-23T07:48:30.391329+00:00",
+  "status": "rejected",
+  "llm_score": 25,
+  "llm_cat": "media",
+  "llm_desc": "疑似利用Audubon域名发布的GTA6游戏内容，与AI无关",
+  "site_name": "audubon.org"
+ },
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://www.ycombinator.com/companies/collectwise/jobs/lgobCse-founding-customer-success-manager",
+  "domain": "ycombinator.com",
+  "title": "CollectWise (YC F24) Is Hiring",
+  "summary": "Comments",
+  "score": 12.6,
+  "region": "global",
+  "discovered_at": "2026-11-23T07:48:30.391335+00:00",
+  "status": "rejected",
+  "llm_score": 45,
+  "llm_cat": "community",
+  "llm_desc": "YC孵化器创业公司CollectWise招聘信息，一般性创投内容",
+  "site_name": "ycombinator.com"
+ },
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://micjm.com/blog/yes-17m-lines-of-lean-is-a-lot/",
+  "domain": "micjm.com",
+  "title": "Yes, 17M lines of Lean is a lot",
+  "summary": "Comments",
+  "score": 12.6,
+  "region": "global",
+  "discovered_at": "2026-11-23T07:48:30.391342+00:00",
+  "status": "rejected",
+  "llm_score": 55,
+  "llm_cat": "research",
+  "llm_desc": "关于Lean定理证明器大规模形式化工作的讨论",
+  "site_name": "micjm.com"
+ },
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://www.gl-inet.com/en-us/blogs/blog/glinet-security-notice-2026-11-20",
+  "domain": "gl-inet.com",
+  "title": "GL.iNet Security Notice 2026-11-20",
+  "summary": "Comments",
+  "score": 12.6,
+  "region": "global",
+  "discovered_at": "2026-11-23T07:48:30.391347+00:00",
+  "status": "rejected",
+  "llm_score": 30,
+  "llm_cat": "resource",
+  "llm_desc": "GL.iNet路由器厂商安全公告，硬件设备无关内容",
+  "site_name": "gl-inet.com"
  },
  {
   "name": "Hacker News · 外链",
@@ -51,41 +112,27 @@
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487456+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391354+00:00",
+  "status": "rejected",
+  "llm_score": 30,
+  "llm_cat": "media",
+  "llm_desc": "旧金山微型艺术装置网站，与AI领域无关",
+  "site_name": "smallsf.com"
  },
  {
   "name": "Hacker News · 外链",
-  "url": "https://www.ias.edu/sites/default/files/library/UsefulnessHarpers.pdf",
-  "domain": "ias.edu",
-  "title": "The Usefulness of Useless Knowledge [pdf] (1939)",
+  "url": "https://pengowray.github.io/riemann-zeta-proof-visualizer/",
+  "domain": "pengowray.github.io",
+  "title": "Treemap of the Riemann Hypothesis Lean Proof",
   "summary": "Comments",
   "score": 12.6,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487464+00:00",
-  "status": "pending-review"
- },
- {
-  "name": "Hacker News · 外链",
-  "url": "https://nyx.net/",
-  "domain": "nyx.net",
-  "title": "Nyx, the Oldest Internet Service Provider",
-  "summary": "Comments",
-  "score": 12.6,
-  "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487472+00:00",
-  "status": "pending-review"
- },
- {
-  "name": "Hacker News · 外链",
-  "url": "https://fosscomics.com/posts/16.%20BSD%20Unix%20Part%206%20-%20The%20Struggle%20for%20Freedom/",
-  "domain": "fosscomics.com",
-  "title": "The struggle for freedom: How BSD escaped AT&T licensing",
-  "summary": "Comments",
-  "score": 12.6,
-  "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487480+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391360+00:00",
+  "status": "rejected",
+  "llm_score": 60,
+  "llm_cat": "research",
+  "llm_desc": "黎曼猜想Lean证明的可视化Treemap展示工具",
+  "site_name": "pengowray.github.io"
  },
  {
   "name": "BBC Technology · 外链",
@@ -95,8 +142,12 @@
   "summary": "The company behind the Claude chatbot will become one of the most valuable firms in the world.",
   "score": 12.3,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487493+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391366+00:00",
+  "status": "approved",
+  "llm_score": 88,
+  "llm_cat": "trending",
+  "llm_desc": "BBC报道Anthropic以810亿美元创纪录IPO登陆股市",
+  "site_name": "BBC News"
  },
  {
   "name": "BBC Technology · 外链",
@@ -106,8 +157,12 @@
   "summary": "A mathematician at Anthropic says he used an AI to prove the famed Riemann hypothesis, though verification will take some time.",
   "score": 11.9,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487517+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391380+00:00",
+  "status": "rejected",
+  "llm_score": 82,
+  "llm_cat": "trending",
+  "llm_desc": "BBC报道Anthropic员工称可能使用AI解决黎曼猜想难题",
+  "site_name": "BBC News"
  },
  {
   "name": "BBC Technology · 外链",
@@ -117,7 +172,11 @@
   "summary": "Pressures weighed on US markets, with the S&P 500 and the Dow Jones Industrial Average pushed into correction territory.",
   "score": 11.9,
   "region": "global",
-  "discovered_at": "2026-11-23T02:28:33.487524+00:00",
-  "status": "pending-review"
+  "discovered_at": "2026-11-23T07:48:30.391387+00:00",
+  "status": "rejected",
+  "llm_score": 80,
+  "llm_cat": "trending",
+  "llm_desc": "BBC报道Anthropic股价下跌拖累科技股市场走势",
+  "site_name": "BBC News"
  }
 ]

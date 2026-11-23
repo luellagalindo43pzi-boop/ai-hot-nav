@@ -1,7 +1,7 @@
 {
-  "crawled_at": "2026-11-23T02:28:33.488930+00:00",
+  "crawled_at": "2026-11-23T07:48:30.392584+00:00",
   "feeds_total": 34,
-  "feeds_ok": 29,
+  "feeds_ok": 28,
   "feeds": [
     {
       "name": "量子位",
@@ -12,8 +12,8 @@
     {
       "name": "钛媒体",
       "url": "https://www.tmtpost.com/rss",
-      "status": "ok (18)",
-      "items": 18
+      "status": "TimeoutError: The read operation timed out",
+      "items": 0
     },
     {
       "name": "爱范儿",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 11
+  "candidates": 12
 }
