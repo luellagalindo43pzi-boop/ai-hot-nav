@@ -5,12 +5,12 @@
 ## 快速开始
 
 ```bash
-# 1) 配置模型密钥（二选一）
-export MODEL_API_KEY="sk-..."                 # 本地 / CI Secret
-# 或创建未提交到 git 的 .env 后自行 source
+# 1) 配置密钥（Tavily 可选）
+export MODEL_API_KEY="..."  # mosi.cn / 其它 OpenAI-compatible 模型服务
+export TAVILY_API_KEY="..." # 可选：联网补充搜索结果
 
-# 2) 一键跑通：抓取 → 审核 → 合并 → 日报
-python3 engine/run.py all
+# 2) 一键跑通：抓取 → 审核 → 合并 → 搜索 → 日报
+DIGEST_TOPIC='AI Agent 与开源框架' DIGEST_DAYS=3 python3 engine/run.py all
 ```
 
 ## 子命令
@@ -20,8 +20,8 @@ python3 engine/run.py all
 | `crawl` | 抓取 40+ RSS 信源，启发式打分、去重 | `data/new_items.json` `data/candidates.json` `data/crawler_status.json` |
 | `review` | 调用模型给候选站点打质量分/分类/简介（≥85 且模型判定 keep 才通过） | 更新 `data/candidates.json` |
 | `merge` | 把通过审核的候选补入站点库并重建前端数据 | `data/sites.json` `js/data.js` |
-| `digest` | 用模型把 Top 28 条资讯写成结构化中文日报 | `data/digests/*.json` `data/digest.json` |
-| `all` | 上述四步流水线（CI 每日任务） | 全部 |
+| `digest` | 用模型把精选资讯写成结构化中文日报 | `data/digests/*.json` `data/digest.json` |
+| `all` | RSS 抓取 → 候选审核 → 合并 → 可选 Tavily 搜索 → 日报（每 6 小时） | 全部 |
 
 ## 模型配置（自定义模型服务）
 
@@ -37,6 +37,7 @@ python3 engine/run.py all
 
 ## 安全说明
 
-- `MODEL_API_KEY` 只从环境变量读取，代码库与前端产物中均不含密钥。
-- GitHub Actions 通过仓库 Secret `MODEL_API_KEY` 注入（Settings → Secrets and variables → Actions）。
-- 前端页面上的「模型配置」面板仅做**本浏览器**级临时覆盖与连通性测试，配置存于 localStorage，不落服务器（本站为纯静态页面）。
+- `MODEL_API_KEY` 与 `TAVILY_API_KEY` 只从环境变量读取，代码库与前端产物中均不含服务端密钥。
+- GitHub Actions 通过仓库 Secret `MODEL_API_KEY`、`TAVILY_API_KEY` 注入（Settings → Secrets and variables → Actions）。
+- 前端页面上的模型与 Tavily 配置仅做**本浏览器**级直连，不访问仓库 Actions Secret；浏览器 CORS 与第三方条款适用。
+- 本地 stdio MCP server 提供目录搜索、最新日报、GitHub Search 和可选 Tavily `search_web`。配置 `TAVILY_API_KEY` 于你信任的 MCP host 环境，不要放入公开配置文件。
