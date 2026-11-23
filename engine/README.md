@@ -1,6 +1,6 @@
 # AI 引擎（自动抓取 + 日报生成）
 
-纯 Python 标准库实现，无需 pip 安装。默认模型服务：**mosi.cn · nex-n2.6（Nex N2.6）**，OpenAI 兼容协议。
+引擎使用 Python 3.10+ 与 `requests`、`feedparser` 依赖（`python3 -m pip install -r requirements.txt`）。默认模型服务：**mosi.cn · nex-n2.6（Nex N2.6）**，OpenAI 兼容协议。
 
 ## 快速开始
 
