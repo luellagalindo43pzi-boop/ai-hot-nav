@@ -1,17 +1,1 @@
-[
- {
-  "name": "Hacker News · 外链",
-  "url": "https://z.ai/blog/glm-5.4",
-  "domain": "z.ai",
-  "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
-  "summary": "Comments",
-  "score": 17.01,
-  "region": "global",
-  "discovered_at": "2026-11-23T23:59:11.025361+00:00",
-  "status": "approved",
-  "llm_score": 88,
-  "llm_cat": "llm",
-  "llm_desc": "智谱AI官方博客发布GLM-5.4模型，介绍其首个loop transformer架构及通用编码能力进展，权威性高。",
-  "site_name": "z.ai"
- }
-]
+[]

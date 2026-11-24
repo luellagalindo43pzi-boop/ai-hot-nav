@@ -1,61 +1,47 @@
 {
  "date": "2026-11-24",
  "title": "AI热榜日报 · 2026-11-24",
- "generated_at": "2026-11-24T07:59:53+08:00",
+ "generated_at": "2026-11-24T18:02:14+08:00",
  "model": "Nex N2.6 (mosi.cn)",
  "item_count": 14,
- "overview": "Anthropic 发布 Claude Ship，让 AI 智能体审查、修复并批准代码；谷歌推出 Gemini 4 Neon，搜索 AI Mode 接入 Drive 与 Wallet；微软 Ignite 发布七款新模型；蚂蚁阿福医疗大模型宣布开源并支持本地部署；RoboChallenge Zero 机器人评测基准发布；产业面英伟达董事会恢复黄仁勋 CEO 职务，亚马逊拟以 75 亿美元获 Decart 技术。",
+ "overview": "英伟达创始人黄仁勋重返CEO岗位，市值单日大涨31.48%，并将于下周出席美国参议院听证；Google神秘模型Gestalt现身Contra榜单击败Fable 5.2，微软与OpenAI发布编程新模型；业界首提端侧超节点，AI效率提升270%；Supertake获2000万美元融资布局AI炒股。",
  "sections": [
   {
    "title": "大模型与产品",
    "items": [
     {
-     "title": "Anthropic 发布 Claude Ship：智能体可审代码",
-     "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
-     "source": "TechCrunch AI",
-     "one_liner": "面向 AI 生成代码激增的瓶颈，Claude Ship 让智能体完成代码审查、修复到批准的闭环。",
-     "impact": "high"
-    },
-    {
-     "title": "实测：1450 亿参数端侧模型塞进笔记本，每秒 80+ Token",
-     "url": "https://www.qbitai.com/2026/11/512195.html",
-     "source": "量子位",
-     "one_liner": "国产端侧大模型实现零 Token 成本、断网可用，笔记本本地每秒狂飙 80+ Token。",
-     "impact": "high"
-    },
-    {
-     "title": "谷歌 Gemini 4 Neon 登陆 Pro，延续高频发模节奏",
-     "url": "https://www.therundown.ai/news/google-gemini-4-neon-release",
-     "source": "The Rundown AI",
-     "one_liner": "Gemini 4 Neon 上线 Pro，谷歌延续近期密集的模型发布节奏。",
-     "impact": "medium"
-    },
-    {
-     "title": "谷歌搜索 AI Mode 接入 Drive 与 Wallet",
-     "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
-     "source": "TechCrunch AI",
-     "one_liner": "Personal Intelligence 扩展到 Drive、Wallet 与 Gemini 应用，回答更个性化。",
-     "impact": "medium"
-    },
-    {
-     "title": "微软 Ignite 发布七款新模型，主打可扩展性价比",
-     "url": "https://microsoft.ai/news/microsoft-ignite-2026",
-     "source": "Microsoft AI",
-     "one_liner": "七款世界级模型以可扩展价格性能亮相，Dragon Copilot Transcribe 基于 MAI Transcribe 2。",
-     "impact": "medium"
-    },
-    {
-     "title": "神秘模型 Gestalt 现身排行榜引热议",
+     "title": "Google神秘模型Gestalt击败Fable 5.2，Genie 4亮相",
      "url": "https://www.youtube.com/watch?v=6NT9TsT6iMc",
-     "source": "YouTube",
-     "one_liner": "代号 Gestalt 的隐身模型现身 Contra Frontier 榜单，据称击败 Fable 5.2。",
-     "impact": "low"
+     "source": "Web · www.youtube.com",
+     "one_liner": "神秘新模型Gestalt现身Contra Frontier榜单并超越Fable 5.2，同时Anthropic启动IPO、Genie 4曝光。",
+     "impact": "high"
     },
     {
-     "title": "本周 AI 复盘：OpenAI 受挫，谷歌再赢一周",
-     "url": "https://www.youtube.com/watch?v=gxoKLsWRRxs",
-     "source": "YouTube",
-     "one_liner": "视频盘点本周要闻：OpenAI 遇挫、谷歌连续领跑，另有快速资讯串烧。",
+     "title": "微软与OpenAI在行业动荡中发布编程新模型",
+     "url": "https://www.instagram.com/p/Df5CXEXnbT5",
+     "source": "Web · www.instagram.com",
+     "one_liner": "在AI行业动荡之际，微软与OpenAI推出面向编程场景的新模型。",
+     "impact": "medium"
+    },
+    {
+     "title": "一流大模型为何选择不同Benchmark？",
+     "url": "https://www.tmtpost.com/8216115.html",
+     "source": "钛媒体",
+     "one_liner": "Benchmark正成为观察各家AI战略押注的窗口之一。",
+     "impact": "medium"
+    },
+    {
+     "title": "AI办公竞争升维：不再只拼大模型",
+     "url": "https://www.tmtpost.com/8215293.html",
+     "source": "钛媒体",
+     "one_liner": "AI办公赛道竞争从模型能力转向产品与生态的全面比拼。",
+     "impact": "medium"
+    },
+    {
+     "title": "2022-2026前沿大模型发布图谱：按实验室盘点",
+     "url": "https://durabilitycurve.com/chart",
+     "source": "Web · durabilitycurve.com",
+     "one_liner": "按实验室梳理2022至2026年前沿模型发布脉络，如Grok-2、Llama 3.1等。",
      "impact": "low"
     }
    ]
@@ -64,56 +50,65 @@
    "title": "产业·投融资·政策",
    "items": [
     {
-     "title": "英伟达恢复黄仁勋 CEO；亚马逊 75 亿美元获 Decart",
-     "url": "https://www.tmtpost.com/8215026.html",
-     "source": "钛媒体",
-     "one_liner": "英伟达董事会一致同意黄仁勋回归 CEO；亚马逊 75 亿美元获取 Decart 技术；荣耀阔折叠明年 3 月发布。",
+     "title": "黄仁勋重返英伟达，市值涨31.48%",
+     "url": "http://www.geekpark.net/news/374375",
+     "source": "极客公园",
+     "one_liner": "黄仁勋11月23日重返英伟达总部获员工欢呼迎接，市值上涨31.48%；马斯克称出租算力比自研更赚钱。",
      "impact": "high"
     },
     {
-     "title": "算力周期更迭，存储经济性成中国规模化 AI 关键",
-     "url": "https://www.qbitai.com/2026/11/511989.html",
-     "source": "量子位",
-     "one_liner": "AI 未来依赖在数据全生命周期平衡性能、可靠性与经济性的存储架构。",
+     "title": "黄仁勋复职后下周将出席参议院听证会",
+     "url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/",
+     "source": "TechCrunch AI",
+     "one_liner": "在两党呼吁下，黄仁勋将在复职英伟达CEO后于下周出席参议院公开听证。",
+     "impact": "high"
+    },
+    {
+     "title": "Supertake获2000万美元融资，AI代理炒股",
+     "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
+     "source": "TechCrunch AI",
+     "one_liner": "Supertake融资2000万美元，让AI代理把用户的市场预测转化为股票投资组合。",
      "impact": "medium"
+    },
+    {
+     "title": "OpenAI公开预训练损失曲线，微软同台",
+     "url": "https://latent.space/p/ainews-jensen-is-back-and-openai-shows-its-pretraining-curve-joined-by-microsoft/",
+     "source": "Latent Space",
+     "one_liner": "英伟达复职创始人同日，OpenAI公布内部预训练损失曲线，并与微软联合亮相。",
+     "impact": "medium"
+    },
+    {
+     "title": "2026奇点智能技术大会收官：70+大咖探Agent生态",
+     "url": "https://www.qbitai.com/2026/11/512297.html",
+     "source": "量子位",
+     "one_liner": "大会在北京举办，70余位技术大咖共探AI技术演进与Agent生态变革。",
+     "impact": "low"
+    },
+    {
+     "title": "亿邦产业互联网年会暨产业智能体大会在京举行",
+     "url": "https://www.qbitai.com/2026/11/512305.html",
+     "source": "量子位",
+     "one_liner": "近1500人参与，聚焦AI与出海强预期，探讨产业智能体落地。",
+     "impact": "low"
     }
    ]
   },
   {
-   "title": "开源与GitHub",
+   "title": "开源与工具",
    "items": [
     {
-     "title": "蚂蚁阿福同款大模型宣布开源，医生一台电脑即可用",
-     "url": "https://www.qbitai.com/2026/11/511998.html",
+     "title": "RNOISE Prompt Forge V5.2发布：零LLM音乐Prompt编译器",
+     "url": "https://www.oschina.net/news/503778",
+     "source": "开源中国",
+     "one_liner": "面向Suno V6、Udio 2.0等音频引擎的确定性Prompt编译器，并引入MCP 2.0协议引擎。",
+     "impact": "medium"
+    },
+    {
+     "title": "业界首提端侧超节点：AI效率暴涨270%",
+     "url": "https://www.qbitai.com/2026/11/512362.html",
      "source": "量子位",
-     "one_liner": "阿福 App 升级并开源同款大模型，全球医生一台电脑即可解锁专业医疗 AI 能力。",
+     "one_liner": "端侧AI组队计算方案，无需更换芯片或模型即可让效率提升270%。",
      "impact": "high"
-    },
-    {
-     "title": "蚂蚁医疗健康 AI 五连发：开源、本地部署、望闻问切",
-     "url": "https://www.qbitai.com/2026/11/512017.html",
-     "source": "量子位",
-     "one_liner": "阿福大升级：让模型像医生一样思考，覆盖开源、本地部署与中医四诊。",
-     "impact": "medium"
-    }
-   ]
-  },
-  {
-   "title": "学术前沿",
-   "items": [
-    {
-     "title": "RoboChallenge Zero 发布：当大模型接上真实机器人",
-     "url": "https://www.qbitai.com/2026/11/511978.html",
-     "source": "量子位",
-     "one_liner": "RoboChallenge 推出全新评测基准 RoboChallenge Zero 首期评测。",
-     "impact": "medium"
-    },
-    {
-     "title": "Agent 版 arXiv：936 个智能体 12 周发近千篇论文",
-     "url": "https://www.qbitai.com/2026/11/512004.html",
-     "source": "量子位",
-     "one_liner": "完全由 AI 组成的科学家社会运转 12 周，连同行评议都整上了。",
-     "impact": "medium"
     }
    ]
   },
@@ -121,24 +116,24 @@
    "title": "工具与实践",
    "items": [
     {
-     "title": "Richpanel 借 GPT-6 三十天自动化一半客服支持",
-     "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
-     "source": "OpenAI News",
-     "one_liner": "Richpanel 用 GPT-6 Astra 与 GPT-6.1 Sol 武装 AI 客服，30 天自动化 50% 支持。",
+     "title": "Simplilearn盘点最新AI动态：新模型与产品发布",
+     "url": "https://www.instagram.com/p/DgFC4Czl1AT",
+     "source": "Web · www.instagram.com",
+     "one_liner": "汇总近期AI新模型、产品发布与行业进展的学习资源。",
      "impact": "low"
     }
    ]
   }
  ],
  "usage": {
-  "prompt_tokens": 1490,
-  "completion_tokens": 4190,
-  "total_tokens": 5680,
+  "prompt_tokens": 1577,
+  "completion_tokens": 3640,
+  "total_tokens": 5217,
   "prompt_tokens_details": {
-   "cached_tokens": 0
+   "cached_tokens": 1536
   },
   "completion_tokens_details": {
-   "reasoning_tokens": 2948
+   "reasoning_tokens": 2454
   }
  }
 }
