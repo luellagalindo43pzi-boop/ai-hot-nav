@@ -1,0 +1,139 @@
+{
+ "date": "2026-11-25",
+ "title": "AI热榜日报 · 2026-11-25",
+ "generated_at": "2026-11-25T06:34:48+08:00",
+ "model": "Nex N2.6 (mosi.cn)",
+ "item_count": 14,
+ "overview": "11月24日AI日报：Z.ai发布7500亿参数循环Transformer模型GLM-5.4；Meta将Muse助手嵌入Instagram私信，并与沃尔玛打通黑五购物；亚马逊以约75亿美元收购Decart，力图缩小与英伟达的AI芯片差距；Anthropic股价跌破IPO发行价，引发AI创业公司估值担忧；黄仁勋全员会致谢白宫并透露正接受心理治疗；Crusoe投资人押注太阳能与电池为AI数据中心供电。",
+ "sections": [
+  {
+   "title": "大模型与产品",
+   "items": [
+    {
+     "title": "Z.ai发布7500亿参数循环Transformer模型GLM-5.4",
+     "url": "https://mlq.ai/news/zai-launches-glm-54-a-750-billion-parameter-model-built-on-a-looped-transformer",
+     "source": "MLQ.ai",
+     "one_liner": "Z.ai于11月23日推出GLM-5.4，称其为首款基于循环Transformer的7500亿参数模型。",
+     "impact": "high"
+    },
+    {
+     "title": "Meta将Muse AI助手直接嵌入Instagram私信",
+     "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+     "source": "TechCrunch AI",
+     "one_liner": "新集成免去用户在Instagram与Muse应用之间来回切换，助手直达聊天场景。",
+     "impact": "high"
+    },
+    {
+     "title": "沃尔玛联手Meta将黑五优惠接入AI助手Muse",
+     "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+     "source": "TechCrunch AI",
+     "one_liner": "沃尔玛顾客现可通过Meta的AI代理Muse直接浏览和购买黑五折扣商品。",
+     "impact": "medium"
+    },
+    {
+     "title": "神秘新模型Gestalt现身Contra前沿榜单引关注",
+     "url": "https://www.youtube.com/watch?v=6NT9TsT6iMc",
+     "source": "Web · www.youtube.com",
+     "one_liner": "代号Gestalt的隐身模型悄然登上Contra前沿设计榜，据称表现超越Fable 5.2。",
+     "impact": "medium"
+    },
+    {
+     "title": "Superpower Daily汇总最新AI产品与功能发布",
+     "url": "https://superpowerdaily.com/topics/products",
+     "source": "Web · superpowerdaily.com",
+     "one_liner": "盘点OpenAI、Google、Meta等平台新推出的AI产品、功能与应用。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "产业·投融资·政策",
+   "items": [
+    {
+     "title": "亚马逊75亿美元收购Decart，软件缩小芯片差距",
+     "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+     "source": "TechCrunch AI",
+     "one_liner": "亚马逊押注以软件优化提升自研芯片效率，对标英伟达的AI芯片竞赛。",
+     "impact": "high"
+    },
+    {
+     "title": "Anthropic股价跌破IPO发行价，AI估值承压",
+     "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+     "source": "TechCrunch AI",
+     "one_liner": "Anthropic上市后走弱，或对整个AI创业公司估值链条形成压力。",
+     "impact": "high"
+    },
+    {
+     "title": "黄仁勋全员会感谢白宫，并透露正接受心理治疗",
+     "url": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
+     "source": "TechCrunch AI",
+     "one_liner": "英伟达创始人向员工致歉，称感激获得第二次机会，并坦言正在接受治疗。",
+     "impact": "medium"
+    },
+    {
+     "title": "Crusoe投资人押注太阳能与电池驱动AI数据中心",
+     "url": "https://techcrunch.com/2026/11/24/why-a-crusoe-investor-is-betting-on-solar-and-batteries-to-power-future-ai-data-centers/",
+     "source": "TechCrunch AI",
+     "one_liner": "下一代数据中心每年需数十吉瓦电力，太阳能加储能被视为关键路径。",
+     "impact": "medium"
+    },
+    {
+     "title": "MIT TR：AI现代化让企业网络承压升级",
+     "url": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
+     "source": "MIT Technology Review",
+     "one_liner": "企业加速部署AI令网络基础设施承受严峻压力，现代化改造势在必行。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "学术前沿",
+   "items": [
+    {
+     "title": "哲学大家不认同Anthropic的意识论证",
+     "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument/",
+     "source": "MIT Technology Review",
+     "one_liner": "知名哲学家对Anthropic关于AI意识的主张提出质疑，引发学界讨论。",
+     "impact": "medium"
+    },
+    {
+     "title": "基准测试显示最强AI agent仍难胜任日常任务",
+     "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+     "source": "TechCrunch AI",
+     "one_liner": "随着个人AI助手普及，新基准揭示最先进AI模型在日常生活中仍表现不佳。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "工具与实践",
+   "items": [
+    {
+     "title": "Durability Curve图解2022-2026前沿模型发布",
+     "url": "https://durabilitycurve.com/chart",
+     "source": "Web · durabilitycurve.com",
+     "one_liner": "按实验室梳理2022至2026年前沿模型发布脉络，如Grok-2、Llama 3.1等。",
+     "impact": "low"
+    },
+    {
+     "title": "TLDR AI：GLM-5.4、Claude Ship与OpenAI Linux动态",
+     "url": "https://tldr.tech/ai/2026-11-24",
+     "source": "TLDR AI",
+     "one_liner": "每日简报覆盖GLM-5.4循环架构、Claude Ship进展与OpenAI Linux安全动态。",
+     "impact": "low"
+    }
+   ]
+  }
+ ],
+ "usage": {
+  "prompt_tokens": 1533,
+  "completion_tokens": 2495,
+  "total_tokens": 4028,
+  "prompt_tokens_details": {
+   "cached_tokens": 1408
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 1166
+  }
+ }
+}

@@ -1,1 +1,32 @@
-[]
+[
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://prismml.com/news/bonsai-2-5-27b",
+  "domain": "prismml.com",
+  "title": "Ternary Bonsai 2.5 27B",
+  "summary": "Comments",
+  "score": 17.01,
+  "region": "global",
+  "discovered_at": "2026-11-24T22:32:44.738053+00:00",
+  "status": "rejected",
+  "llm_score": 68,
+  "llm_cat": "research",
+  "llm_desc": "PrismML 发布 Ternary Bonsai 2.5 27B 三值权重大模型，聚焦高效 LLM 架构与低比特推理研究，内容较专业。",
+  "site_name": "PrismML"
+ },
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign",
+  "domain": "greynoise.io",
+  "title": "Active intrusion campaign against Check Point security management servers",
+  "summary": "Comments",
+  "score": 17.01,
+  "region": "global",
+  "discovered_at": "2026-11-24T22:32:44.738088+00:00",
+  "status": "rejected",
+  "llm_score": 50,
+  "llm_cat": "research",
+  "llm_desc": "GreyNoise 是知名网络威胁情报平台，分析互联网扫描与入侵活动，内容优质但属安全领域，与 AI 主题相关性低。",
+  "site_name": "GreyNoise"
+ }
+]
