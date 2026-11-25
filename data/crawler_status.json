@@ -1,5 +1,5 @@
 {
-  "crawled_at": "2026-11-24T22:32:44.739852+00:00",
+  "crawled_at": "2026-11-25T08:44:31.911902+00:00",
   "feeds_total": 34,
   "feeds_ok": 29,
   "feeds": [
@@ -12,8 +12,8 @@
     {
       "name": "钛媒体",
       "url": "https://www.tmtpost.com/rss",
-      "status": "ok (20)",
-      "items": 20
+      "status": "ok (19)",
+      "items": 19
     },
     {
       "name": "爱范儿",
@@ -138,8 +138,8 @@
     {
       "name": "OpenAI News",
       "url": "https://openai.com/news/rss.xml",
-      "status": "ok (1429)",
-      "items": 1429
+      "status": "ok (1430)",
+      "items": 1430
     },
     {
       "name": "Hugging Face Blog",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 2
+  "candidates": 5
 }
