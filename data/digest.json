@@ -1,59 +1,67 @@
 {
- "date": "2026-11-25",
- "title": "AI热榜日报 · 2026-11-25",
- "generated_at": "2026-11-25T16:46:49+08:00",
+ "date": "2026-11-26",
+ "title": "AI热榜日报 · 2026-11-26",
+ "generated_at": "2026-11-26T05:47:50+08:00",
  "model": "Agnes AI · agnes-2.5-flash",
- "item_count": 10,
- "overview": "本周AI圈重磅不断：百度文心5.5 Flash Preview正式开源，智谱GLM-5.4以全新Loop架构亮相编程能力惊艳；高德发布ABot-World 0.5交互式世界模型；Google Gemini 4 Neon回归前沿实验室。产业端荣耀发布AI手机，Nvidia引争议。",
+ "item_count": 14,
+ "overview": "2026年11月25日AI要闻：智元灵心平台一年孵化超3万具身智能体，发布AIMA技术体系；九章云极在深圳发布物理AI工厂；Anthropic CEO否认放弃人类控制权；OpenAI合并Chat与Work共享用量配额；前A社Tibo加盟OpenAI；Amazon与Meta就解除AI Agent Muse封锁进行谈判；Nvidia被追问Megaspeed芯片去向问题。",
  "sections": [
   {
    "title": "大模型与产品",
    "items": [
     {
-     "title": "百度文心5.5 Flash Preview正式开源",
-     "url": "https://www.oschina.net/news/503792",
-     "source": "开源中国",
-     "one_liner": "11月24日百度面向全球开源社区开放文心5.5 Flash Preview权重，开发者可在Hugging Face获取。",
-     "impact": "high"
-    },
-    {
-     "title": "智谱GLM-5.4首发Loop架构，编程能力暴涨",
-     "url": "https://www.infoq.cn/article/gXU31yBa9HMEe19PxHVB?utm_source=rss&utm_medium=article",
-     "source": "InfoQ中文",
-     "one_liner": "GLM-5.4采用全新Loop架构，编程能力显著提升，但推理时间变长，下一代将继续Scaling路线。",
-     "impact": "high"
-    },
-    {
-     "title": "高德发布ABot-World 0.5世界模型",
-     "url": "https://www.qbitai.com/2026/11/512454.html",
+     "title": "智元灵心平台一年孵化超3万个机器人智能体",
+     "url": "https://www.qbitai.com/2026/11/512715.html",
      "source": "量子位",
-     "one_liner": "阿里旗下高德正式发布新一代通用交互式世界模型，支持构建音画同步、可实时重塑的AI物理世界。",
+     "one_liner": "智元推出行业首个开放且完整的具身智能生态技术体系AIMA，零基础用户也能做开发。",
      "impact": "high"
     },
     {
-     "title": "Gemini 4 Neon登陆前沿实验室",
-     "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
-     "source": "Latent Space",
-     "one_liner": "Google Gemini 4 Neon在LiveBench超越Astra和Fable，标志着GDM全面回归前沿实验室阵营。",
-     "impact": "medium"
-    }
-   ]
-  },
-  {
-   "title": "产业·投融资·政策",
-   "items": [
-    {
-     "title": "荣耀发布AI手机坚守入口战略",
-     "url": "http://www.geekpark.net/news/374462",
-     "source": "极客公园",
-     "one_liner": "荣耀11月23日发布700系列三款机型，补贴后2899元起，主打前沿模型接入但入口自主可控。",
+     "title": "九章云极发布物理AI工厂与生态开放计划",
+     "url": "https://www.qbitai.com/2026/11/512582.html",
+     "source": "量子位",
+     "one_liner": "11月25日深圳峰会以「算力唤醒真实世界」为主题，正式发布物理AI工厂及生态开放计划。",
      "impact": "medium"
     },
     {
-     "title": "Yale教授：Nvidia是美国工业之患非冠军",
-     "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+     "title": "Anthropic还藏着2个最强模型，Fable5.2已属过时",
+     "url": "https://www.qbitai.com/2026/11/512538.html",
+     "source": "量子位",
+     "one_liner": "Anthropic内部另有两款强劲模型未公开，现有公开版本Fable5.2已被认为较旧。",
+     "impact": "low"
+    },
+    {
+     "title": "前A社Tibo加盟OpenAI，上市前离职三人组异地团圆",
+     "url": "https://www.qbitai.com/2026/11/512515.html",
+     "source": "量子位",
+     "one_liner": "Anthropic核心成员Tibo跳槽OpenAI，OpenAI团队再添一位同名Tibo。",
+     "impact": "medium"
+    },
+    {
+     "title": "OpenAI宣布重度用户将更早触发用量限制",
+     "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
      "source": "TechCrunch AI",
-     "one_liner": "耶鲁Jeffrey Sonnenfeld警告市场对Nvidia的欢呼，认为其损害美国工业实力而非成为冠军。",
+     "one_liner": "OpenAI将整合ChatGPT Chat与Work体验，引入统一用量计量，重用户将更快触及限额。",
+     "impact": "high"
+    },
+    {
+     "title": "Dario Amodei斥责将控制权让渡给AI的说法「荒谬」",
+     "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+     "one_liner": "Anthropic CEO反驳竞争对手对其偏袒交出人类控制权的指责，称此类说法荒谬。",
+     "impact": "high"
+    },
+    {
+     "title": "Amazon与Meta洽谈解除对AI Agent Muse的封锁",
+     "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+     "source": "TechCrunch AI",
+     "one_liner": "两家公司正讨论一项协议，有望结束对AI Agent Muse长达两个月之久的平台封锁。",
+     "impact": "high"
+    },
+    {
+     "title": "Nvidia Megaspeed引发调查中关于芯片去向的疑问",
+     "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+     "source": "TechCrunch AI",
+     "one_liner": "调查核心聚焦于Nvidia是否知晓其芯片最终流向，黄仁勋仍需回答相关问题。",
      "impact": "medium"
     }
    ]
@@ -62,53 +70,67 @@
    "title": "学术前沿",
    "items": [
     {
-     "title": "Frontier AI模型发布时间线（2022-2026）",
-     "url": "https://durabilitycurve.com/chart",
-     "source": "durabilitycurve",
-     "one_liner": "可视化展示2022至2026年间各实验室前沿AI模型发布历程，包括xAI Grok-2、Meta Llama 3.1等里程碑。",
+     "title": "Import AI 482期：华为内核基准、空射反无人机与AI科学基准",
+     "url": "https://importai.substack.com/p/import-ai-482-huawei-kernel-benchmarks",
+     "source": "Import AI",
+     "one_liner": "本期涵盖华为内核性能测试、机载无人机侦测技术及国家实验室AI科学基准评测。",
      "impact": "low"
     }
    ]
   },
   {
-   "title": "开源与GitHub",
+   "title": "开源与前沿动态",
    "items": [
     {
-     "title": "SmartCall v2.0.0发布，升级LiveKit实时语音架构",
-     "url": "https://www.oschina.net/news/503794",
-     "source": "开源中国",
-     "one_liner": "SmartCall升级到基于AI大模型+LiveKit实时音频的新一代开源AI语音通话框架，Agents架构设计。",
+     "title": "2022至2026年前沿AI模型发布时间线全览",
+     "url": "https://durabilitycurve.com/chart",
+     "source": "durabilitycurve.com",
+     "one_liner": "Chart展示xAI Grok-2（2024年8月）与Meta Llama 3.1（2024年7月，首开开源模式）等里程碑式发布。",
      "impact": "medium"
+    },
+    {
+     "title": "Aleph Alpha发布Kolibri 1.1",
+     "url": "https://aleph-alpha.com/en/news/kolibri-1-1-release",
+     "source": "Aleph Alpha",
+     "one_liner": "欧洲AI公司Aleph Alpha推出新一代模型Kolibri 1.1，继续深耕多语言与大能力边界。",
+     "impact": "low"
     }
    ]
   },
   {
-   "title": "工具与实践",
+   "title": "产业·投融资·政策",
    "items": [
     {
-     "title": "旧Nvidia和ATI技术演示在浏览器中重现",
-     "url": "https://gpu-demo-gallery.pages.dev/",
-     "source": "Hacker News",
-     "one_liner": "经典GPU技术演示通过Web技术恢复运行，让怀旧开发者和爱好者可在浏览器中体验老款显卡特性。",
+     "title": "AI数据中心建设趋难，Neoclouds感受压力",
+     "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+     "source": "TechCrunch AI",
+     "one_liner": "Nvidia明确表示不会为尚未接近投产的数据中心提供背书，初创云服务面临更大融资门槛。",
+     "impact": "medium"
+    },
+    {
+     "title": "Google Gemini 4 Neon面向复杂软件工程任务发布",
+     "url": "https://www.facebook.com/groups/1953444125189828/posts/2442758479591721",
+     "source": "Facebook Creed Technology",
+     "one_liner": "Gemini 4 Neon专为复杂软件开发知识工作设计，展现Google加速模型迭代之势。",
      "impact": "low"
     },
     {
-     "title": "AI正超越聊天机器人：下周发布预示方向",
-     "url": "https://inamdaraditya.medium.com/ai-is-moving-beyond-chatbots-this-weeks-releases-show-what-comes-next-bf61e0d0317f",
-     "source": "Medium",
-     "one_liner": "本周多款新产品发布显示AI行业正从对话型向更深层次应用迁移，反映技术演进新趋势。",
+     "title": "社媒平台持续分享AI最新动态",
+     "url": "https://www.instagram.com/p/DgFC4Czl1AT",
+     "source": "Simplilearn Instagram",
+     "one_liner": "Simplilearn在Instagram平台持续推送AI模型新产品发布及发展趋势等内容。",
      "impact": "low"
     }
    ]
   }
  ],
  "usage": {
-  "completion_tokens": 1473,
-  "prompt_tokens": 1968,
-  "total_tokens": 3441,
+  "completion_tokens": 2986,
+  "prompt_tokens": 1952,
+  "total_tokens": 4938,
   "completion_tokens_details": {
-   "reasoning_tokens": 530,
-   "text_tokens": 943
+   "reasoning_tokens": 1654,
+   "text_tokens": 1332
   },
   "prompt_tokens_details": {
    "cached_tokens": 256
