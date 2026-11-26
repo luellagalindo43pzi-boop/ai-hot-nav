@@ -1,1 +1,32 @@
-[]
+[
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+  "domain": "micjm.com",
+  "title": "OpenAI may be in cost control mode",
+  "summary": "Comments",
+  "score": 21.42,
+  "region": "global",
+  "discovered_at": "2026-11-26T21:40:00.979686+00:00",
+  "status": "rejected",
+  "llm_score": 45,
+  "llm_cat": "daily",
+  "llm_desc": "个人博客，涉及 OpenAI 行业动态评论，但 RSS 摘要仅显示'Comments'，信息密度低，聚合价值有限。",
+  "site_name": "micjm.com"
+ },
+ {
+  "name": "Hacker News · 外链",
+  "url": "https://devnull.land/amd-specific-llama-cpp",
+  "domain": "devnull.land",
+  "title": "AMD Specific Patches for Llama.cpp",
+  "summary": "Comments",
+  "score": 17.01,
+  "region": "global",
+  "discovered_at": "2026-11-26T21:40:00.979841+00:00",
+  "status": "rejected",
+  "llm_score": 72,
+  "llm_cat": "llm",
+  "llm_desc": "知名 Linux/开发者技术博客，发布 Llama.cpp 的 AMD 硬件适配补丁，对本地 LLM 部署有实际参考价值。",
+  "site_name": "devnull.land"
+ }
+]

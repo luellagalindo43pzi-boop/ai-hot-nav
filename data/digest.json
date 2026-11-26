@@ -1,47 +1,47 @@
 {
- "date": "2026-11-26",
- "title": "AI热榜日报 · 2026-11-26",
- "generated_at": "2026-11-26T16:30:47+08:00",
+ "date": "2026-11-27",
+ "title": "AI热榜日报 · 2026-11-27",
+ "generated_at": "2026-11-27T05:40:35+08:00",
  "model": "Agnes AI · agnes-2.5-flash",
  "item_count": 14,
- "overview": "OpenAI大规模挖角Claude Code核心团队；蔚来发布世界模型3.0智驾提效5倍；宇树单日市值暴涨477亿；Google被曝RSI进展及神秘模型Gestalt；0.1%预训练数据污染即可给AI智能体植入不可清除后门。",
+ "overview": "Anthropic登陆纳斯达克，八成收入按量计费；MAGI-2开源视频模型成本降九成；Nvidia暂停东南亚芯片出货；Opus 5.6进入测试；百度免费开放高速AI模型。",
  "sections": [
   {
    "title": "大模型与产品",
    "items": [
     {
-     "title": "AI安全「奥本海默」时刻：龙头员工不再相信模型安全",
-     "url": "https://www.tmtpost.com/8218572.html",
-     "source": "钛媒体",
-     "one_liner": "OpenAI与Anthropic最强模型因内部员工不信任其安全性而选择不出版，AI安全信任危机凸显。",
+     "title": "MAGI-2开源：视频模型成本降九成掀桌",
+     "url": "http://www.geekpark.net/news/374532",
+     "source": "极客公园",
+     "one_liner": "MAGI-2以开源权重发布，成本降低九成，视频大模型进入大掀桌时代。",
      "impact": "high"
     },
     {
-     "title": "OpenAI挖角Claude Code班底，Anthropic编程王座告急",
-     "url": "https://www.infoq.cn/article/z9IwzAY8hP15oDa2VKi6?utm_source=rss&utm_medium=article",
-     "source": "InfoQ 中文",
-     "one_liner": "Claude Code核心开发团队被OpenAI大量招揽，叠加Claude破发，Anthropic编程主导地位受威胁。",
+     "title": "Opus 5.6测试、OpenAI私有推理、Jev或为Qwen",
+     "url": "https://tldr.tech/ai/2026-11-26",
+     "source": "TLDR AI",
+     "one_liner": "Opus 5.6进入测试，OpenAI开放私有推理能力，Jev模型疑似为Qwen。",
      "impact": "high"
     },
     {
-     "title": "Google被曝实现RSI，神秘模型Gestalt超越Fable 5.2",
-     "url": "https://www.youtube.com/watch?v=6NT9TsT6iMc",
-     "source": "Web · www.youtube.com",
-     "one_liner": "Google疑似达成递归自改进，新隐身模型Gestalt在Contra Frontier基准上超越Fable 5.2。",
-     "impact": "high"
-    },
-    {
-     "title": "蔚来世界模型3.0发布：智驾训练提效5倍",
-     "url": "https://www.qbitai.com/2026/11/512897.html",
-     "source": "量子位",
-     "one_liner": "任少卿发布世界模型3.0，蔚来智驾训练效率提升5倍，座舱引入强化学习；李斌称不做AI变革可能活不下去。",
+     "title": "SemiAnalysis评测前沿模型：6.2Astra表现不俗",
+     "url": "https://www.v2ex.com/t/1260167",
+     "source": "V2EX",
+     "one_liner": "SemiAnalysis发布前沿大模型执行任务评测，6.2Astra成绩出乎意料地好。",
      "impact": "medium"
     },
     {
-     "title": "百度发布免费高速AI模型",
-     "url": "https://tech.yahoo.com/ai/gemini/articles/chinas-google-just-released-fast-223809479.html",
-     "source": "Web · tech.yahoo.com",
-     "one_liner": "百度推出新一代高速AI模型并免费提供API，进一步降低国产大模型使用门槛。",
+     "title": "亚马逊：AI代理自主发现并利用0-day漏洞",
+     "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
+     "source": "Ars Technica",
+     "one_liner": "Cairn AI框架让攻击者以极少人工介入发现并利用0-day，攻防格局生变。",
+     "impact": "medium"
+    },
+    {
+     "title": "Aleph Alpha发布Kolibri 1.1",
+     "url": "https://aleph-alpha.com/en/news/kolibri-1-1-release",
+     "source": "Aleph Alpha",
+     "one_liner": "Aleph Alpha推出Kolibri 1.1，面向企业级AI场景持续迭代。",
      "impact": "medium"
     }
    ]
@@ -50,58 +50,39 @@
    "title": "产业·投融资·政策",
    "items": [
     {
-     "title": "宇树单日暴涨477亿：资本押注机器人",
-     "url": "https://www.tmtpost.com/8218667.html",
+     "title": "Anthropic上市：八成收入来自按量计费",
+     "url": "https://www.tmtpost.com/8218636.html",
      "source": "钛媒体",
-     "one_liner": "AI回本周期拉长，资本转向机器人赛道，宇树科技单日市值暴涨477亿，交付预期指向2027。",
+     "one_liner": "Anthropic登陆纳斯达克，前三季度近八成收入来自按使用量计费业务。",
      "impact": "high"
     },
     {
-     "title": "具身智能寻找自己的Scaling Law",
-     "url": "https://www.tmtpost.com/8218859.html",
+     "title": "Nvidia暂停东南亚服务器芯片出货",
+     "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+     "source": "TechCrunch",
+     "one_liner": "Nvidia通知制造伙伴暂停向马来西亚、新加坡、泰国等东南亚国家出货。",
+     "impact": "high"
+    },
+    {
+     "title": "OpenAI疑似进入成本控制模式",
+     "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+     "source": "Hacker News",
+     "one_liner": "多方迹象显示OpenAI正收紧开支，转向成本控制模式。",
+     "impact": "medium"
+    },
+    {
+     "title": "百人AI公司获75亿估值",
+     "url": "https://www.tmtpost.com/8218433.html",
      "source": "钛媒体",
-     "one_liner": "从人类示范、仿真对练到真实场景数据回流，具身智能探索「边干边学」的规模化路径。",
+     "one_liner": "100人AI公司被英伟达、Anthropic、亚马逊共同抬至75亿美元估值。",
      "impact": "medium"
     },
     {
-     "title": "字节该造手机了",
-     "url": "http://www.geekpark.net/news/374374",
-     "source": "极客公园",
-     "one_liner": "富智康已获OpenAI手机组装订单，首款产品预计2027底至2028年面市，硬件入口之争升温。",
-     "impact": "medium"
-    },
-    {
-     "title": "AI硬件圈年度聚会：告别超级入口叙事",
-     "url": "http://www.geekpark.net/news/374487",
-     "source": "极客公园",
-     "one_liner": "Plaud、影石、小红书、Looki等厂商齐聚，2026年AI硬件从「爽文叙事」回归务实落地。",
+     "title": "GTA6与Anthropic上市同日：效率并非美德",
+     "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+     "source": "TechCrunch",
+     "one_liner": "手工打磨的GTA6与AnthropicIPO同日发生，反思效率至上的行业叙事。",
      "impact": "low"
-    },
-    {
-     "title": "Amazon无人机送货坠毁，FAA启动调查",
-     "url": "https://arstechnica.com/gadgets/2026/11/faa-opens-probe-after-amazon-delivery-drone-clips-cable-crashes-into-garage/",
-     "source": "Ars Technica",
-     "one_liner": "Amazon Prime Air无人机割断线缆后坠入车库，FAA展开调查；2026年已执行数十万次配送。",
-     "impact": "low"
-    },
-    {
-     "title": "AICon北京2026全日程揭晓",
-     "url": "https://www.oschina.net/event/8598428",
-     "source": "开源中国",
-     "one_liner": "12月18-19日北京举办，13大技术专题、58场演讲，主题「探索AI应用边界」。",
-     "impact": "low"
-    }
-   ]
-  },
-  {
-   "title": "学术前沿",
-   "items": [
-    {
-     "title": "0.1%预训练数据污染即可植入AI后门",
-     "url": "https://www.oschina.net/news/503823",
-     "source": "开源中国",
-     "one_liner": "论文证明仅污染0.1%预训练数据即可给AI智能体植入后门，后续干净微调与RL也无法清除。",
-     "impact": "medium"
     }
    ]
   },
@@ -109,29 +90,48 @@
    "title": "开源与GitHub",
    "items": [
     {
+     "title": "百度免费发布高速AI模型",
+     "url": "https://tech.yahoo.com/ai/gemini/articles/chinas-google-just-released-fast-223809479.html",
+     "source": "Yahoo Tech",
+     "one_liner": "百度推出高速AI模型并免费开放，延续「中国谷歌」开放策略。",
+     "impact": "medium"
+    },
+    {
      "title": "开源AI项目大全：训练、MLOps与评测",
      "url": "https://awesomeosai.com",
-     "source": "Web · awesomeosai.com",
-     "one_liner": "汇总开源AI领域训练框架、MLOps工具链及评测基准的精选项目索引。",
+     "source": "awesomeosai.com",
+     "one_liner": "持续更新开源AI训练、MLOps、评测方向项目与工具索引。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "工具与实践",
+   "items": [
+    {
+     "title": "AI替你打客服电话，但对面也是AI",
+     "url": "http://www.geekpark.net/news/374536",
+     "source": "极客公园",
+     "one_liner": "AI客服帮你取消续费、申请退款，但电话那头坐的也是AI。",
      "impact": "low"
     },
     {
-     "title": "2026年最值得参与的开源AI项目",
-     "url": "https://futureagi.com/blog/best-open-source-projects",
-     "source": "Web · futureagi.com",
-     "one_liner": "从vLLM到模型服务，梳理2026年适合不同目标开发者的开源AI贡献方向。",
+     "title": "AI新品速报：OpenAI/Google/Meta产品动态",
+     "url": "https://superpowerdaily.com/topics/products",
+     "source": "Superpower Daily",
+     "one_liner": "每日汇总OpenAI、Google、Meta等公司最新AI产品与功能发布。",
      "impact": "low"
     }
    ]
   }
  ],
  "usage": {
-  "completion_tokens": 3353,
-  "prompt_tokens": 1979,
-  "total_tokens": 5332,
+  "completion_tokens": 3892,
+  "prompt_tokens": 1851,
+  "total_tokens": 5743,
   "completion_tokens_details": {
-   "reasoning_tokens": 2132,
-   "text_tokens": 1221
+   "reasoning_tokens": 2795,
+   "text_tokens": 1097
   },
   "prompt_tokens_details": {
    "cached_tokens": 256

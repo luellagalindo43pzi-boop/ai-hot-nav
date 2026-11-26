@@ -1,0 +1,140 @@
+{
+ "date": "2026-11-27",
+ "title": "AI热榜日报 · 2026-11-27",
+ "generated_at": "2026-11-27T05:40:35+08:00",
+ "model": "Agnes AI · agnes-2.5-flash",
+ "item_count": 14,
+ "overview": "Anthropic登陆纳斯达克，八成收入按量计费；MAGI-2开源视频模型成本降九成；Nvidia暂停东南亚芯片出货；Opus 5.6进入测试；百度免费开放高速AI模型。",
+ "sections": [
+  {
+   "title": "大模型与产品",
+   "items": [
+    {
+     "title": "MAGI-2开源：视频模型成本降九成掀桌",
+     "url": "http://www.geekpark.net/news/374532",
+     "source": "极客公园",
+     "one_liner": "MAGI-2以开源权重发布，成本降低九成，视频大模型进入大掀桌时代。",
+     "impact": "high"
+    },
+    {
+     "title": "Opus 5.6测试、OpenAI私有推理、Jev或为Qwen",
+     "url": "https://tldr.tech/ai/2026-11-26",
+     "source": "TLDR AI",
+     "one_liner": "Opus 5.6进入测试，OpenAI开放私有推理能力，Jev模型疑似为Qwen。",
+     "impact": "high"
+    },
+    {
+     "title": "SemiAnalysis评测前沿模型：6.2Astra表现不俗",
+     "url": "https://www.v2ex.com/t/1260167",
+     "source": "V2EX",
+     "one_liner": "SemiAnalysis发布前沿大模型执行任务评测，6.2Astra成绩出乎意料地好。",
+     "impact": "medium"
+    },
+    {
+     "title": "亚马逊：AI代理自主发现并利用0-day漏洞",
+     "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
+     "source": "Ars Technica",
+     "one_liner": "Cairn AI框架让攻击者以极少人工介入发现并利用0-day，攻防格局生变。",
+     "impact": "medium"
+    },
+    {
+     "title": "Aleph Alpha发布Kolibri 1.1",
+     "url": "https://aleph-alpha.com/en/news/kolibri-1-1-release",
+     "source": "Aleph Alpha",
+     "one_liner": "Aleph Alpha推出Kolibri 1.1，面向企业级AI场景持续迭代。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "产业·投融资·政策",
+   "items": [
+    {
+     "title": "Anthropic上市：八成收入来自按量计费",
+     "url": "https://www.tmtpost.com/8218636.html",
+     "source": "钛媒体",
+     "one_liner": "Anthropic登陆纳斯达克，前三季度近八成收入来自按使用量计费业务。",
+     "impact": "high"
+    },
+    {
+     "title": "Nvidia暂停东南亚服务器芯片出货",
+     "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+     "source": "TechCrunch",
+     "one_liner": "Nvidia通知制造伙伴暂停向马来西亚、新加坡、泰国等东南亚国家出货。",
+     "impact": "high"
+    },
+    {
+     "title": "OpenAI疑似进入成本控制模式",
+     "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+     "source": "Hacker News",
+     "one_liner": "多方迹象显示OpenAI正收紧开支，转向成本控制模式。",
+     "impact": "medium"
+    },
+    {
+     "title": "百人AI公司获75亿估值",
+     "url": "https://www.tmtpost.com/8218433.html",
+     "source": "钛媒体",
+     "one_liner": "100人AI公司被英伟达、Anthropic、亚马逊共同抬至75亿美元估值。",
+     "impact": "medium"
+    },
+    {
+     "title": "GTA6与Anthropic上市同日：效率并非美德",
+     "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+     "source": "TechCrunch",
+     "one_liner": "手工打磨的GTA6与AnthropicIPO同日发生，反思效率至上的行业叙事。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "开源与GitHub",
+   "items": [
+    {
+     "title": "百度免费发布高速AI模型",
+     "url": "https://tech.yahoo.com/ai/gemini/articles/chinas-google-just-released-fast-223809479.html",
+     "source": "Yahoo Tech",
+     "one_liner": "百度推出高速AI模型并免费开放，延续「中国谷歌」开放策略。",
+     "impact": "medium"
+    },
+    {
+     "title": "开源AI项目大全：训练、MLOps与评测",
+     "url": "https://awesomeosai.com",
+     "source": "awesomeosai.com",
+     "one_liner": "持续更新开源AI训练、MLOps、评测方向项目与工具索引。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "工具与实践",
+   "items": [
+    {
+     "title": "AI替你打客服电话，但对面也是AI",
+     "url": "http://www.geekpark.net/news/374536",
+     "source": "极客公园",
+     "one_liner": "AI客服帮你取消续费、申请退款，但电话那头坐的也是AI。",
+     "impact": "low"
+    },
+    {
+     "title": "AI新品速报：OpenAI/Google/Meta产品动态",
+     "url": "https://superpowerdaily.com/topics/products",
+     "source": "Superpower Daily",
+     "one_liner": "每日汇总OpenAI、Google、Meta等公司最新AI产品与功能发布。",
+     "impact": "low"
+    }
+   ]
+  }
+ ],
+ "usage": {
+  "completion_tokens": 3892,
+  "prompt_tokens": 1851,
+  "total_tokens": 5743,
+  "completion_tokens_details": {
+   "reasoning_tokens": 2795,
+   "text_tokens": 1097
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 256
+  }
+ }
+}

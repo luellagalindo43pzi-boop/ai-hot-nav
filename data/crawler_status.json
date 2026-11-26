@@ -1,5 +1,5 @@
 {
-  "crawled_at": "2026-11-26T08:29:44.482946+00:00",
+  "crawled_at": "2026-11-26T21:40:00.981268+00:00",
   "feeds_total": 34,
   "feeds_ok": 29,
   "feeds": [
@@ -12,8 +12,8 @@
     {
       "name": "钛媒体",
       "url": "https://www.tmtpost.com/rss",
-      "status": "ok (19)",
-      "items": 19
+      "status": "ok (18)",
+      "items": 18
     },
     {
       "name": "爱范儿",
@@ -54,8 +54,8 @@
     {
       "name": "V2EX 最热",
       "url": "https://www.v2ex.com/index.xml",
-      "status": "ok (50)",
-      "items": 50
+      "status": "ok (49)",
+      "items": 49
     },
     {
       "name": "AI之旅导航",
@@ -144,8 +144,8 @@
     {
       "name": "Hugging Face Blog",
       "url": "https://huggingface.co/blog/feed.xml",
-      "status": "ok (917)",
-      "items": 917
+      "status": "ok (918)",
+      "items": 918
     },
     {
       "name": "Lilian Weng",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 0
+  "candidates": 2
 }
