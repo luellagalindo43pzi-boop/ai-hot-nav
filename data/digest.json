@@ -1,99 +1,48 @@
 {
  "date": "2026-11-26",
  "title": "AI热榜日报 · 2026-11-26",
- "generated_at": "2026-11-26T05:47:50+08:00",
+ "generated_at": "2026-11-26T16:30:47+08:00",
  "model": "Agnes AI · agnes-2.5-flash",
  "item_count": 14,
- "overview": "2026年11月25日AI要闻：智元灵心平台一年孵化超3万具身智能体，发布AIMA技术体系；九章云极在深圳发布物理AI工厂；Anthropic CEO否认放弃人类控制权；OpenAI合并Chat与Work共享用量配额；前A社Tibo加盟OpenAI；Amazon与Meta就解除AI Agent Muse封锁进行谈判；Nvidia被追问Megaspeed芯片去向问题。",
+ "overview": "OpenAI大规模挖角Claude Code核心团队；蔚来发布世界模型3.0智驾提效5倍；宇树单日市值暴涨477亿；Google被曝RSI进展及神秘模型Gestalt；0.1%预训练数据污染即可给AI智能体植入不可清除后门。",
  "sections": [
   {
    "title": "大模型与产品",
    "items": [
     {
-     "title": "智元灵心平台一年孵化超3万个机器人智能体",
-     "url": "https://www.qbitai.com/2026/11/512715.html",
-     "source": "量子位",
-     "one_liner": "智元推出行业首个开放且完整的具身智能生态技术体系AIMA，零基础用户也能做开发。",
+     "title": "AI安全「奥本海默」时刻：龙头员工不再相信模型安全",
+     "url": "https://www.tmtpost.com/8218572.html",
+     "source": "钛媒体",
+     "one_liner": "OpenAI与Anthropic最强模型因内部员工不信任其安全性而选择不出版，AI安全信任危机凸显。",
      "impact": "high"
     },
     {
-     "title": "九章云极发布物理AI工厂与生态开放计划",
-     "url": "https://www.qbitai.com/2026/11/512582.html",
-     "source": "量子位",
-     "one_liner": "11月25日深圳峰会以「算力唤醒真实世界」为主题，正式发布物理AI工厂及生态开放计划。",
-     "impact": "medium"
-    },
-    {
-     "title": "Anthropic还藏着2个最强模型，Fable5.2已属过时",
-     "url": "https://www.qbitai.com/2026/11/512538.html",
-     "source": "量子位",
-     "one_liner": "Anthropic内部另有两款强劲模型未公开，现有公开版本Fable5.2已被认为较旧。",
-     "impact": "low"
-    },
-    {
-     "title": "前A社Tibo加盟OpenAI，上市前离职三人组异地团圆",
-     "url": "https://www.qbitai.com/2026/11/512515.html",
-     "source": "量子位",
-     "one_liner": "Anthropic核心成员Tibo跳槽OpenAI，OpenAI团队再添一位同名Tibo。",
-     "impact": "medium"
-    },
-    {
-     "title": "OpenAI宣布重度用户将更早触发用量限制",
-     "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
-     "source": "TechCrunch AI",
-     "one_liner": "OpenAI将整合ChatGPT Chat与Work体验，引入统一用量计量，重用户将更快触及限额。",
+     "title": "OpenAI挖角Claude Code班底，Anthropic编程王座告急",
+     "url": "https://www.infoq.cn/article/z9IwzAY8hP15oDa2VKi6?utm_source=rss&utm_medium=article",
+     "source": "InfoQ 中文",
+     "one_liner": "Claude Code核心开发团队被OpenAI大量招揽，叠加Claude破发，Anthropic编程主导地位受威胁。",
      "impact": "high"
     },
     {
-     "title": "Dario Amodei斥责将控制权让渡给AI的说法「荒谬」",
-     "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
-     "one_liner": "Anthropic CEO反驳竞争对手对其偏袒交出人类控制权的指责，称此类说法荒谬。",
+     "title": "Google被曝实现RSI，神秘模型Gestalt超越Fable 5.2",
+     "url": "https://www.youtube.com/watch?v=6NT9TsT6iMc",
+     "source": "Web · www.youtube.com",
+     "one_liner": "Google疑似达成递归自改进，新隐身模型Gestalt在Contra Frontier基准上超越Fable 5.2。",
      "impact": "high"
     },
     {
-     "title": "Amazon与Meta洽谈解除对AI Agent Muse的封锁",
-     "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
-     "source": "TechCrunch AI",
-     "one_liner": "两家公司正讨论一项协议，有望结束对AI Agent Muse长达两个月之久的平台封锁。",
-     "impact": "high"
-    },
-    {
-     "title": "Nvidia Megaspeed引发调查中关于芯片去向的疑问",
-     "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
-     "source": "TechCrunch AI",
-     "one_liner": "调查核心聚焦于Nvidia是否知晓其芯片最终流向，黄仁勋仍需回答相关问题。",
-     "impact": "medium"
-    }
-   ]
-  },
-  {
-   "title": "学术前沿",
-   "items": [
-    {
-     "title": "Import AI 482期：华为内核基准、空射反无人机与AI科学基准",
-     "url": "https://importai.substack.com/p/import-ai-482-huawei-kernel-benchmarks",
-     "source": "Import AI",
-     "one_liner": "本期涵盖华为内核性能测试、机载无人机侦测技术及国家实验室AI科学基准评测。",
-     "impact": "low"
-    }
-   ]
-  },
-  {
-   "title": "开源与前沿动态",
-   "items": [
-    {
-     "title": "2022至2026年前沿AI模型发布时间线全览",
-     "url": "https://durabilitycurve.com/chart",
-     "source": "durabilitycurve.com",
-     "one_liner": "Chart展示xAI Grok-2（2024年8月）与Meta Llama 3.1（2024年7月，首开开源模式）等里程碑式发布。",
+     "title": "蔚来世界模型3.0发布：智驾训练提效5倍",
+     "url": "https://www.qbitai.com/2026/11/512897.html",
+     "source": "量子位",
+     "one_liner": "任少卿发布世界模型3.0，蔚来智驾训练效率提升5倍，座舱引入强化学习；李斌称不做AI变革可能活不下去。",
      "impact": "medium"
     },
     {
-     "title": "Aleph Alpha发布Kolibri 1.1",
-     "url": "https://aleph-alpha.com/en/news/kolibri-1-1-release",
-     "source": "Aleph Alpha",
-     "one_liner": "欧洲AI公司Aleph Alpha推出新一代模型Kolibri 1.1，继续深耕多语言与大能力边界。",
-     "impact": "low"
+     "title": "百度发布免费高速AI模型",
+     "url": "https://tech.yahoo.com/ai/gemini/articles/chinas-google-just-released-fast-223809479.html",
+     "source": "Web · tech.yahoo.com",
+     "one_liner": "百度推出新一代高速AI模型并免费提供API，进一步降低国产大模型使用门槛。",
+     "impact": "medium"
     }
    ]
   },
@@ -101,36 +50,88 @@
    "title": "产业·投融资·政策",
    "items": [
     {
-     "title": "AI数据中心建设趋难，Neoclouds感受压力",
-     "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
-     "source": "TechCrunch AI",
-     "one_liner": "Nvidia明确表示不会为尚未接近投产的数据中心提供背书，初创云服务面临更大融资门槛。",
+     "title": "宇树单日暴涨477亿：资本押注机器人",
+     "url": "https://www.tmtpost.com/8218667.html",
+     "source": "钛媒体",
+     "one_liner": "AI回本周期拉长，资本转向机器人赛道，宇树科技单日市值暴涨477亿，交付预期指向2027。",
+     "impact": "high"
+    },
+    {
+     "title": "具身智能寻找自己的Scaling Law",
+     "url": "https://www.tmtpost.com/8218859.html",
+     "source": "钛媒体",
+     "one_liner": "从人类示范、仿真对练到真实场景数据回流，具身智能探索「边干边学」的规模化路径。",
      "impact": "medium"
     },
     {
-     "title": "Google Gemini 4 Neon面向复杂软件工程任务发布",
-     "url": "https://www.facebook.com/groups/1953444125189828/posts/2442758479591721",
-     "source": "Facebook Creed Technology",
-     "one_liner": "Gemini 4 Neon专为复杂软件开发知识工作设计，展现Google加速模型迭代之势。",
+     "title": "字节该造手机了",
+     "url": "http://www.geekpark.net/news/374374",
+     "source": "极客公园",
+     "one_liner": "富智康已获OpenAI手机组装订单，首款产品预计2027底至2028年面市，硬件入口之争升温。",
+     "impact": "medium"
+    },
+    {
+     "title": "AI硬件圈年度聚会：告别超级入口叙事",
+     "url": "http://www.geekpark.net/news/374487",
+     "source": "极客公园",
+     "one_liner": "Plaud、影石、小红书、Looki等厂商齐聚，2026年AI硬件从「爽文叙事」回归务实落地。",
      "impact": "low"
     },
     {
-     "title": "社媒平台持续分享AI最新动态",
-     "url": "https://www.instagram.com/p/DgFC4Czl1AT",
-     "source": "Simplilearn Instagram",
-     "one_liner": "Simplilearn在Instagram平台持续推送AI模型新产品发布及发展趋势等内容。",
+     "title": "Amazon无人机送货坠毁，FAA启动调查",
+     "url": "https://arstechnica.com/gadgets/2026/11/faa-opens-probe-after-amazon-delivery-drone-clips-cable-crashes-into-garage/",
+     "source": "Ars Technica",
+     "one_liner": "Amazon Prime Air无人机割断线缆后坠入车库，FAA展开调查；2026年已执行数十万次配送。",
+     "impact": "low"
+    },
+    {
+     "title": "AICon北京2026全日程揭晓",
+     "url": "https://www.oschina.net/event/8598428",
+     "source": "开源中国",
+     "one_liner": "12月18-19日北京举办，13大技术专题、58场演讲，主题「探索AI应用边界」。",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "学术前沿",
+   "items": [
+    {
+     "title": "0.1%预训练数据污染即可植入AI后门",
+     "url": "https://www.oschina.net/news/503823",
+     "source": "开源中国",
+     "one_liner": "论文证明仅污染0.1%预训练数据即可给AI智能体植入后门，后续干净微调与RL也无法清除。",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "开源与GitHub",
+   "items": [
+    {
+     "title": "开源AI项目大全：训练、MLOps与评测",
+     "url": "https://awesomeosai.com",
+     "source": "Web · awesomeosai.com",
+     "one_liner": "汇总开源AI领域训练框架、MLOps工具链及评测基准的精选项目索引。",
+     "impact": "low"
+    },
+    {
+     "title": "2026年最值得参与的开源AI项目",
+     "url": "https://futureagi.com/blog/best-open-source-projects",
+     "source": "Web · futureagi.com",
+     "one_liner": "从vLLM到模型服务，梳理2026年适合不同目标开发者的开源AI贡献方向。",
      "impact": "low"
     }
    ]
   }
  ],
  "usage": {
-  "completion_tokens": 2986,
-  "prompt_tokens": 1952,
-  "total_tokens": 4938,
+  "completion_tokens": 3353,
+  "prompt_tokens": 1979,
+  "total_tokens": 5332,
   "completion_tokens_details": {
-   "reasoning_tokens": 1654,
-   "text_tokens": 1332
+   "reasoning_tokens": 2132,
+   "text_tokens": 1221
   },
   "prompt_tokens_details": {
    "cached_tokens": 256
