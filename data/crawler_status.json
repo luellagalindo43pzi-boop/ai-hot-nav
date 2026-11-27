@@ -1,5 +1,5 @@
 {
-  "crawled_at": "2026-11-26T21:40:00.981268+00:00",
+  "crawled_at": "2026-11-27T08:43:32.706499+00:00",
   "feeds_total": 34,
   "feeds_ok": 29,
   "feeds": [
@@ -12,8 +12,8 @@
     {
       "name": "钛媒体",
       "url": "https://www.tmtpost.com/rss",
-      "status": "ok (18)",
-      "items": 18
+      "status": "ok (15)",
+      "items": 15
     },
     {
       "name": "爱范儿",
@@ -54,8 +54,8 @@
     {
       "name": "V2EX 最热",
       "url": "https://www.v2ex.com/index.xml",
-      "status": "ok (49)",
-      "items": 49
+      "status": "ok (50)",
+      "items": 50
     },
     {
       "name": "AI之旅导航",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 2
+  "candidates": 5
 }

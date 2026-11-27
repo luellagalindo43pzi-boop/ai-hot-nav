@@ -1,87 +1,54 @@
 {
  "date": "2026-11-27",
  "title": "AI热榜日报 · 2026-11-27",
- "generated_at": "2026-11-27T05:40:35+08:00",
+ "generated_at": "2026-11-27T16:44:22+08:00",
  "model": "Agnes AI · agnes-2.5-flash",
  "item_count": 14,
- "overview": "Anthropic登陆纳斯达克，八成收入按量计费；MAGI-2开源视频模型成本降九成；Nvidia暂停东南亚芯片出货；Opus 5.6进入测试；百度免费开放高速AI模型。",
+ "overview": "智谱辟谣GLM-5.5延期，蚂蚁百灵Ling-3.2-air开源发布；OpenAI推SWE-2.1，Microsoft发7个新模型；蚂蚁灵波补齐机器人导航，20个AI Agents协作完成350次实验",
  "sections": [
   {
    "title": "大模型与产品",
    "items": [
     {
-     "title": "MAGI-2开源：视频模型成本降九成掀桌",
-     "url": "http://www.geekpark.net/news/374532",
+     "title": "智谱辟谣GLM-5.5延期，国产AI卡进展顺利",
+     "url": "http://www.geekpark.net/news/374546",
      "source": "极客公园",
-     "one_liner": "MAGI-2以开源权重发布，成本降低九成，视频大模型进入大掀桌时代。",
+     "one_liner": "智谱高管杨昊翊辟谣GLM-5.5跳票，称性能达Fable级、上万张国产AI卡部署顺利",
      "impact": "high"
     },
     {
-     "title": "Opus 5.6测试、OpenAI私有推理、Jev或为Qwen",
-     "url": "https://tldr.tech/ai/2026-11-26",
+     "title": "OpenAI发布SWE-2.1，矩阵数学与蜂群限制引关注",
+     "url": "https://tldr.tech/ai/2026-11-25",
      "source": "TLDR AI",
-     "one_liner": "Opus 5.6进入测试，OpenAI开放私有推理能力，Jev模型疑似为Qwen。",
+     "one_liner": "OpenAI解决矩阵数学难题，发布SWE-2.1编码模型，同时披露蜂群系统局限性",
      "impact": "high"
     },
     {
-     "title": "SemiAnalysis评测前沿模型：6.2Astra表现不俗",
-     "url": "https://www.v2ex.com/t/1260167",
-     "source": "V2EX",
-     "one_liner": "SemiAnalysis发布前沿大模型执行任务评测，6.2Astra成绩出乎意料地好。",
-     "impact": "medium"
-    },
-    {
-     "title": "亚马逊：AI代理自主发现并利用0-day漏洞",
-     "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
-     "source": "Ars Technica",
-     "one_liner": "Cairn AI框架让攻击者以极少人工介入发现并利用0-day，攻防格局生变。",
-     "impact": "medium"
-    },
-    {
-     "title": "Aleph Alpha发布Kolibri 1.1",
-     "url": "https://aleph-alpha.com/en/news/kolibri-1-1-release",
-     "source": "Aleph Alpha",
-     "one_liner": "Aleph Alpha推出Kolibri 1.1，面向企业级AI场景持续迭代。",
-     "impact": "medium"
-    }
-   ]
-  },
-  {
-   "title": "产业·投融资·政策",
-   "items": [
-    {
-     "title": "Anthropic上市：八成收入来自按量计费",
-     "url": "https://www.tmtpost.com/8218636.html",
-     "source": "钛媒体",
-     "one_liner": "Anthropic登陆纳斯达克，前三季度近八成收入来自按使用量计费业务。",
+     "title": "Microsoft发布7个新AI模型加码竞争",
+     "url": "https://www.facebook.com/TechnologyInnovation1/posts/microsoft-has-introduced-seven-new-ai-models-as-it-steps-up-competition-with-ope/1459065466380095",
+     "source": "Facebook",
+     "one_liner": "Microsoft推出7个新AI模型，加速与OpenAI及Anthropic的竞争布局",
      "impact": "high"
     },
     {
-     "title": "Nvidia暂停东南亚服务器芯片出货",
-     "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
-     "source": "TechCrunch",
-     "one_liner": "Nvidia通知制造伙伴暂停向马来西亚、新加坡、泰国等东南亚国家出货。",
-     "impact": "high"
-    },
-    {
-     "title": "OpenAI疑似进入成本控制模式",
-     "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
-     "source": "Hacker News",
-     "one_liner": "多方迹象显示OpenAI正收紧开支，转向成本控制模式。",
+     "title": "蚂蚁灵波发布两大模型补齐机器人空间导航",
+     "url": "https://www.infoq.cn/article/zRubhYcrBMTrOvzjlPQN?utm_source=rss&utm_medium=article",
+     "source": "InfoQ 中文",
+     "one_liner": "蚂蚁灵波针对「走偏」与「健忘」两大难题，发布模型补齐机器人空间导航能力",
      "impact": "medium"
     },
     {
-     "title": "百人AI公司获75亿估值",
-     "url": "https://www.tmtpost.com/8218433.html",
-     "source": "钛媒体",
-     "one_liner": "100人AI公司被英伟达、Anthropic、亚马逊共同抬至75亿美元估值。",
+     "title": "具身公司抱团回应：通用大模型跨维打击没那么简单",
+     "url": "https://www.qbitai.com/2026/11/513125.html",
+     "source": "量子位",
+     "one_liner": "多家具身智能公司联合回应通用大模型跨维打击论，强调领域适配复杂性",
      "impact": "medium"
     },
     {
-     "title": "GTA6与Anthropic上市同日：效率并非美德",
-     "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
-     "source": "TechCrunch",
-     "one_liner": "手工打磨的GTA6与AnthropicIPO同日发生，反思效率至上的行业叙事。",
+     "title": "OVHcloud发布Olala模型家族，7B参数首发",
+     "url": "https://www.sevenlab.ai/ai-news",
+     "source": "sevenlab.ai",
+     "one_liner": "OVHcloud推出Olala模型家族，首发70亿参数版本",
      "impact": "low"
     }
    ]
@@ -90,17 +57,17 @@
    "title": "开源与GitHub",
    "items": [
     {
-     "title": "百度免费发布高速AI模型",
-     "url": "https://tech.yahoo.com/ai/gemini/articles/chinas-google-just-released-fast-223809479.html",
-     "source": "Yahoo Tech",
-     "one_liner": "百度推出高速AI模型并免费开放，延续「中国谷歌」开放策略。",
-     "impact": "medium"
+     "title": "蚂蚁百灵Ling-3.2-air开源：124B参数激活5.5B",
+     "url": "https://www.oschina.net/news/503847",
+     "source": "开源中国",
+     "one_liner": "蚂蚁百灵开源Ling-3.2-air，124B总参数每token仅激活55亿，推理成本大幅降低",
+     "impact": "high"
     },
     {
-     "title": "开源AI项目大全：训练、MLOps与评测",
+     "title": "Awesome Open Source AI开源项目汇总更新",
      "url": "https://awesomeosai.com",
      "source": "awesomeosai.com",
-     "one_liner": "持续更新开源AI训练、MLOps、评测方向项目与工具索引。",
+     "one_liner": "汇总开源AI训练、MLOps及评测项目，持续收录最新开源模型与工具",
      "impact": "low"
     }
    ]
@@ -109,29 +76,62 @@
    "title": "工具与实践",
    "items": [
     {
-     "title": "AI替你打客服电话，但对面也是AI",
-     "url": "http://www.geekpark.net/news/374536",
-     "source": "极客公园",
-     "one_liner": "AI客服帮你取消续费、申请退款，但电话那头坐的也是AI。",
+     "title": "20个AI Agents协作4天跑350次实验超越公开成绩",
+     "url": "https://www.qbitai.com/2026/11/513163.html",
+     "source": "量子位",
+     "one_liner": "20个AI Agents组队4天完成350次实验，超越ClickBench最佳成绩，查询耗时降31%",
+     "impact": "medium"
+    },
+    {
+     "title": "Clay构建GTM智能体：1500美元覆盖全球企业",
+     "url": "https://latent.space/p/how-clay-builds-gtm-agents-jeff-barg-head-of-ai/",
+     "source": "Latent Space",
+     "one_liner": "Clay AI负责人Jeff Barg分享GTM智能体实践，1500美元即可资格化全球所有公司",
+     "impact": "medium"
+    },
+    {
+     "title": "OpenAI Thariq Shihipar：革命还是文艺复兴",
+     "url": "https://latent.space/p/the_revolution_vs_the_renaissance_thariq_shihipar_openai/",
+     "source": "Latent Space",
+     "one_liner": "OpenAI的Thariq Shihipar探讨AI让软件廉价量产同时释放更多创造时间的未来",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "产业·投融资·政策",
+   "items": [
+    {
+     "title": "近八成零售企业已开展AI智能体应用",
+     "url": "https://www.ithome.com/1/033/528.htm",
+     "source": "IT之家",
+     "one_liner": "CCFA联合德勤发布白皮书，近八成受访零售企业已开展AI智能体应用",
+     "impact": "medium"
+    },
+    {
+     "title": "NVIDIA招聘AI Networking软件工程师",
+     "url": "https://www.v2ex.com/t/1260368",
+     "source": "V2EX",
+     "one_liner": "NVIDIA北京/上海招聘AI Networking工程师，聚焦大模型训练推理通信加速",
      "impact": "low"
     },
     {
-     "title": "AI新品速报：OpenAI/Google/Meta产品动态",
-     "url": "https://superpowerdaily.com/topics/products",
-     "source": "Superpower Daily",
-     "one_liner": "每日汇总OpenAI、Google、Meta等公司最新AI产品与功能发布。",
+     "title": "AI模型发布时间线：OpenAI代理支付试点",
+     "url": "https://www.zeniteq.com/ai-models/timeline",
+     "source": "Zeniteq",
+     "one_liner": "OpenAI有限度开放代理使用代币化卡凭证支付，用户仍需审核确认",
      "impact": "low"
     }
    ]
   }
  ],
  "usage": {
-  "completion_tokens": 3892,
-  "prompt_tokens": 1851,
-  "total_tokens": 5743,
+  "completion_tokens": 5443,
+  "prompt_tokens": 1954,
+  "total_tokens": 7397,
   "completion_tokens_details": {
-   "reasoning_tokens": 2795,
-   "text_tokens": 1097
+   "reasoning_tokens": 4273,
+   "text_tokens": 1170
   },
   "prompt_tokens_details": {
    "cached_tokens": 256
