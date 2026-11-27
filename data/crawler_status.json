@@ -1,5 +1,5 @@
 {
-  "crawled_at": "2026-11-27T08:43:32.706499+00:00",
+  "crawled_at": "2026-11-27T21:24:18.521355+00:00",
   "feeds_total": 34,
   "feeds_ok": 29,
   "feeds": [
@@ -144,8 +144,8 @@
     {
       "name": "Hugging Face Blog",
       "url": "https://huggingface.co/blog/feed.xml",
-      "status": "ok (918)",
-      "items": 918
+      "status": "ok (919)",
+      "items": 919
     },
     {
       "name": "Lilian Weng",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 5
+  "candidates": 2
 }

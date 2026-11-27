@@ -1,0 +1,124 @@
+{
+ "date": "2026-11-28",
+ "title": "AI热榜日报 · 2026-11-28",
+ "generated_at": "2026-11-28T05:24:48+08:00",
+ "model": "Agnes AI · agnes-2.5-flash",
+ "item_count": 11,
+ "overview": "DeepSeek以226万亿Token领跑OpenRouter，中国模型包揽前三；微信开源电商多模态模型WeMM-Ecom；微软公开延缓应届生招聘将预算转向AI；OpenAI推进成本管控与循环Transformer研究；Hugging Face发布多智能体系统训练评估指南。",
+ "sections": [
+  {
+   "title": "大模型与产品",
+   "items": [
+    {
+     "title": "DeepSeek 226万亿Token领跑，中国模型包揽OpenRouter前三",
+     "url": "https://www.tmtpost.com/8220552.html",
+     "source": "钛媒体",
+     "one_liner": "开发者偏爱Flash系列，DeepSeek凭性价比与性能优势登顶调用量榜单",
+     "impact": "high"
+    },
+    {
+     "title": "微信开源WeMM-Ecom：多模态电商基础模型家族",
+     "url": "https://www.oschina.net/news/503871",
+     "source": "开源中国",
+     "one_liner": "针对电商SKU细微差异（如500g单袋vs两袋250g）设计，通用多模态模型难以区分",
+     "impact": "high"
+    },
+    {
+     "title": "OpenAI成本管控与循环Transformer研究",
+     "url": "https://tldr.tech/ai/2026-11-27",
+     "source": "TLDR AI",
+     "one_liner": "TLDR汇总：OpenAI推进推理成本优化、RSI指标测量、循环Transformer架构探索",
+     "impact": "high"
+    },
+    {
+     "title": "OVHcloud发布Olala 70亿参数模型家族",
+     "url": "https://www.sevenlab.ai/ai-news",
+     "source": "SevenLab",
+     "one_liner": "欧洲云厂商OVHcloud推出自有模型家族，7B版本首发",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "开源与GitHub",
+   "items": [
+    {
+     "title": "Hugging Face：多智能体系统构建、训练与评估指南",
+     "url": "https://huggingface.co/blog/training-swarms",
+     "source": "Hugging Face Blog",
+     "one_liner": "详解如何设计、训练和评估Swarm类多Agent协作系统",
+     "impact": "medium"
+    },
+    {
+     "title": "llama.cpp新增AMD Ryzen/Radeon基准测试面板",
+     "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+     "source": "Hugging Face Blog",
+     "one_liner": "GGML/llama.cpp为AMD平台提供推理性能对比基准",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "产业·投融资·政策",
+   "items": [
+    {
+     "title": "微软公开延缓应届生招聘，预算让位AI",
+     "url": "http://www.geekpark.net/news/374601",
+     "source": "极客公园",
+     "one_liner": "微软成为「动刀」自身组织的大厂，应届生名额缩减转向AI投入",
+     "impact": "high"
+    },
+    {
+     "title": "AI替主人社交一月：四模型进村庄实验",
+     "url": "https://www.tmtpost.com/8220590.html",
+     "source": "钛媒体",
+     "one_liner": "Claude、GPT、Gemini、Grok各进一村，两周后两个模型「死」了，当了147次红娘",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "学术前沿",
+   "items": [
+    {
+     "title": "AI挑战物理学最大未解难题",
+     "url": "https://www.therundown.ai/articles/ai-takes-a-swing-at-physics-biggest-puzzle",
+     "source": "The Rundown AI",
+     "one_liner": "研究者用AI方法尝试破解物理学核心开放问题，同期n8n推出个人Agent产品Nod",
+     "impact": "medium"
+    },
+    {
+     "title": "科学家如何划定AI Agent能力边界",
+     "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+     "source": "Hugging Face Blog",
+     "one_liner": "Allen Institute调研科学家对AI Agent自主性、安全性的接受阈值",
+     "impact": "low"
+    }
+   ]
+  },
+  {
+   "title": "工具与实践",
+   "items": [
+    {
+     "title": "感恩节AI实用指南与Black Friday价格追踪",
+     "url": "https://www.therundown.ai/articles/your-ai-cheat-sheet-for-thanksgiving-dinner",
+     "source": "The Rundown AI",
+     "one_liner": "用Gemini Tasks追踪黑五价格，AI辅助备餐与社交场景指南",
+     "impact": "low"
+    }
+   ]
+  }
+ ],
+ "usage": {
+  "completion_tokens": 2109,
+  "prompt_tokens": 1698,
+  "total_tokens": 3807,
+  "completion_tokens_details": {
+   "reasoning_tokens": 1237,
+   "text_tokens": 872
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 256
+  }
+ }
+}
