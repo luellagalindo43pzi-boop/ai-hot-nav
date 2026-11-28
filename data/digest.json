@@ -1,33 +1,73 @@
 {
- "date": "2026-11-28",
- "title": "AI热榜日报 · 2026-11-28",
- "generated_at": "2026-11-28T15:57:22+08:00",
+ "date": "2026-11-29",
+ "title": "AI热榜日报 · 2026-11-29",
+ "generated_at": "2026-11-29T04:13:27+08:00",
  "model": "Agnes AI · agnes-2.5-flash",
- "item_count": 9,
- "overview": "OpenAI反诉苹果窃密引发行业震动；SpaceX向谷歌出租算力；众擎开放人形机器人大小脑SDK；DeepSeek APP疑似启动收费；蚂蚁灵波发布LingBot-Map 2.0实现自修正地图；OVHcloud推出Olala大模型系列。",
+ "item_count": 11,
+ "overview": "28日焦点：昇腾集群训出285B模型并开源权重与训练手册；OpenAI反诉Apple非法施压供应商；OVHcloud发布Olala 7B家族；何小鹏押注物理AI跨界人形机器人；Hugging Face上GGUF恶意模型波及2400用户；90后数学家借Claude攻黎曼猜想后遭威胁。",
  "sections": [
   {
    "title": "大模型与产品",
    "items": [
     {
-     "title": "DeepSeek APP突然更新账单，网友质疑即将收费",
-     "url": "https://www.qbitai.com/2026/11/513305.html",
+     "title": "昇腾8192张芯片训出285B大模型权重开源",
+     "url": "https://www.qbitai.com/2026/11/513535.html",
      "source": "量子位",
-     "one_liner": "网页与App双端上线聊天账单功能，引发用户对商业模式转变的关注。",
+     "one_liner": "国产芯片首次完整公开千亿模型施工图纸，32页训练手册与权重同步放出",
      "impact": "high"
     },
     {
-     "title": "蚂蚁灵波发布LingBot-Map 2.0，AI自修正空间记忆",
-     "url": "https://www.qbitai.com/2026/11/513211.html",
+     "title": "谷歌Tibo亲授Gemini 4 Neon内部打开方式",
+     "url": "https://www.qbitai.com/2026/11/513555.html",
      "source": "量子位",
-     "one_liner": "流式三维重建模型支持随时修图、跨任务记忆，提升机器人建图精度。",
+     "one_liner": "Gemini转岗团队内部提示：删光旧规则，重新定义Neon交互逻辑",
      "impact": "medium"
     },
     {
-     "title": "OVHcloud推出Olala大模型家族，70亿参数版本首发",
+     "title": "OVHcloud发布Olala 7B参数模型家族",
      "url": "https://www.sevenlab.ai/ai-news",
-     "source": "sevenlab.ai",
-     "one_liner": "法国云服务商OVHcloud发布自有大模型系列，拓展欧洲AI基础设施版图。",
+     "source": "SevenLab AI News",
+     "one_liner": "OVHcloud推出Olala系列，首发7B参数版本面向开发者开放",
+     "impact": "medium"
+    }
+   ]
+  },
+  {
+   "title": "产业·投融资·政策",
+   "items": [
+    {
+     "title": "OpenAI反诉Apple非法施压供应商",
+     "url": "https://techcrunch.com/2026/11/28/openais-new-countersuit-accuses-apple-of-unlawfully-pressuring-vendors/",
+     "source": "TechCrunch",
+     "one_liner": "Apple夏季起诉后，OpenAI发起反诉，指控其违法施压合作厂商",
+     "impact": "high"
+    },
+    {
+     "title": "200亿美元打造史上最贵AI自媒体",
+     "url": "https://www.qbitai.com/2026/11/513577.html",
+     "source": "量子位",
+     "one_liner": "或成史上ROI最高的个人博客，200亿美元估值刷新AI内容赛道纪录",
+     "impact": "high"
+    },
+    {
+     "title": "何小鹏物理AI野心已超汽车行业",
+     "url": "https://www.tmtpost.com/8221505.html",
+     "source": "钛媒体",
+     "one_liner": "小鹏从汽车延伸至人形机器人，商业化落地成为下一道门槛",
+     "impact": "medium"
+    },
+    {
+     "title": "资本泡沫破裂后AI应用窗口开启",
+     "url": "https://www.tmtpost.com/8221264.html",
+     "source": "钛媒体",
+     "one_liner": "算力成本下降，机会从基础设施转向应用层，中国公司迎来窗口期",
+     "impact": "medium"
+    },
+    {
+     "title": "xAI联创90天搓出「互联网时光机」",
+     "url": "https://www.qbitai.com/2026/11/513507.html",
+     "source": "量子位",
+     "one_liner": "张国栋、戴自航创业首款产品上线，团队称这只是热身阶段",
      "impact": "low"
     }
    ]
@@ -36,62 +76,46 @@
    "title": "开源与GitHub",
    "items": [
     {
-     "title": "众擎开放人形机器人大小脑SDK，附10亿生态支持计划",
-     "url": "https://www.qbitai.com/2026/11/513352.html",
-     "source": "量子位",
-     "one_liner": "团队真机验证成果可成为后续开发起点，降低人形机器人研发门槛。",
-     "impact": "high"
-    },
-    {
-     "title": "首个带跨任务空间记忆的原生基模开源，支持端侧运行",
-     "url": "https://www.qbitai.com/2026/11/513227.html",
-     "source": "量子位",
-     "one_liner": "模型可在机器人端直接部署，地图实时更新且记忆能力跨越多个任务场景。",
+     "title": "Hugging Face上GGUF模型藏恶意代码波及2400人",
+     "url": "https://malspark.com/blog/malicious-gguf-models-hugging-face/",
+     "source": "Hacker News / MalSpark",
+     "one_liner": "伪装开源的GGUF LLM文件内嵌恶意载荷，已感染约2400台设备",
      "impact": "high"
     }
    ]
   },
   {
-   "title": "产业·投融资·政策",
+   "title": "学术前沿",
    "items": [
     {
-     "title": "OpenAI在美国加利福尼亚法院反诉苹果窃取商业机密",
-     "url": "http://www.geekpark.net/news/374621",
-     "source": "极客公园",
-     "one_liner": "指控苹果阻挠其与硬件供应商合作，称存在不公平竞争行为，标志着AI硬件之争升级。",
-     "impact": "high"
-    },
-    {
-     "title": "谷歌有意从SpaceX租用更多算力，马斯克证实",
-     "url": "https://www.ithome.com/1/033/898.htm",
-     "source": "IT之家",
-     "one_liner": "SpaceX面向高带宽训练配置提供大规模连续算力集群，谷歌成为首个已知采购方。",
-     "impact": "high"
-    },
-    {
-     "title": "Nvidia借SpaceX-Tesla业务联动冲击5万亿美元估值",
-     "url": "https://shattered.io/ai-rtz-jensen-2-0-labs-future-spacex-tesla-three-entries-nov-28",
-     "source": "shattered.io",
-     "one_liner": "黄仁勋主导的Nvidia正加速布局航天与汽车领域，Jensen 2.0战略意图明确。",
+     "title": "90后数学家用Claude证明黎曼猜想后遭威胁",
+     "url": "https://www.qbitai.com/2026/11/513463.html",
+     "source": "量子位",
+     "one_liner": "准备十余年借助Claude完成关键证明，随后收到致命人身威胁",
      "impact": "medium"
-    },
+    }
+   ]
+  },
+  {
+   "title": "工具与实践",
+   "items": [
     {
-     "title": "具身智能落地能力测评成绩遭质疑，客户买单成关键",
-     "url": "https://www.tmtpost.com/8220898.html",
-     "source": "钛媒体",
-     "one_liner": "当前机器人测评排名难以证明商业化价值，市场尚未真正认可行业头部玩家。",
+     "title": "Claude Code「破坏」行为初步基准测试",
+     "url": "https://xinyadu.github.io/blog/claude-code-sabotage.html",
+     "source": "Hacker News",
+     "one_liner": "对Claude Code执行破坏性操作的基准复现与行为边界测试",
      "impact": "low"
     }
    ]
   }
  ],
  "usage": {
-  "completion_tokens": 1296,
-  "prompt_tokens": 1873,
-  "total_tokens": 3169,
+  "completion_tokens": 2855,
+  "prompt_tokens": 1742,
+  "total_tokens": 4597,
   "completion_tokens_details": {
-   "reasoning_tokens": 522,
-   "text_tokens": 774
+   "reasoning_tokens": 1938,
+   "text_tokens": 917
   },
   "prompt_tokens_details": {
    "cached_tokens": 256

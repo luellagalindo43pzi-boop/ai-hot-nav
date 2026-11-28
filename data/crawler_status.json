@@ -1,5 +1,5 @@
 {
-  "crawled_at": "2026-11-28T07:56:53.362064+00:00",
+  "crawled_at": "2026-11-28T20:12:55.149316+00:00",
   "feeds_total": 34,
   "feeds_ok": 29,
   "feeds": [
@@ -12,8 +12,8 @@
     {
       "name": "钛媒体",
       "url": "https://www.tmtpost.com/rss",
-      "status": "ok (18)",
-      "items": 18
+      "status": "ok (19)",
+      "items": 19
     },
     {
       "name": "爱范儿",
@@ -209,5 +209,5 @@
     }
   ],
   "new_items": 60,
-  "candidates": 2
+  "candidates": 3
 }
